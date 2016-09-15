@@ -35,6 +35,10 @@
 
 
 		<div id="content">
+			<div class="trip">
+				<h1 class="text-center">Every trips designed by someon</h1>
+			</div>
+
 			<div class="col-lg-12 text-center">
 		       	<h1 class="text-center">Get early access</h1>
 		        <div class="col-lg-12">
