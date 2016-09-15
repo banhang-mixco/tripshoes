@@ -89,7 +89,7 @@
 					<p>During your trip you'll be able to take photos with a single tap and send messages instantly to the rest of your group without having to leave the app at anytime. With the ability to upload photos, group chat and send instant messages to your fellow travellers in Photobook - every image, comment, or emoji is now saved forever.</p>
 				
 				
-					<img src="{{ asset('/images/smartmockups-129.png') }}" width="100%" height="100%">
+					<img src="{{ asset('/images/Image21.png') }}" width="100%" height="100%">
 						
 					</div>
 				</div>
@@ -131,7 +131,29 @@
 	    </div>
 
 	    <div id="footer">
-	    	
+	    	<div class="container">
+				<div class="pull-left">
+					<a href="#"><img src=""></a>
+					trip<span>shoes</span>
+				</div>
+				<div class="pull-right">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+					</ul>
+				</div>
+				<div class="text-center">
+					<ul>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Support</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="text-center">
+				<strong>© 2016 TripShoes Pty Ltd. All rights reserved.
+			</div>
 	    </div>
 			
 		<script type="text/javascript" src="{{ asset('/jquery/jquery.min.js') }}"></script>
