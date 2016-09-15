@@ -26,9 +26,9 @@
 				</div>
 
 				<div id="banner-header">
-					<h5>Daily Guided Trips in Hoi An</h5>
+					<h4>Daily Guided Trips in Hoi An</h4>
 					<h1>Take a trip in someone else's shoes</h1>
-					<a href="#" class="btn btn-lg"></a>
+					<a href="#" class="btn btn-lg btn-success">Get early access</a>
 				</div>
 			</div>
 		</div>
