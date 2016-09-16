@@ -25,3 +25,6 @@ Route::get('/tripsnologin', function(){
 Route::get('/aboutus', function(){
 	return view('frontend.aboutUs');
 });
+Route::get('/bicycle_experience', function(){
+	return view('frontend.bicycle_experience');
+});
