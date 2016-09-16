@@ -35,7 +35,8 @@
 
 
 		<div id="content">
-			<div class="trip">
+			<div class="container">
+				<div class="trip">
 					<div class="text-center">
 						<h1>Every trips designed by someone who lives and breathes the cultures</h1>
 						<p>TripShoes offers daily guided trips in Hoi An. Each trip allows you the chance to experience a culture in someone else's shoes. Because each trip has been created in partnership with someone who has a special bond with the location, every tour takes place on a specially designed route filled with personal stories and experiences that only someone who lives, loves and breathes the area will be able to share.</p>
@@ -80,14 +81,11 @@
 							<p>Built with the latest technology including state-of-the-art audio, the TripShoes app ensures that you'll never be standing at the back of a pack of travellers wondering "what on earth did my guide just say" ever again.</p>
 						</div>
 						<div class="col-lg-6">
-							<img src="{{ asset('frontend/images/smartmockups-129.png') }}" width="100%" height="100%">
+							<img src="{{ asset('/images/smartmockups-129.png') }}" width="100%" height="100%">
 						</div>
 					</div>
-
 					<h1>A Photobook of Memories</h1>
 					<p>During your trip you'll be able to take photos with a single tap and send messages instantly to the rest of your group without having to leave the app at anytime. With the ability to upload photos, group chat and send instant messages to your fellow travellers in Photobook - every image, comment, or emoji is now saved forever.</p>
-				
-				
 					<img src="{{ asset('frontend/images/Image21.png') }}" width="100%" height="100%">
 						
 					</div>
@@ -119,6 +117,40 @@
 					</div>
 					<div class="col-lg-4 text-center">
 						<img src="{{ asset('frontend/images/noun_532311.png') }}">
+						<h3 class="text-center"> Meet at the Starting Location</h3>
+						<p class="text-center"> Arrive ad your starting locaition 5 minutes before your trip begins, log into your app, tap on Tour Mode and you're all ser. TripShoes will handle the rest.</p>
+					</div>
+					<img src="{{ asset('frontend/images/Image21.png') }}" width="100%" height="100%">
+				</div>
+			</div>
+			<!-- End how to book -->
+
+			<!-- Begin A new form of giving -->
+			<div class="col-lg-12 ">
+				<div class="col-lg-offset-1 col-lg-5">
+					<h1 class="text-center"> A new form of giving</h1>
+					<p class="text-center"> Every booking undertaken on TripShoes sees a donation made to assist the under privileged living in Vietnam. TripShoes is associated with a host of charities and education centres across Vietnam an Australia and you'll be pleased to know you'll be "giving with every foottep indertaken on each trip."</p>
+				</div>
+			</div>
+			<!-- End giving -->
+
+			<!-- How to book -->
+			<div class="col-lg-12">
+				<h4 class="text-center">How to Book</h4>
+				<h1 class="text-center"> Booking is as easy as 1,2,3</h1>
+				<div class="col-lg-12">
+					<div class="col-lg-4 text-center">
+						<img src="{{ asset('/images/noun_464.png') }}">
+						<h3 class="text-center"> Download the TripShoes app</h3>
+						<p class="text-center"> TripShoes is currently only available on iphone. Simply download the secure TripShoes app onto your iphone on the App Store</p>
+					</div>
+					<div class="col-lg-4 text-center">
+						<img src="{{ asset('/images/noun_579236.png') }}">
+						<h3 class="text-center"> Book a trip in-app or on the website</h3>
+						<p class="text-center"> Payments can be made via Paypal or credit card. All trips offer incredible value.</p>
+					</div>
+					<div class="col-lg-4 text-center">
+						<img src="{{ asset('/images/noun_532311.png') }}">
 						<h3 class="text-center"> Meet at the Starting Location</h3>
 						<p class="text-center"> Arrive ad your starting locaition 5 minutes before your trip begins, log into your app, tap on Tour Mode and you're all ser. TripShoes will handle the rest.</p>
 					</div>
@@ -165,10 +197,35 @@
 	                </form>
 	            </div>
 		    </div>
-	    </div>
+		</div>
+
+			
+	    
 
 	    <div id="footer">
-	    	
+	    	<div class="container">
+				<div class="pull-left">
+					<a href="#"><img src=""></a>
+					trip<span>shoes</span>
+				</div>
+				<div class="pull-right">
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+					</ul>
+				</div>
+				<div class="text-center">
+					<ul>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Support</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="text-center">
+				<strong>© 2016 TripShoes Pty Ltd. All rights reserved.
+			</div>
 	    </div>
 			
 		<script type="text/javascript" src="{{ asset('/jquery/jquery.min.js') }}"></script>
