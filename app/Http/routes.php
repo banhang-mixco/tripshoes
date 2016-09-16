@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('frontend.index');
 });
+Route::get('/tripsnologin', function(){
+	return view('frontend.trips_no_login');
+});
+Route::get('/aboutus', function(){
+	return view('frontend.aboutUs');
+});
