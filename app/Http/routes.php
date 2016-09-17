@@ -14,7 +14,13 @@
 Route::get('/', function () {
     return view('frontend.index');
 });
+Route::get('/indexlogin', function(){
+	return view('frontend.indexlogin');
+});
 
+Route::get('/profile', function(){
+	return view('frontend.profile');
+});
 Route::get('/article', function(){
 	return view('frontend.article');
 });
@@ -28,6 +34,7 @@ Route::get('/aboutus', function(){
 Route::get('/bicycle_experience', function(){
 	return view('frontend.bicycle_experience');
 });
+<<<<<<< HEAD
 Route::get('/support', function(){
 	return view('frontend.support');
 });
@@ -48,4 +55,14 @@ Route::get('/tripslogin', function(){
 });
 Route::get('/tripswithlogin', function(){
 	return view('frontend.trips_with_login');
+=======
+Route::get('/bicycle_booking', function(){
+	return view('frontend.bicycle_booking');
+});
+Route::get('/walking_experience', function(){
+	return view('frontend.walking_experience');
+});
+Route::get('/blog', function(){
+	return view('frontend.blog');
+>>>>>>> ad316696c67e25a9edfebbefdf9e66407186dd82
 });
