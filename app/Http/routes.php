@@ -14,7 +14,13 @@
 Route::get('/', function () {
     return view('frontend.index');
 });
+Route::get('/indexlogin', function(){
+	return view('frontend.indexlogin');
+});
 
+Route::get('/profile', function(){
+	return view('frontend.profile');
+});
 Route::get('/article', function(){
 	return view('frontend.article');
 });
@@ -27,4 +33,13 @@ Route::get('/aboutus', function(){
 });
 Route::get('/bicycle_experience', function(){
 	return view('frontend.bicycle_experience');
+});
+Route::get('/bicycle_booking', function(){
+	return view('frontend.bicycle_booking');
+});
+Route::get('/walking_experience', function(){
+	return view('frontend.walking_experience');
+});
+Route::get('/blog', function(){
+	return view('frontend.blog');
 });
