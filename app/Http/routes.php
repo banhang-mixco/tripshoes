@@ -28,3 +28,24 @@ Route::get('/aboutus', function(){
 Route::get('/bicycle_experience', function(){
 	return view('frontend.bicycle_experience');
 });
+Route::get('/support', function(){
+	return view('frontend.support');
+});
+Route::get('/trip1', function(){
+	return view('frontend.trips_checkout_1');
+});
+Route::get('/trip2', function(){
+	return view('frontend.trips_checkout_2');
+});
+Route::get('/trip3', function(){
+	return view('frontend.trips_checkout_3');
+});
+Route::get('/mybookings', function(){
+	return view('frontend.my_bookings');
+});
+Route::get('/tripslogin', function(){
+	return view('frontend.trip_login');
+});
+Route::get('/tripswithlogin', function(){
+	return view('frontend.trips_with_login');
+});
