@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class TourInformation extends Model implements Transformable
+class Invoice extends Model implements Transformable
 {
     use TransformableTrait;
 
@@ -15,9 +15,9 @@ class TourInformation extends Model implements Transformable
      *
      * @var array
      */
-    protected $table= 'tbl_tour_information';
+    protected $table= 'tbl_invoice';
     protected $fillable = [
-        'guide_id', 'place_id', 'price', 'time', 'transport', 'name', 'about', 'highlights', 'about_tour', 'reviews', 'about_guide', 'is_available', 'lat', 'lng'
+        'number_invoice', 'user_id', 'ticket_id', 'number_tickets', 'ticker_price', 'promo', 'total_cost', 'date_created', 'date_modified', 'status', 'credit_card_id',
     ];
 
 }
