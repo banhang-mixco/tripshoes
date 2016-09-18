@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/profile', function(){
 	$banner = false;
 	$text_banner = '';
-	return view('frontend.profile');
+	return view('frontend.profile', compact('banner', 'text_banner'));
 });
 Route::get('/article', function(){
 	$banner = false;
@@ -34,37 +34,59 @@ Route::get('/article', function(){
 });
 
 Route::get('/tripsnologin', function(){
-	return view('frontend.trips_no_login');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.trips_no_login', compact('banner', 'text_banner'));
 });
 Route::get('/aboutus', function(){
-	return view('frontend.aboutUs');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.aboutUs', compact('banner', 'text_banner'));
 });
 Route::get('/bicycle_experience', function(){
-	return view('frontend.bicycle_experience');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.bicycle_experience', compact('banner', 'text_banner'));
 });
 Route::get('/support', function(){
-	return view('frontend.support');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.support', compact('banner', 'text_banner'));
 });
 Route::get('/trip1', function(){
-	return view('frontend.trips_checkout_1');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.trips_checkout_1', compact('banner', 'text_banner'));
 });
 Route::get('/trip2', function(){
-	return view('frontend.trips_checkout_2');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.trips_checkout_2', compact('banner', 'text_banner'));
 });
 Route::get('/trip3', function(){
-	return view('frontend.trips_checkout_3');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.trips_checkout_3', compact('banner', 'text_banner'));
 });
 Route::get('/mybookings', function(){
-	return view('frontend.my_bookings');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.my_bookings', compact('banner', 'text_banner'));
 });
 Route::get('/tripslogin', function(){
-	return view('frontend.trip_login');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.trip_login', compact('banner', 'text_banner'));
 });
 Route::get('/tripswithlogin', function(){
-	return view('frontend.trips_with_login');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.trips_with_login', compact('banner', 'text_banner'));
 });
 Route::get('/bicycle_booking', function(){
-	return view('frontend.bicycle_booking');
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.bicycle_booking', compact('banner', 'text_banner'));
 });
 Route::get('/walking_experience', function(){
 	$banner = false;
