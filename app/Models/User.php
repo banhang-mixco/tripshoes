@@ -17,7 +17,7 @@ class User extends Model implements Transformable
      */
     protected $table= 'tbl_user';
     protected $fillable = [
-        'username', 'email', 'q_user_id' , 'password_hash', 'age', 'country', 'avatar', 'lat', 'lng', 'first_name', 'last_name', 'is_available', 'is_deleted', 'modified_date', 'created_date', 'is_guide', 'api_key', 'status',
+        'username', 'email', 'q_user_id' , 'password_hash', 'age', 'country', 'avatar', 'lat', 'lng', 'first_name', 'last_name', 'is_available', 'is_deleted', 'modified_date', 'created_date', 'is_guide', 'about_guide', 'api_key', 'status',
     ];
 
     /**
