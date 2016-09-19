@@ -55,7 +55,7 @@
 			<img src="{{ asset('frontend/images/Image21.png') }}" width="100%" height="100%">
 				
 			</div>
-		</div>
+		
 	
 	<!-- Begin A new form of giving -->
 	<div class="col-lg-12 ">
@@ -164,6 +164,7 @@
             </form>
         </div>
     </div>
+</div>
 <!-- end form -->	    
 
 @endsection

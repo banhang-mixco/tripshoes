@@ -1,14 +1,18 @@
-<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}">
+<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: url({{ asset($banner) }}) no-repeat; background-size: cover;">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left">
-				<a href="#">Trips</a>
-				<a href="#">Blog</a>
+				<div class="link">
+					<a href="#">Trips</a>
+					<a href="#" class="padding_left_10">Blog</a>	
+				</div>
 			</div>
 			@if(!Auth::check())
 				<div class="pull-right">
-					<a href="#" data-toggle="modal" data-target="#signin">Sign In</a>
-					<a href="#"><i class="fa fa-shopping-cart"></i>Cart</a>
+					<div class="link">
+						<a href="#" data-toggle="modal" data-target="#signin">Sign In</a>
+						<a href="#"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
+					</div>
 				</div>
 				<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
 				  <div class="modal-dialog modal-sm">
@@ -111,12 +115,12 @@
 						</li>
 					</ul>
 				@endif
-			<div class="text-center">
-				<a href="#"><img src=""></a>
-				trip<span>shoes</span>
-			</div>
+			
 		</div>
-
+		<div class="text-center webname">
+			<a href="#"><img src="{{ asset('images/Group3.png') }}"></a>
+			trip<span>shoes</span>
+		</div>
 		{!! $text_banner !!}
 	</div>
 </div>
