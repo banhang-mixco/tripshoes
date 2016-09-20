@@ -29,6 +29,9 @@ body{
 i{
 	padding-right: 7px;
 }
+ul,li{
+	list-style-type: none
+}
 
 /* HEADER */
 #header.has-banner{
@@ -36,7 +39,7 @@ i{
 	margin-bottom: 80px;
 	width: 100%;
 }
-#header .top{
+.top{
 	margin-top: 35px;
 }
 .link{
@@ -72,4 +75,29 @@ i{
 #footer{
     background: #444444;
     height: 180px;
+}
+#footer li{
+	display: inline-block;
+	padding-left: 50px;
+	font-size: 17px;
+	color: #ffffff;
+}
+#footer li>a{
+	color: #ffffff;
+}
+#footer li>a>i {
+    font-size: 25px;
+    margin-left: -45px;
+}
+#footer .top::after{
+	border: 20px;
+}
+.copyright{
+    margin-top: 35px;
+    font-size: 14px;
+}
+.border{
+	border-bottom: 1px solid rgba(189, 195, 199,0.4);
+	margin-top: 30px;
+	width: 98%;
 }
