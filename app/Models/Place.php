@@ -23,10 +23,10 @@ class Place extends Model implements Transformable
     /**
      * Get ticket from Ticket.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function tourinfomations()
     {
-        return $this->belongsTo('App\Models\TourInformation');
+        return $this->hasMany('App\Models\TourInformation');
     }
 }

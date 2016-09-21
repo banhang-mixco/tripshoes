@@ -19,5 +19,13 @@ class Promo extends Model implements Transformable
     protected $fillable = [
         'code', 'description', 'discount',  
     ];
-
+    /**
+     * Get ticket from Booking.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function bookings()
+    {
+        return $this->hasMany('App\Models\Booking');
+    }
 }

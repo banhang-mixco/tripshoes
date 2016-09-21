@@ -23,11 +23,11 @@ class Booking extends Model implements Transformable
      /**
      * Get id from user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
     public function users()
     {
-        return $this->hasOne('App\Models\User', 'user_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
     /**
@@ -35,9 +35,9 @@ class Booking extends Model implements Transformable
      *
      * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
-    public function tours()
+    public function tourinformations()
     {
-        return $this->hasMany('App\Models\Tour','tour_id');
+        return $this->hasMany('App\Models\TourInformation');
     }
 
     /**
@@ -48,5 +48,38 @@ class Booking extends Model implements Transformable
     public function tickets()
     {
         return $this->hasMany('App\Models\Ticket','ticket_id');
+    }
+    /**
+     * Get ticket from Promo.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function promos()
+    {
+        return $this->belongsTo('App\Models\Promo','ticket_id');
+    }
+    /* Get all from Traveller.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function travellers()
+    {
+        return $this->hasMany('App\Models\Traveller');
+    }
+    /* Get all from TourUser.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tourusers()
+    {
+        return $this->hasMany('App\Models\TourUser');
+    }
+    /* Get all from Invoice.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function invoices()
+    {
+        return $this->hasMany('App\Models\Invoice');
     }
 }
