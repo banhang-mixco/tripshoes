@@ -19,5 +19,22 @@ class Review extends Model implements Transformable
     protected $fillable = [
         'tour_information_id', 'user_id', 'content', 'rate',  
     ];
-
+    /**
+     * Get id from TourInformation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function tourinformation()
+    {
+        return $this->belongsTo('App\Models\TourInformation','tour_information_id');
+    }
+    /**
+     * Get id from User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function userid()
+    {
+        return $this->belongsTo('App\Models\User','user_id');
+    }
 }

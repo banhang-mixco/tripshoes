@@ -19,5 +19,20 @@ class CreditCard extends Model implements Transformable
     protected $fillable = [
         'user_id', 'number_card', 'account_name', 'paypal',
     ];
-
+    /* Get all from User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function users()
+    {
+        return $this->belongsTo('App\Models\User','user_id');
+    }
+    /* Get all from Invoice.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function invoices()
+    {
+        return $this->hasMany('App\Models\Invoice');
+    }
 }

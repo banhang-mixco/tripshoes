@@ -19,5 +19,12 @@ class Image extends Model implements Transformable
     protected $fillable = [
         'tour_information_id', 'url', 
     ];
-
+    /* Get id from TourInformation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function bookings()
+    {
+        return $this->belongsTo('App\Models\TourInformation');
+    }
 }
