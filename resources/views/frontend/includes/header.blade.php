@@ -118,7 +118,7 @@
 			
 		</div>
 		<div class="text-center webname">
-			<a href="#"><img src="{{ asset('images/Group3.png') }}"></a>
+			<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
 			trip<span>shoes</span>
 		</div>
 		{!! $text_banner !!}

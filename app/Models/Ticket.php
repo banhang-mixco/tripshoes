@@ -19,5 +19,13 @@ class Ticket extends Model implements Transformable
     protected $fillable = [
         'name', 'price', 'surcharge', 
     ];
-
+    /**
+     * Get ticket from Ticket.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function booking()
+    {
+        return $this->belongsTo('App\Models\Booking');
+    }
 }
