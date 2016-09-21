@@ -20,4 +20,13 @@ class Place extends Model implements Transformable
         'name', 'url', 
     ];
 
+    /**
+     * Get ticket from Ticket.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function tourinfomations()
+    {
+        return $this->belongsTo('App\Models\TourInformation');
+    }
 }
