@@ -20,4 +20,13 @@ class Place extends Model implements Transformable
         'name', 'url', 
     ];
 
+    /**
+     * Get ticket from Ticket.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tourinfomations()
+    {
+        return $this->hasMany('App\Models\TourInformation');
+    }
 }
