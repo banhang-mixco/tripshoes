@@ -46,6 +46,10 @@ ul,li{
 	margin-bottom: 80px;
 	width: 100%;
 }
+#header.no-banner{
+	background: #333 !important;
+	height: 100px;
+}
 .top{
 	margin-top: 35px;
 }
@@ -221,6 +225,60 @@ form.form_access{
 }
 .form_send {
 	margin-bottom: 80px;
+}
+.bacgound_no_login{
+	background-color: rgba(249, 249, 249, 0.2);
+	margin-bottom: 50px;
+	padding: 0px;
+	border: 1px solid rgba(189, 195, 199,0.4);
+}
+.bacgound_no_login span{
+	margin-left: 50px;
+}
+.back{
+	border-bottom: 1px solid rgba(189, 195, 199,0.4);
+	height: 60px;
+}
+.back i{
+	margin-left: 20px;
+	margin-top:18px; 
+}
+.back p{
+	font-family: 'Roboto-Regular';
+}
+.walking{
+	margin-left: 40px;
+	margin-top: 50px;
+	font-family: 'Roboto-Regular';
+}
+.walking p{
+	font-size: 16px;
+	font-family: 'Roboto-Light';
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+.walking ul>li>a{
+	font-size: 15px;
+	color: #5a5050;
+}
+.img_right img{
+	margin-top:10px; 
+	margin-bottom: 20px;
+	transform: scale(1.2);
+}
+.select_content {
+	margin: 30px;
+}
+.button_end {
+	margin-top: 40px;
+	margin-left: 40px;
+	margin-bottom: 60px;
+}
+.button_end a{
+	margin-right: 18px;
+	width: 200px;
+	height: 60px;
+	font-size: 22px;
 }
 /*FOOTER*/
 #footer{
