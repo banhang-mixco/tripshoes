@@ -97,9 +97,17 @@ border-radius: 15px;
 	background-position: center;  
 }
 
+
 #content h1{
 	font-size: 50px;
 }
+
+
+
+#content h1{
+	font-size: 50px;
+}
+
 
 .align_left p{
 	font-size: 17px;
@@ -117,11 +125,27 @@ border-radius: 15px;
 	margin-bottom: 10px;
 }
 
+
+
+
 .app img{
 	margin-top:100px;
 	margin-bottom: 10px;
 }
+
+.remarkable{
+	background: url(../images/smartmockups-129.png);
+	width: 100%;
+	height: 420px;
+	background-size: 210%;
+	background-position: -350px -200px;
+	margin-top: 70px;
+}
 .app_behind img{
+	background:;
+}
+.app_behind img{
+
 	background-size: cover;
 	background-position: center;
     transform: scale(1.5);
@@ -131,6 +155,12 @@ border-radius: 15px;
 	margin-bottom: 250px;
 }
 .app_behind p{
+
+	 margin-right: 60px;
+	 margin-top: 30px;
+	 line-height: 1.5;
+	 text-align: left;
+
 	margin-right: 60px;
 	margin-top: 30px;
 	line-height: 1.5;
@@ -143,10 +173,16 @@ border-radius: 15px;
 	background-size: 210%;
 	background-position: -350px -200px;
 	margin-top: 70px;
+
 }
 #app_end{
 	margin-left: 5px;
 	text-align: justify;
+
+	transform: scale(0.9);
+    opacity: 0.7; 
+
+
 }
 .photobook{
 	background: url(../images/Image21.png);
@@ -154,6 +190,42 @@ border-radius: 15px;
 	height: 1000px;
 	background-size: 130%;
 	background-position: -140px -250px;
+
+
+}
+.giving{
+	background: url(../images/Image15.png) no-repeat;
+	height: 820px;
+	margin-top: -170px;
+	background-position: center;
+	transform: scale(1.2);
+}
+.giving_content{
+ margin-top: 140px;
+ background-color: white;
+ text-align: justify;
+ height: 550px;
+}
+.giving_content h1{
+ margin-top: 70px;
+}
+.giving_content{
+ margin-top: 140px;
+ background-color: white;
+ text-align: justify;
+}
+.giving_content h1{
+ margin-top: 70px;
+}
+.giving_content{
+ margin-top: 140px;
+ background-color: white;
+ text-align: justify;
+}
+.giving_content h1{
+ margin-top: 70px;
+
+
 }
 .giving{
 	background: url(../images/Image15.png) no-repeat;
@@ -170,6 +242,7 @@ border-radius: 15px;
 }
 .giving_content h1{
 	margin-top: 70px;
+
 }
 .book h4 {
 	margin-top: 80px;
@@ -180,9 +253,16 @@ border-radius: 15px;
 	margin-bottom: 70px;
 }
 .book_content h4 {
+
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-family: 'Roboto-Light';
+	color: #444444;
+
 	margin-bottom: 10px;
 	color: #444444;
 	font-family: 'Roboto-Light';
+
 }
 .book_content p {
 	font-size: 14px;
@@ -190,10 +270,24 @@ border-radius: 15px;
 	text-align: center;
 }
 .photolauch {
+
+ 	background: url(../images/Depositphotos_90463484_original.jpg);
+}
+.photolauch{
+
+
 	background: url(../images/Depositphotos_90463484_original.jpg);
 	width: 100%;
 	height: 800px;
 	background-size: cover;
+}
+
+.launch_content {
+	 margin-top: -60px;
+	 background-color: white;
+	 border: 2px solid;
+	 border-radius: 25px; 
+	 height: 350px;
 }
 .launch {
 	background-color: #ecf0f1;
@@ -215,16 +309,21 @@ border-radius: 15px;
 }
 .launch_content p {
 	font-family: 'Roboto-Medium'; 
+
 }
 form.form_access{
 	width: 90%;
 	margin: 0 auto;
 }
 .form_padding{
+
+	height: 50px;
+
 	height: 50px !important;
 }
 .form_send {
 	margin-bottom: 80px;
+
 }
 .bacgound_no_login{
 	background-color: rgba(249, 249, 249, 0.2);
@@ -308,4 +407,8 @@ form.form_access{
 .border{
 	border-bottom: 1px solid rgba(189, 195, 199,0.4);
 	margin-top: 30px;
+
 	width: 98%;
+
+	width: 98%;
+
