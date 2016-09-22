@@ -17,7 +17,23 @@ class TourUser extends Model implements Transformable
      */
     protected $table= 'tbl_tour_users';
     protected $fillable = [
-        'user_id', 'tour_id', 'lat', 'lng', 
+        'user_id', 'booking_id', 'lat', 'lng', 
     ];
 
+    /* Get all from User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function users()
+    {
+        return $this->belongsTo('App\Models\User','user_id');
+    }
+    /* Get all from Booking.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function bookings()
+    {
+        return $this->belongsTo('App\Models\Booking','booking_id');
+    }
 }

@@ -28,5 +28,60 @@ class User extends Model implements Transformable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    /* Get all from Booking.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function bookings()
+    {
+        return $this->hasMany('App\Models\Booking');
+    }
+    /* Get all from Invoice.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function invoices()
+    {
+        return $this->hasMany('App\Models\Invoice');
+    }
+    /* Get all from Review.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\Review');
+    }
+    /* Get all from Traveller.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function travellers()
+    {
+        return $this->hasMany('App\Models\Traveller');
+    }
+    /* Get all from TourUser.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tourusers()
+    {
+        return $this->hasMany('App\Models\TourUser');
+    }
+    /* Get all from CreditCard.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function creditcards()
+    {
+        return $this->hasMany('App\Models\CreditCard');
+    }
+    /* Get all from TourInformation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function tourinformations()
+    {
+        return $this->hasMany('App\Models\TourInformation');
+    }
 }

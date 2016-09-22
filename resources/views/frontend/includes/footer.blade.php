@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="top">
 			<div class="pull-left webname">
-				<a href="#"><img src="{{ asset('images/Group3.png') }}"></a>
+				<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
 				trip<span>shoes</span>
 			</div>
 			<div class="pull-right">
