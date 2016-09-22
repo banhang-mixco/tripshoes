@@ -11,7 +11,7 @@
 			<div class="container">
 				<div class="top">
 					<div class="pull-left">
-						<a href="#">Trips</a>
+						<a href="#">Trips</a
 						<a href="#">Blog</a>
 					</div>
 				
