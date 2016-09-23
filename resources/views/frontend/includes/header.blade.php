@@ -1,4 +1,4 @@
-<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: url({{ asset($banner) }}) no-repeat; background-size: cover;">
+<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!} {{ $class['header'] }}" style="background: url({{ asset($banner) }}) no-repeat; background-size: cover;">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left">

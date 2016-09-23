@@ -24,6 +24,6 @@
 
 	</div>
 	<div class="text-center copyright">
-		<strong>© 2016 TripShoes Pty Ltd. All rights reserved.
+		<strong>© 2016 TripShoes Pty Ltd. All rights reserved.</strong>
 	</div>
 </div>

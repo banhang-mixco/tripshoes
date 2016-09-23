@@ -45,9 +45,11 @@ ul,li{
 	height: 850px;
 	margin-bottom: 80px;
 	width: 100%;
+
 }
 .top{
 	margin-top: 35px;
+	font-family: 'Roboto-Regular';
 }
 .link{
 	font-size: 17px;
@@ -59,6 +61,7 @@ ul,li{
 	color: #ffffff;
 	font-size: 30px;
 	margin-top: -10px;
+	font-family: 'Roboto-Regular';
 }
 .webname span{
 	color: #FF9966;
@@ -76,6 +79,19 @@ ul,li{
     margin-top: 20px;
     padding: 15px 0;
     width: 300px;
+}
+.border_header{
+	border-bottom: 1px solid rgba(250, 249, 249, 0.39);
+	margin-top: 30px;
+	transform: scale(1.2);
+}
+.title-header h1{
+	text-align: center;
+	width: 55%;
+	margin: 0 auto;
+	color: #fff;
+	font-family: 'Roboto-Light';
+	margin-top: 100px;
 }
 /*CONTENT*/
 .container {
@@ -120,9 +136,6 @@ border-radius: 15px;
 	margin-top: 60px;
 	margin-bottom: 10px;
 }
-
-
-
 
 .app img{
 	margin-top:100px;
@@ -321,6 +334,12 @@ form.form_access{
 	margin-bottom: 80px;
 
 }
+.tripclass{
+	height: 500px;
+	width: 90.5%;
+	margin: 0;
+
+}
 /*FOOTER*/
 #footer{
     background: #444444;
@@ -351,6 +370,4 @@ form.form_access{
 	margin-top: 30px;
 
 	width: 98%;
-
-	width: 98%;
-
+}

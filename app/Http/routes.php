@@ -34,9 +34,9 @@ Route::get('/article', function(){
 });
 
 Route::get('/tripsnologin', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.trips_no_login', compact('banner', 'text_banner'));
+	
+
+	return view('frontend.trips_no_login', compact('banner', 'text_banner', 'class'));
 });
 Route::get('/aboutus', function(){
 	$banner = false;
