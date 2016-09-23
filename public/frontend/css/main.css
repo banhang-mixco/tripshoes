@@ -52,6 +52,7 @@ ul,li{
 }
 .top{
 	margin-top: 35px;
+	font-family: 'Roboto-Regular';
 }
 .link{
 	font-size: 17px;
@@ -66,6 +67,27 @@ ul,li{
 }
 .webname span{
 	color: #FF9966;
+}
+.border_header{
+	border-bottom: 1px solid rgba(250, 249, 249, 0.39);
+	margin-top: 30px;
+	transform: scale(1.2);
+}
+.title-header h1{
+	text-align: center;
+	width: 55%;
+	margin: 0 auto;
+	color: #fff;
+	font-family: 'Roboto-Light';
+	margin-top: 100px;
+}
+.title-header a{
+	margin-top: 50px;
+	background-color: rgba(236, 240, 241,0.1);
+	color: white;
+	width: 180px;
+	height: 55px;
+	border: 1px solid;
 }
 .banner-header{
 	margin-top: 400px;
@@ -124,15 +146,16 @@ border-radius: 15px;
 	margin-top: 60px;
 	margin-bottom: 10px;
 }
-
-
-
-
 .app img{
 	margin-top:100px;
 	margin-bottom: 10px;
 }
+.tripclass{
+	height: 500px;
+	width: 90.5%;
+	margin: 0;
 
+}
 .remarkable{
 	background: url(../images/smartmockups-129.png);
 	width: 100%;
@@ -201,31 +224,29 @@ border-radius: 15px;
 	transform: scale(1.2);
 }
 .giving_content{
- margin-top: 140px;
- background-color: white;
- text-align: justify;
- height: 550px;
+	margin-top: 140px;
+	background-color: white;
+	text-align: justify;
+	height: 550px;
 }
 .giving_content h1{
- margin-top: 70px;
+	margin-top: 70px;
 }
 .giving_content{
- margin-top: 140px;
- background-color: white;
- text-align: justify;
+	margin-top: 140px;
+	background-color: white;
+	text-align: justify;
 }
 .giving_content h1{
- margin-top: 70px;
+	margin-top: 70px;
 }
 .giving_content{
- margin-top: 140px;
- background-color: white;
- text-align: justify;
+	margin-top: 140px;
+	background-color: white;
+	text-align: justify;
 }
 .giving_content h1{
- margin-top: 70px;
-
-
+	margin-top: 70px;
 }
 .giving{
 	background: url(../images/Image15.png) no-repeat;
@@ -323,7 +344,13 @@ form.form_access{
 }
 .form_send {
 	margin-bottom: 80px;
-
+}
+.form_send h1{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+.btn-img{
+	background: url(../images/Button.png);
 }
 .bacgound_no_login{
 	background-color: rgba(249, 249, 249, 0.2);
@@ -379,6 +406,17 @@ form.form_access{
 	height: 60px;
 	font-size: 22px;
 }
+.my_booking{
+	margin-bottom: 90px; 
+}
+.my_booking h1{
+	margin-top:80px;
+	margin-bottom: 80px; 
+}
+.my_booking p{
+	font-size: 16px;
+	color:rgba(149, 165, 166,1.0) ;
+}
 /*FOOTER*/
 #footer{
     background: #444444;
@@ -409,6 +447,4 @@ form.form_access{
 	margin-top: 30px;
 
 	width: 98%;
-
-	width: 98%;
-
+}
