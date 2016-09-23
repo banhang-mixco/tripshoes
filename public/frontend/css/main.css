@@ -47,6 +47,10 @@ ul,li{
 	width: 100%;
 
 }
+#header.no-banner{
+	background: #333 !important;
+	height: 100px;
+}
 .top{
 	margin-top: 35px;
 	font-family: 'Roboto-Regular';
@@ -65,6 +69,27 @@ ul,li{
 }
 .webname span{
 	color: #FF9966;
+}
+.border_header{
+	border-bottom: 1px solid rgba(250, 249, 249, 0.39);
+	margin-top: 30px;
+	transform: scale(1.2);
+}
+.title-header h1{
+	text-align: center;
+	width: 55%;
+	margin: 0 auto;
+	color: #fff;
+	font-family: 'Roboto-Light';
+	margin-top: 100px;
+}
+.title-header a{
+	margin-top: 50px;
+	background-color: rgba(236, 240, 241,0.1);
+	color: white;
+	width: 180px;
+	height: 55px;
+	border: 1px solid;
 }
 .banner-header{
 	margin-top: 400px;
@@ -141,7 +166,12 @@ border-radius: 15px;
 	margin-top:100px;
 	margin-bottom: 10px;
 }
+.tripclass{
+	height: 500px;
+	width: 90.5%;
+	margin: 0;
 
+}
 .remarkable{
 	background: url(../images/smartmockups-129.png);
 	width: 100%;
@@ -210,31 +240,29 @@ border-radius: 15px;
 	transform: scale(1.2);
 }
 .giving_content{
- margin-top: 140px;
- background-color: white;
- text-align: justify;
- height: 550px;
+	margin-top: 140px;
+	background-color: white;
+	text-align: justify;
+	height: 550px;
 }
 .giving_content h1{
- margin-top: 70px;
+	margin-top: 70px;
 }
 .giving_content{
- margin-top: 140px;
- background-color: white;
- text-align: justify;
+	margin-top: 140px;
+	background-color: white;
+	text-align: justify;
 }
 .giving_content h1{
- margin-top: 70px;
+	margin-top: 70px;
 }
 .giving_content{
- margin-top: 140px;
- background-color: white;
- text-align: justify;
+	margin-top: 140px;
+	background-color: white;
+	text-align: justify;
 }
 .giving_content h1{
- margin-top: 70px;
-
-
+	margin-top: 70px;
 }
 .giving{
 	background: url(../images/Image15.png) no-repeat;
@@ -332,7 +360,78 @@ form.form_access{
 }
 .form_send {
 	margin-bottom: 80px;
-
+}
+.form_send h1{
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+.btn-img{
+	background: url(../images/Button.png);
+}
+.bacgound_no_login{
+	background-color: rgba(249, 249, 249, 0.2);
+	margin-bottom: 50px;
+	padding: 0px;
+	border: 1px solid rgba(189, 195, 199,0.4);
+}
+.bacgound_no_login span{
+	margin-left: 50px;
+}
+.back{
+	border-bottom: 1px solid rgba(189, 195, 199,0.4);
+	height: 60px;
+}
+.back i{
+	margin-left: 20px;
+	margin-top:18px; 
+}
+.back p{
+	font-family: 'Roboto-Regular';
+}
+.walking{
+	margin-left: 40px;
+	margin-top: 50px;
+	font-family: 'Roboto-Regular';
+}
+.walking p{
+	font-size: 16px;
+	font-family: 'Roboto-Light';
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+.walking ul>li>a{
+	font-size: 15px;
+	color: #5a5050;
+}
+.img_right img{
+	margin-top:10px; 
+	margin-bottom: 20px;
+	transform: scale(1.2);
+}
+.select_content {
+	margin: 30px;
+}
+.button_end {
+	margin-top: 40px;
+	margin-left: 40px;
+	margin-bottom: 60px;
+}
+.button_end a{
+	margin-right: 18px;
+	width: 200px;
+	height: 60px;
+	font-size: 22px;
+}
+.my_booking{
+	margin-bottom: 90px; 
+}
+.my_booking h1{
+	margin-top:80px;
+	margin-bottom: 80px; 
+}
+.my_booking p{
+	font-size: 16px;
+	color:rgba(149, 165, 166,1.0) ;
 }
 .tripclass{
 	height: 500px;
@@ -371,3 +470,4 @@ form.form_access{
 
 	width: 98%;
 }
+

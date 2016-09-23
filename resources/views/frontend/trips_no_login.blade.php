@@ -131,8 +131,14 @@
 					trip<span>shoes</span>
 				</div>
 				<div class="border_header"></div>
+
 				<div class="title-header">
 					<h1>Experience village life through the eyes of a local</h1>
+
+				<div class="title-header text-center">
+					<h1>Experience village life<br> through the eyes of a local</h1>
+					<a href="" class="btn btn-lg">Book now</a>
+
 				</div>
 			</div>
 
@@ -140,7 +146,11 @@
 			<div id="content">
 				<div class="container">
 					<div class="row">
+
 						<div class="col-lg-6">
+
+						<div class="col-lg-6 my_booking">
+
 							<div style="background: url(frontend/images/Depositphotos_12619090_original.jpg) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
 							</div>
 							<h2 class="text-center"> Thao Nguyen's</h2>
@@ -156,7 +166,11 @@
 						</div>
 					</div>
 
+
 					<div class="row">
+
+					<div class="row my_booking">
+
 						<div class="col-lg-6">
 							<div style="background: url(frontend/images/Depositphotos_70198701_original.jpg) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
 							</div>
@@ -216,10 +230,47 @@
 		                    </div>
 		                   </div>
 		                 </div>
+
 		                 <button class="btn btn-lg btn-success col-lg-12 form_padding">Get me early access</button>
+
+		                 <button class="btn btn-lg btn-img col-lg-12 form_padding">Get me early access</button>
+
 		             </form>
 			        </div>
 			    </div>
 			    <!-- end form -->
+
+
+			    </div>
+			    <div id="footer">
+	<div class="container">
+		<div class="top">
+			<div class="pull-left webname">
+				<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+				trip<span>shoes</span>
+			</div>
+			<div class="pull-right">
+				<ul>
+					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+				</ul>
+			</div>
+			<div class="text-center">
+				<ul>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Support</a></li>
+				</ul>
+			</div>
+			<div class="border"></div>
+		</div>
+
+	</div>
+	<div class="text-center copyright">
+		<strong>© 2016 TripShoes Pty Ltd. All rights reserved.</strong>
+	</div>
+</div>
+
 	    </body>
     </html>
