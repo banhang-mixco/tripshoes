@@ -34,9 +34,7 @@ Route::get('/article', function(){
 });
 
 Route::get('/tripsnologin', function(){
-	$banner ='';
-	$text_banner = '';
-	return view('frontend.trips_no_login', compact('banner', 'text_banner'));
+	return view('frontend.trips_no_login', compact('banner', 'text_banner', 'class'));
 });
 Route::get('/aboutus', function(){
 	$banner = false;
@@ -79,7 +77,7 @@ Route::get('/tripslogin', function(){
 	return view('frontend.trip_login', compact('banner', 'text_banner'));
 });
 Route::get('/tripswithlogin', function(){
-	$banner = false;
+	$banner = '';
 	$text_banner = '';
 	return view('frontend.trips_with_login', compact('banner', 'text_banner'));
 });
