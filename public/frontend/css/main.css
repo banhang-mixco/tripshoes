@@ -118,6 +118,17 @@ ul,li{
 	font-family: 'Roboto-Light';
 	margin-top: 100px;
 }
+.head-banner{
+	margin-top: -10px;
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25) ),url(../images/Depositphotos_48823625_original.jpg) no-repeat;
+    background-size: 100%;
+    height: 700px;
+    width: 110%;
+    background-position: -40px -175px;
+}
+.header-banner .h4{
+	font-size: 15px;
+}
 /*CONTENT*/
 .container {
 	color: #444444;
@@ -474,6 +485,201 @@ form.form_access{
 	font-size: 28px;
 	margin-bottom: 100px;
 
+}
+body{
+	background: rgba(193, 193, 193, 0.25);
+}
+
+.seagull .container{
+	background: #ffffff;
+    margin-top: -70px;
+    border-radius: 6px;
+}
+.seagull .seagull-content{
+	width: 95%;
+	margin: 0 auto;
+	line-height: 1;
+}
+.seagull-info{
+	margin-top: 30px;
+}
+.left-seagull{
+    margin-top: -35px;
+}
+.left-seagull .icon{
+	margin-top: 170px;
+	padding: 0;
+}
+.left-seagull .icon li{
+	line-height: 1.7;
+}
+.left-seagull li>a>i{
+	font-size: 25px;
+	color: rgba(119, 119, 119, 0.23);
+}
+.main-seagull{
+	margin-top: 60px;
+	line-height: 1.3;
+}
+.head-main-seagull p{
+    line-height: 1.2;
+    font-size: 25px;
+}
+.content-main-seagull{
+    margin-top: 60px;
+    font-size: 18px;
+    width: 87%;
+    color: rgba(51, 51, 51, 0.77);
+    font-family: Roboto-Medium;
+}
+.content-main-seagull p:nth-child(2){
+	margin-top: 20px;
+}
+.seagull-border{
+	border-bottom: 1px solid rgba(51, 51, 51, 0.09);
+    margin-top: 70px;
+}
+.seagull-message{
+	margin-top: 20px;
+}
+.seagull-step{
+	font-size: 14px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+.header-step{
+    color: #333;
+    font-family: Roboto-Regular;
+}
+.seagull-message-step{
+	font-size: 15px;
+	margin-top: 20px;
+}
+.border-message-seagull{
+	border-bottom: 1px solid rgba(51, 51, 51, 0.09);
+    margin-top: 40px;
+}
+/*img.duck{
+    margin-top: -50px;
+}*/
+
+.seagull-name{
+	font-size: 15px;
+
+}
+.seagull-mail{
+    font-size: 15px;
+    color: rgba(153, 153, 153, 0.85);
+}
+.small-border{
+ 	border-bottom: 2px solid rgba(51, 122, 183, 0.7);
+    width: 20%;
+    margin-top: 60px;
+}
+.bitcoin{
+    width: 67%;
+    margin: 0 auto;
+}
+.bitcoin p{
+	color: rgba(51, 122, 183, 0.7);
+	line-height: 1.2;
+	font-size: 30px;
+	margin-top: 30px;
+}
+.text-bitcoin{
+	margin-top: 60px;
+}
+.text-bitcoin p{
+	font-size: 18px;
+	line-height: 1.4;
+    color: rgba(51, 51, 51, 0.77);
+    font-family: Roboto-Medium;
+}
+.bluebird-slide{
+	background: url(../images/bird.png) no-repeat;
+	width: 100%;
+	height: 700px;
+	transform: scale(1.028);
+	margin-top: 70px;
+}
+.statistic{
+	margin-top: 70px;
+	width: 89%;
+	font-size: 18px;
+	line-height: 1.4;
+    color: rgba(51, 51, 51, 0.77);
+    font-family: Roboto-Medium;
+}
+.table-statistic{
+	font-size: 16px;
+	width: 90%;
+}
+.table-statistic .fa-caret-up{
+	color: green;
+}
+.table-statistic .fa-caret-down{
+	color: red;
+}
+.tag{
+	margin-top: 80px;
+	margin-bottom: 60px;
+}
+.tag a.btn{
+	border-radius: 50px;
+	padding: 2px 7px;
+
+}
+.tag a:not(:first-child){
+	margin-left: 10px;
+}
+.fullwidth{
+	background: rgba(58, 121, 119, 0.08);
+}
+.comments-content{
+	width: 87%;
+	margin: 0 auto;
+	margin-top: 30px;
+	
+}
+.comments-info{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.comments-number{
+	font-size: 15px;
+	margin-top: 70px;
+	color: rgba(51, 51, 51, 0.83);
+    font-family: Roboto-Medium;
+}
+.comments-number i{
+	padding-left: 10px;
+
+}
+.comments-content p{
+	font-size: 17px;
+}
+.comment-form{
+	margin-top: 20px;
+	width: 650px;
+	height: 40px;
+}
+.small-info{
+	font-size: 15px;
+	color: rgba(51, 51, 51, 0.83);
+    font-family: Roboto-Medium;
+    margin-bottom: 10px;
+}
+.seagull{
+	margin-bottom: 80px;
+}
+.footer-bar{
+	background: #333;
+	width: 100%;
+	height: 30px;
 }
 /*FOOTER*/
 #footer{
