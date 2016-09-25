@@ -40,6 +40,7 @@ ul,li{
 	list-style-type: none
 }
 
+
 /* HEADER */
 #header.has-banner{
 	height: 850px;
@@ -484,6 +485,7 @@ form.form_access{
 	margin-bottom: 100px;
 
 }
+/*articel page 17 */
 body{
 	background: rgba(193, 193, 193, 0.25);
 }
@@ -696,6 +698,8 @@ body{
 .seagull{
 	margin-bottom: 80px;
 }
+/*end article */
+
 .footer-bar{
 	background: #333;
 	width: 100%;
@@ -859,6 +863,79 @@ body{
 .patment_btn .complete {
 	color: #2bc02a;
 }
+
+/*profile*/
+.profile{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.left-profile, .right-profile{
+	border: 1px solid #ffffff;
+	border-radius: 10px;
+}	
+.head-profile{
+	width: 100%;
+	height: 120px;
+	background: url(../images/Background5.png) no-repeat;
+}
+.content-profile{
+	width: 93%;
+	margin: 0 auto;
+}
+.content-profile > h4{
+	margin-top: 30px;
+}
+label{
+	font-weight: 100;
+}
+.content-profile label{
+	font-size: 15px;
+}
+.content-profile .form-group{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.content-profile input, .content-profile select{
+	height: 45px !important;
+}
+.content-profile select{
+	padding-left: 4px;
+	font-size: 10px;
+	background: rgba(51, 51, 51, 0.03);
+}
+.content-profile a.add{
+	font-size: 12px;
+}
+.changePassword{
+	font-size: 18px;
+}
+.profile .avatar{
+	background: url(../images/Depositphotos_4815623_original.jpg);
+	width: 120px;
+	height: 120px;
+	background-size: 400%;
+	background-position: -55px 0px;
+	border-radius: 5px;
+	margin-top: -50px;
+}
+.left-profile button.cancel{
+	float: left;
+}
+.left-profile button{
+	height: 60px;
+	width: 50%;
+	border-left: 0;
+	color: green;
+	background: #ffffff;
+	margin-top: 20px;
+}
+.left-profile button.submit>i{
+	margin-left:10px;
+}
+
+
+/*end profile*/
+
 /*FOOTER*/
 #footer{
     background: #444444;
