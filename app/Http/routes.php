@@ -31,7 +31,7 @@ Route::get('/article', function(){
 	$banner = false;
 	$text_banner = '';
 	return view('frontend.article', compact('banner', 'text_banner'));
-});
+});//17
 
 Route::get('/tripsnologin', function(){
 	return view('frontend.trips_no_login', compact('banner', 'text_banner', 'class'));

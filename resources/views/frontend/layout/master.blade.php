@@ -8,7 +8,7 @@
 	<body>
 		
 		@include('frontend.includes.header')
-
+		<div class="clearfix"></div>
 		<div id="content">
 			@yield('content')
 		</div>

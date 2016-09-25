@@ -140,8 +140,8 @@
 		</div>
 			<div id="content">
 				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 my_booking">
+					<div class="row my_booking">
+						<div class="col-lg-6">
 							<div style="background: url(frontend/images/Depositphotos_12619090_original.jpg) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
 							</div>
 							<h2 class="text-center"> Thao Nguyen's</h2>
