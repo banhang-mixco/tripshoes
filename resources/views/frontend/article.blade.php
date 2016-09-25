@@ -1,11 +1,11 @@
 @extends('frontend.layout.master')
 
 @section('content')
-	<div class="head-banner">
-		<h4 class="text-center">Food</h4>;
+	<div class="head-banner text-center artical">
+		<h4>Food</h4>
 		<h1>Is it "fur" or "pho"?</h1>
 		10 words to learn when ordering food at a Vietnamese restaurant
-		November 27 <span>34</span>
+		<p>November 27 <span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comment-o"></i>&nbsp;&nbsp;34</span></p>
 	</div>
 	<div class="seagull">
 		<div class="container">
@@ -123,35 +123,35 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>okcoinCNY<i class="fa fa-caret-up"></i></td>
+										<td>okcoinCNY <i class="fa fa-caret-up"></i></td>
 										<td>2965.00</td>
 										<td>2830.925</td>
 										<td>+4.736%</td>
 										<td>5112889</td>
 									</tr>
 									<tr>
-										<td>btcnCNY<i class="fa fa-caret-down"></i></td>
+										<td>btcnCNY <i class="fa fa-caret-down"></i></td>
 										<td>2540.35</td>
 										<td>2733.882</td>
 										<td>-7.079%</td>
 										<td>1683119</td>
 									</tr>
 									<tr>
-										<td>bitflinexUSD<i class="fa fa-caret-down"></i></td>
+										<td>bitflinexUSD <i class="fa fa-caret-down"></i></td>
 										<td>381.98</td>
 										<td>409.693</td>
 										<td>-6.764%</td>
 										<td>863583</td>
 									</tr>
 									<tr>
-										<td>bitstampUSD<i class="fa fa-caret-down"></i></td>
+										<td>bitstampUSD <i class="fa fa-caret-down"></i></td>
 										<td>382.59</td>
 										<td>409.340</td>
 										<td>-6.535%</td>
 										<td>290454</td>
 									</tr>
 									<tr>
-										<td>coinbaseUSD<i class="fa fa-caret-down"></i></td>
+										<td>coinbaseUSD <i class="fa fa-caret-down"></i></td>
 										<td>384.11</td>
 										<td>410.911</td>
 										<td>-6.522%</td>
@@ -164,9 +164,9 @@
 							<p>With the first generation of Bitcoin businesses like Mt. Gox less influential today, the hopes of 'mass-marketizing' virtual currencies are held by venture capital-backed companies like BitPay, which recently raised $30 million, Coinbase, which raise a $25 million Series B round last year, and Circle. Interestingly, it looks like a significant transaction took the cyber currency over today's landmark. That's a reminder that though many people see the future of Bitcoin as leveling the playing field for all, there are still individuals with vast amounts.</p>
 						</div>
 						<div class="tag">
-							<a href="#" class="btn btn-sm btn-success">Technology</a>
+							<a href="#" class="btn btn-sm btn-tech">Technology</a>
 							<a href="#" class="btn btn-sm btn-success">Art</a>
-							<a href="#" class="btn btn-sm btn-success">Birds</a>
+							<a href="#" class="btn btn-sm btn-bird">Birds</a>
 						</div>
 					</div>
 				</div>
