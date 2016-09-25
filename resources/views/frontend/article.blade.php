@@ -2,10 +2,14 @@
 
 @section('content')
 	<div class="head-banner">
-		<h4 class="text-center">Food</h4>;
-		<h1>Is it "fur" or "pho"?</h1>
-		10 words to learn when ordering food at a Vietnamese restaurant
-		November 27 <span>34</span>
+		<div class="head-text text-center">
+			<h4>Food</h4>
+			<h1>Is it "fur" or "pho"?</h1>
+			<div class="pho-info">
+				<p>10 words to learn when ordering food at a Vietnamese restaurant</p>
+				<p class="month-pho">November 27 <span>34</span></p>
+			</div>
+		</div>
 	</div>
 	<div class="seagull">
 		<div class="container">
