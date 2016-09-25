@@ -96,3 +96,8 @@ Route::get('/blog', function(){
 	$text_banner = '';
 	return view('frontend.blog', compact('banner', 'text_banner'));
 });//14
+Route::get('/sendusemail', function(){
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.send_us_email', compact('banner', 'text_banner'));
+});
