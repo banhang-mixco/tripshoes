@@ -607,6 +607,97 @@ form.form_access{
 .patment_btn .complete {
 	color: #2bc02a;
 }
+.blog_welcome{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.blog_info {
+	height: 350px;
+	margin-bottom: 40px;
+}
+.blog_text {
+	background-color:white; 
+	margin-top:-10px; 
+	height:150px;
+	border-bottom: 1px white;
+	border-radius: 0px 0px 10px 10px;
+}
+.blog_text h3{
+	margin-top: 10px;
+	margin-left: 30px;
+	margin-right: 20px;
+	padding-top: 20px;	 
+}
+
+.blog_text p{
+	font-size: 15px;
+	margin-bottom: 30px;
+	margin-right: 20px;	 
+	margin-left: 30px;	 
+}
+.blog_header {
+	background-color: rgba(236, 240, 241,0.6);
+}
+.blog_end{
+	margin-bottom: 30px;
+}
+.blog_img1{
+	background: url(../images/Depositphotos_6783329_original.jpg);
+    width: 100%;
+    height: 200px;
+    background-size: 120%;
+    background-position: -60px -10px;
+    border-top: 1px white;
+	border-radius: 10px 10px 0px 0px;
+}
+.blog_img2{
+	background: url(../images/Depositphotos_10710479_original.jpg);
+    width: 100%;
+    height: 200px;
+    background-size: 120%;
+    background-position: -60px -10px;
+    border-top: 1px white;
+	border-radius: 10px 10px 0px 0px;
+}
+.blog_img3{
+	background: url(../images/Depositphotos_70198701_original.jpg);
+    width: 100%;
+    height: 200px;
+    background-size: 120%;
+    background-position: -60px -10px;
+    border-top: 1px white;
+	border-radius: 10px 10px 0px 0px;
+}
+.blog_img4{
+	background: url(../images/Depositphotos_81744730_original.jpg);
+    width: 100%;
+    height: 200px;
+    background-size: 120%;
+    background-position: -60px -10px;
+    border-top: 1px white;
+	border-radius: 10px 10px 0px 0px;
+}
+.blog_img5{
+	background: url(../images/Depositphotos_11151289_original.jpg);
+    width: 100%;
+    height: 200px;
+    background-size: 120%;
+    background-position: -60px -10px;
+    border-top: 1px white;
+	border-radius: 10px 10px 0px 0px;
+}
+.blog_img6{
+	background: url(../images/Depositphotos_48823625_original.jpg);
+    width: 100%;
+    height: 200px;
+    background-size: 120%;
+    background-position: -60px -10px;
+    border-top: 1px white;
+	border-radius: 10px 10px 0px 0px;
+}
+.blog {
+	font-family: "Lato-Light";
+}
 /*FOOTER*/
 #footer{
     background: #444444;
