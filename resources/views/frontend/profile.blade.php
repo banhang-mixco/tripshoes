@@ -101,30 +101,31 @@
 						<div class="head-profile"></div>
 						<div class="content-profile">
 							<div class="avatar"></div>
-							<div class="row">
-								<div class="col-lg-offset-2 col-lg-8">
-									<form>
-										<div class="form-group">
-											
-											<input type="text" class="form-control form_padding" placeholder="Email"><!--<i class="fa fa-envelope"></i>-->
-										</div>
-										<div class="form-group">
-											
-											<input type="text" class="form-control form_padding" placeholder="Password"><!--<i class="fa fa-lock"></i>-->
-										</div>
-										<div class="form-group">
-											
-											<input type="text" class="form-control form_padding" placeholder="Username"><!--<i class="fa fa-envelope"></i>-->
-											<a href="#" class="add">
-												<i class="fa fa-plus"></i>Add another link
-											</a>
-										</div>
+							<form>
+								<div class="input-form">
+									<div class="form-group">
+										<input type="text" class="form-control form_padding" placeholder="Email"><!--<i class="fa fa-envelope"></i>-->
+									</div>
+									<div class="form-group">
 										
-										<button type="submit" class="btn btn-success btn-lg">Save Changes</button>
-									</form>
+										<input type="text" class="form-control form_padding" placeholder="Password"><!--<i class="fa fa-lock"></i>-->
+									</div>
+								</div>
+								<div class="border-profile"></div>
+								<div class="username">
+									<div class="form-group">
+										<select class="form-control pull-left">
+											<option value=""><i class="fa fa-facebook"></i></option>
+										</select>
+										<input type="text" class="form-control form_padding" placeholder="Username"><!--<i class="fa fa-envelope"></i>-->
+										<a href="#" class="add">
+											<i class="fa fa-plus"></i>Add another link
+										</a>
+									</div>
 								</div>
 								
-							</div>
+								<button type="submit" class="btn btn-success btn-lg">Save Changes</button>
+							</form>
 						</div>
 					</div>
 				</div>
