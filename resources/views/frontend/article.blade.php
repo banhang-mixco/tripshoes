@@ -1,11 +1,23 @@
 @extends('frontend.layout.master')
 
 @section('content')
+
+	<div class="head-banner">
+		<div class="head-text text-center">
+			<h4>Food</h4>
+			<h1>Is it "fur" or "pho"?</h1>
+			<div class="pho-info">
+				<p>10 words to learn when ordering food at a Vietnamese restaurant</p>
+				<p class="month-pho">November 27 <span>34</span></p>
+			</div>
+		</div>
+
 	<div class="head-banner text-center artical">
 		<h4>Food</h4>
 		<h1>Is it "fur" or "pho"?</h1>
 		10 words to learn when ordering food at a Vietnamese restaurant
 		<p>November 27 <span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comment-o"></i>&nbsp;&nbsp;34</span></p>
+
 	</div>
 	<div class="seagull">
 		<div class="container">

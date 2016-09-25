@@ -40,6 +40,7 @@ ul,li{
 	list-style-type: none
 }
 
+
 /* HEADER */
 #header.has-banner{
 	height: 850px;
@@ -493,10 +494,30 @@ form.form_access{
 	margin-bottom: 100px;
 
 }
-body{
-	background: rgba(193, 193, 193, 0.25);
+/*articel page 17 */
+.head-text{
+	color: #fff;
+	padding-top: 100px;	
+	width: 50%;
+	margin: 0 auto;
 }
-
+.head-text h1{
+	font-size: 80px !important;
+}
+.pho-info{
+	width: 60%;
+	margin: 0 auto;
+}
+.pho-info > p{
+	font-size: 24px;
+}
+.month-pho{
+	font-size: 15px !important;
+	margin-top: 30px;
+}
+.month-pho span{
+	margin-left: 10px;
+}
 .seagull .container{
 	background: #ffffff;
     margin-top: -70px;
@@ -691,6 +712,8 @@ body{
 .seagull{
 	margin-bottom: 80px;
 }
+/*end article */
+
 .footer-bar{
 	background: #333;
 	width: 100%;
@@ -854,6 +877,133 @@ body{
 .patment_btn .complete {
 	color: #2bc02a;
 }
+
+
+/*profile*/
+.profile{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.left-profile, .right-profile{
+	border: 1px solid rgba(24, 23, 24, 0.13);
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px 1px rgba(24, 23, 24, 0.13);
+}
+	
+.head-profile{
+	width: 100%;
+	height: 120px;
+	background: url(../images/Image46.png) no-repeat;
+}
+.right-profile .head-profile{
+	background: url(../images/Image47.png) no-repeat;
+}
+
+.content-profile{
+	width: 93%;
+	margin: 0 auto;
+}
+.right-profile .content-profile{
+	width: 90%;
+	margin: 0 auto;
+}
+.right-profile .form-group{
+	margin-top: 20px !important;
+	margin-bottom: 20px !important;
+}
+.content-profile > h4{
+	margin-top: 30px;
+}
+label{
+	font-weight: 100;
+}
+.content-profile label{
+	font-size: 15px;
+}
+.content-profile .form-group{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.content-profile input, .content-profile select{
+	height: 45px !important;
+}
+.content-profile select{
+	padding-left: 4px;
+	font-size: 12px;
+	background: rgba(51, 51, 51, 0.03);
+	width: 140px;
+}
+.content-profile a.add{
+	font-size: 12px;
+}
+.changePassword{
+	font-size: 18px;
+}
+.right-profile .avatar{
+	display: block;
+	margin: 0 auto;
+	margin-top: -60px;
+}
+.right-profile form{
+	margin-top: 50px;
+}
+.right-profile button{
+	margin-top:250px;
+	width: 100%;
+	background-color: #28A129;
+	height: 60px;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.right-profile .input-form{
+	margin-bottom: 30px;
+}
+.username{
+	margin-top: 30px !important;
+}
+.username select{
+	float: left;
+	width: 20%;
+}
+.username input{
+	width: 80%;
+	border-left: 0;
+}
+.border-profile{
+	border-bottom: 1px solid #333;
+}
+.profile .avatar{
+	background: url(../images/Depositphotos_4815623_original.jpg);
+	width: 120px;
+	height: 120px;
+	background-size: 400%;
+	background-position: -55px 0px;
+	border-radius: 5px;
+	margin-top: -60px;
+}
+.left-profile button.cancel{
+	float: left;
+}
+.left-profile button.submit{
+	border-right: none;
+}
+.left-profile button{
+	height: 60px;
+	width: 50%;
+	border-left: 0;
+	color: green;
+	background: #ffffff;
+	margin-top: 20px;
+	border-bottom: 0;
+	border-color: rgba(24, 23, 24, 0.13);
+}
+.left-profile button.submit>i{
+	margin-left:10px;
+}
+
+
+/*end profile*/
+
 .blog_welcome{
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -945,6 +1095,7 @@ body{
 .blog {
 	font-family: "Lato-Light";
 }
+
 /*FOOTER*/
 #footer{
     background: #444444;
