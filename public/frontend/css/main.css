@@ -235,13 +235,11 @@ border-radius: 15px;
 
 }
 .photobook{
-	background: url(../images/Image21.png);
+	background: url(../images/Image21.png) no-repeat;
 	width: 100%;
 	height: 1000px;
 	background-size: 130%;
 	background-position: -140px -250px;
-
-
 }
 .giving{
 	background: url(../images/Image15.png) no-repeat;
@@ -680,6 +678,164 @@ body{
 	background: #333;
 	width: 100%;
 	height: 30px;
+}
+.radio_credit {	
+	
+	margin-right: 30px;
+}
+.radio_paypal {
+	background-color: rgba(189, 195, 199,0.1);
+}
+.radio_paypal label{
+	margin-left: 30px;
+	padding-top: 30px;
+	margin-right: 20px;
+    padding-bottom:30px;    
+}
+.radio_credit label{
+	margin-left: 30px;
+	padding-top: 30px;
+	border-bottom: 1px solid;
+	padding-bottom:20px; 
+}
+.control {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+[type="radio"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+.control input:checked ~ .control__indicator {
+    background: #2bc02a;
+}
+.control--radio .control__indicator {
+    border-radius: 50%;
+    margin-top: 30px;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+	background: #2bc02a;
+}
+.control input:disabled ~ .control__indicator {
+	pointer-events: none;
+	opacity: .6;
+	background: #e6e6e6;
+}
+.control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+.control--radio .control__indicator:after {
+	top: 7px;
+	left: 7px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #fff;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+	background: #7b7b7b;
+}
+.control__indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+}
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #ccc;
+}
+.payment{
+	border: 1px solid;
+	border-radius: 10px; 
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+.payment h3{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left:30px; 
+}
+.credit_card{
+	margin-top: 20px;
+	margin-right: 30px;
+	margin-left: 30px;
+	position: relative;
+}
+.credit_card input{
+	border: 2px solid #2bc02a;
+    border-radius: 4px;
+}
+.credit_card span {
+	position: absolute;
+	top: 45px;
+    right: 9px;
+    color: #2bc02a;
+}
+.credit_card .form_payment{
+	background-color: white;
+}
+.credit_card label{
+	font-size: 15px;
+	color: #bdc3c7;
+}
+.text_payment {
+	font-size: 15px;
+	color: #bdc3c7;
+}
+.form_payment{
+	height: 40px;
+	width: 100%;
+	height: 40px !important;
+	border: 2px solid #ecf0f1;
+    border-radius: 4px;
+    background-color: #ecf0f1;
+}
+.payment_end .form_payment{
+	background-color: white;
+	padding-right: 20px;
+}
+.payment_card{
+	margin-left: 30px;
+	margin-right: 30px;
+}
+.payment_card label{
+	font-size: 15px;
+	color: #bdc3c7;
+	margin-top: 20px;
+}
+.patment_btn {
+	margin-top: 30px;	
+}
+.patment_btn button{
+	width: 292px;
+	height: 60px;
+	font-size: 26px;
+	border: 1px solid #ecf0f1;
+    border-radius: 4px;
+}
+.patment_btn .complete {
+	color: #2bc02a;
 }
 /*FOOTER*/
 #footer{
