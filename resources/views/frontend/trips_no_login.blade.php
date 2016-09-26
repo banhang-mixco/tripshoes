@@ -12,15 +12,15 @@
 				<div class="top">
 					<div class="pull-left">
 						<div class="link">
-							<a href="#">Trips</a>
-							<a href="#" class="padding_left_10">Blog</a>	
+							<a href="{{ asset('/tripsnologin') }}">Trips</a>
+							<a href="{{ asset('/blog') }}" class="padding_left_10">Blog</a>	
 						</div>
 					</div>
 					@if(!Auth::check())
 						<div class="pull-right">
 							<div class="link">
 								<a href="#" data-toggle="modal" data-target="#signin">Sign In</a>
-								<a href="#"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
+								<a href="{{ asset('/trip3') }}"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
 							</div>
 						</div>
 						<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
@@ -247,9 +247,9 @@
 			</div>
 			<div class="text-center">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Support</a></li>
+					<li><a href="{{ asset('/aboutus') }}">About</a></li>
+					<li><a href="{{ asset('/sendusemail')}}">Contact</a></li>
+					<li><a href="{{ asset('/support') }}">Support</a></li>
 				</ul>
 			</div>
 			<div class="border"></div>
