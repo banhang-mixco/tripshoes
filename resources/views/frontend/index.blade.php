@@ -32,14 +32,18 @@
 				</div>
 			</div>
 		</div>
-
+	</div>
+	<div class="col-lg-12">
+		<div class="row">
 		<div class="gotchan text-center">
 			<div class="col-lg-offset-2 col-lg-8 ">
 				<img src="{{ asset('frontend/images/noun_145969.png') }}">
 				<p>In order to truly allow you to step into someone's else shoes, Tripshoes has built a remarkably clever app to ensure that you won't miss a single beat of your journey.</p>
 			</div>
 		</div>
-
+		</div>
+	</div>
+	<div class="container">
 		<div class="app">
 			<div class="row">
 				<div class="col-lg-12">
