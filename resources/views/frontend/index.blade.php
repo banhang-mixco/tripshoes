@@ -156,7 +156,7 @@
                     </div>
                    </div>
                  </div>
-                 <button class="btn btn-lg btn-success col-lg-12 form_padding">Get me early access</button>
+                 <button class="btn btn-lg btn_login col-lg-12 form_padding">Get me early access</button>
              </form>
 	        </div>
 	    </div>
