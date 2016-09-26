@@ -3,15 +3,15 @@
 		<div class="top">
 			<div class="pull-left">
 				<div class="link">
-					<a href="#">Trips</a>
-					<a href="#" class="padding_left_10">Blog</a>	
+					<a href="{{ asset('/tripsnologin') }}">Trips</a>
+					<a href="{{ asset('/blog') }}" class="padding_left_10">Blog</a>	
 				</div>
 			</div>
 			@if(!Auth::check())
 				<div class="pull-right">
 					<div class="link">
 						<a href="#" data-toggle="modal" data-target="#signin">Sign In</a>
-						<a href="#"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
+						<a href="{{ asset('/trip3') }}"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
 					</div>
 				</div>
 				<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
@@ -21,25 +21,27 @@
 				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
 				      </div>
-				      <div class="modal-body">
-				        <span>Sign in here if you have an account</span>
+				      <div class="modal-body modal_login">
+				        <p>Sign in here if you have an account</p>
 				        <form>
 				        	<div class="form-group">
-				        		<input type="text" class="form-control" placeholder="Email">
+				        		<input type="text" class="form-control form_padding" placeholder="Email">
 				        	</div>
 				        	<div class="form-group">
-				        		<input type="password" class="form-control" placeholder="Password">
+				        		<input type="password" class="form-control form_padding" placeholder="Password">
 				        	</div>
+				        	<div>
 				        	<div class="pull-left">
 				        		<input type="checkbox">Remember me
 				        	</div>
 				        	<div class="pull-right">
 				        		<a href="#">I forgot my password</a>
 				        	</div>
+				        	</div>
 				        	<div class="clearfix"></div>
-				        	<input type="submit" value="Sign In" class="btn btn-lg btn-success"> 
+				        	<input type="submit" value="Sign In" class="btn btn-lg btn-success btn_login"> 
 				        </form>
-				        <a href="#" data-toggle="modal" data-target="#signup">Sign up with your access code</a>
+				        <a href="#" data-toggle="modal" data-target="#signup"><strong>Sign up with your access code</strong></a>
 				      </div>
 				      
 				    </div>
@@ -95,7 +97,7 @@
 								<ul class="dropdown-menu animated littleFadeInRight" role="menu">
 
 					                <li>
-					                    <a role="button" tabindex="0">
+					                    <a role="button" tabindex="0" href="">
 					                        <i class="fa fa-user"></i>Profile
 					                    </a>
 					                </li>

@@ -14,9 +14,9 @@
 			</div>
 			<div class="text-center">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Support</a></li>
+					<li><a href="{{ asset('/aboutUs') }}">About</a></li>
+					<li><a href="{{ asset('/sendusemail')}}">Contact</a></li>
+					<li><a href="{{ asset('/support') }}">Support</a></li>
 				</ul>
 			</div>
 			<div class="border"></div>
