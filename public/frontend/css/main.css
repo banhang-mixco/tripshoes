@@ -835,9 +835,15 @@ form.form_access{
 }
 .payment{
 	border: 1px solid rgba(24, 23, 24, 0.13);
+
     border-radius: 10px;
     margin-top: 80px;
     margin-bottom: 80px;
+
+	border-radius: 10px; 
+	margin-top: 80px;
+	margin-bottom: 80px;
+
 }
 .payment h3{
 	margin-top: 50px;
@@ -1123,6 +1129,18 @@ label{
 .blog {
 	font-family: "Lato-Light";
 }
+.support{
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 150px;
+	color:#333333;
+	font-size: 14px;
+}
+ul.support-step{
+	margin-top: 120px;
+	margin-bottom: 190px;
+}
+
 
 /*support*/
 .support{
@@ -1136,6 +1154,7 @@ ul.support-step{
 	margin-top: 120px;
 	margin-bottom: 190px;
 }
+
 
 ul.support-step li{
 	border: 1px solid;
@@ -1190,4 +1209,3 @@ ul.support-step span{
 
 	width: 98%;
 }
-
