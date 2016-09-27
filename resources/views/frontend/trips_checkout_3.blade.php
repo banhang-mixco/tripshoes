@@ -75,8 +75,8 @@
 					</div>
 					<div class="row">
 					<div class="col-lg-12 btn-group patment_btn">
-					  	<button class="btn btn-lg-6 btn-default">Return to Detail</button>
-						<button class="btn btn-lg-6 btn-default complete">Complete Order <i class="fa fa-arrow-right"></i></button>
+					  	<a href="{{ asset('/trip2') }}" class="btn btn-lg-6 btn-default">Return to Detail</a>
+						<a href="#" class="btn btn-lg-6 btn-default complete">Complete Order <i class="fa fa-arrow-right"></i></a>
 					</div>
 					</div>
 					</div>
