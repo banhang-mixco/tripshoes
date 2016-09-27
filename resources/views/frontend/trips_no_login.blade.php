@@ -260,5 +260,7 @@
 		<strong>© 2016 TripShoes Pty Ltd. All rights reserved.</strong>
 	</div>
 </div>
-	    </body>
-    </html>
+<script type="text/javascript" src="{{ asset('/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
+</body>
+</html>
