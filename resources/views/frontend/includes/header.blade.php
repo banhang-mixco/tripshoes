@@ -10,11 +10,11 @@
 			@if(!Auth::check())
 				<div class="pull-right">
 					<div class="link">
-						<a href="#" data-toggle="modal" data-target="#signin">Sign In</a>
-						<a href="{{ asset('/trip3') }}"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
+						<a href="#" data-toggle="modal" data-target="#signin1">Sign In</a>
+						<a href="{{ asset('/trip1') }}"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
 					</div>
 				</div>
-				<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
+				<div class="modal fade" id="signin1" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
 				  <div class="modal-dialog modal-sm">
 				    <div class="modal-content">
 				      <div class="modal-header">
