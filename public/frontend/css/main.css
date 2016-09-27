@@ -834,7 +834,7 @@ form.form_access{
 	background: #ccc;
 }
 .payment{
-	border: 1px solid;
+	border: 1px solid rgba(24, 23, 24, 0.13);
 	border-radius: 10px; 
 	margin-top: 80px;
 	margin-bottom: 80px;
@@ -1123,6 +1123,7 @@ label{
 .blog {
 	font-family: "Lato-Light";
 }
+<<<<<<< HEAD
 .trip2{
 	border: 1px solid rgba(24, 23, 24, 0.13);
     border-radius: 10px;
@@ -1264,6 +1265,39 @@ div.cancel{
 	font-family: 'Roboto-Light';
 	color: #28A129;
 }
+.support{
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 150px;
+	color:#333333;
+	font-size: 14px;
+}
+ul.support-step{
+	margin-top: 120px;
+	margin-bottom: 190px;
+}
+
+ul.support-step li{
+	border: 1px solid;
+	border-left: 0;
+	border-right: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-color: rgba(51, 51, 51, 0.26);
+}
+ul.support-step span{
+	font-size: 17px;
+}
+.border-number{
+	border: 1px solid #333333;
+	border-radius: 50%;
+	width: 120%;
+	padding: 5px;
+	border-color: rgba(51, 51, 51, 0.26);
+}
+.sign{
+	font-size: 25px !important;
+}
 /*FOOTER*/
 #footer{
     background: #444444;
@@ -1295,4 +1329,3 @@ div.cancel{
 
 	width: 98%;
 }
-
