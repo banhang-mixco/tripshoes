@@ -101,3 +101,8 @@ Route::get('/sendusemail', function(){
 	$text_banner = '';
 	return view('frontend.send_us_email', compact('banner', 'text_banner'));
 });
+/*Trip*/
+Route::group(['namespace' => 'Frontend'], function () {
+	Route::get('/trip',['as' => 'trip','uses' => 'TripController@index']);
+	Route::get('/trip/{id}',['uses' => 'TripController@show']);
+});

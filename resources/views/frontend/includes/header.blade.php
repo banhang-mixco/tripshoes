@@ -75,7 +75,7 @@
 				        	<div class="form-group">
 				        		<input type="text" class="form-control" placeholder="Access Code">
 				        	</div>
-				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
+				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
 				       	</form>
 				      </div>
 				      
