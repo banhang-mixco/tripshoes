@@ -835,9 +835,15 @@ form.form_access{
 }
 .payment{
 	border: 1px solid rgba(24, 23, 24, 0.13);
+
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+
 	border-radius: 10px; 
 	margin-top: 80px;
 	margin-bottom: 80px;
+
 }
 .payment h3{
 	margin-top: 50px;
@@ -1135,6 +1141,21 @@ ul.support-step{
 	margin-bottom: 190px;
 }
 
+
+/*support*/
+.support{
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 150px;
+	color:#333333;
+	font-size: 14px;
+}
+ul.support-step{
+	margin-top: 120px;
+	margin-bottom: 190px;
+}
+
+
 ul.support-step li{
 	border: 1px solid;
 	border-left: 0;
@@ -1156,6 +1177,65 @@ ul.support-step span{
 .sign{
 	font-size: 25px !important;
 }
+
+.checkout{
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 300px;
+	font-size: 15px;
+	color: #333333;
+	margin-bottom: 300px;
+	border: 1px solid;
+}
+.cart-title{
+	border: 1px solid;
+	padding-left: 20px;
+}
+.info-cart{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border: 1px solid;
+}
+.img-checkout{
+	background: url(../images/Depositphotos_90463484_original.jpg);
+	width: 120px;
+	height: 80px;
+	background-size: 160%;
+	background-position: -40px 0px;
+}
+.number_ticket{
+	font-size: 20px;
+	padding-top:20px;
+	padding-bottom: 20px;
+}
+.tour_name{
+	width: 70%;
+	margin: 0 auto;
+}
+div.cancel{
+	font-size: 25px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-left: 20px;
+}
+.sign-cart{
+	border: 1px solid;
+	background-color:#fff;
+	padding: 2px 8px;
+	margin-left:10px;
+	margin-right: 10px;
+}
+.return-shopping{
+	width: 30%;
+}
+.continue-payment{
+	width: 70%;
+}
+.price{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 /*FOOTER*/
 #footer{
     background: #444444;
