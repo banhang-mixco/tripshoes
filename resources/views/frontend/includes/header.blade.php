@@ -3,7 +3,7 @@
 		<div class="top">
 			<div class="pull-left">
 				<div class="link">
-					<a href="{{ asset('/tripsnologin') }}">Trips</a>
+					<a href="{{ asset('/trip') }}">Trips</a>
 					<a href="{{ asset('/blog') }}" class="padding_left_10">Blog</a>	
 				</div>
 			</div>
@@ -75,7 +75,7 @@
 				        	<div class="form-group">
 				        		<input type="text" class="form-control" placeholder="Access Code">
 				        	</div>
-				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
+				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
 				       	</form>
 				      </div>
 				      

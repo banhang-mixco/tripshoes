@@ -62,6 +62,6 @@ class TourInformation extends Model implements Transformable
      */
     public function images()
     {
-        return $this->hasMany('App\Models\Image');
+        return $this->hasMany('App\Models\Image','tour_information_id','id');
     }
 }

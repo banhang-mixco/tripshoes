@@ -19,36 +19,38 @@
 					@if(!Auth::check())
 						<div class="pull-right">
 							<div class="link">
-								<a href="#" data-toggle="modal" data-target="#signin">Sign In</a>
+								<a href="#" data-toggle="modal" data-target="#signin1">Sign In</a>
 								<a href="{{ asset('/trip3') }}"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
 							</div>
 						</div>
-						<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
+						<div class="modal fade" id="signin1" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
 						  <div class="modal-dialog modal-sm">
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
 						      </div>
-						      <div class="modal-body">
-						        <span>Sign in here if you have an account</span>
+						      <div class="modal-body modal_login">
+						        <p>Sign in here if you have an account</p>
 						        <form>
 						        	<div class="form-group">
-						        		<input type="text" class="form-control" placeholder="Email">
+						        		<input type="text" class="form-control form_padding" placeholder="Email">
 						        	</div>
 						        	<div class="form-group">
-						        		<input type="password" class="form-control" placeholder="Password">
+						        		<input type="password" class="form-control form_padding" placeholder="Password">
 						        	</div>
+						        	<div>
 						        	<div class="pull-left">
 						        		<input type="checkbox">Remember me
 						        	</div>
 						        	<div class="pull-right">
 						        		<a href="#">I forgot my password</a>
 						        	</div>
+						        	</div>
 						        	<div class="clearfix"></div>
-						        	<input type="submit" value="Sign In" class="btn btn-lg btn-success"> 
+						        	<input type="submit" value="Sign In" class="btn btn-lg btn-success btn_login"> 
 						        </form>
-						        <a href="#" data-toggle="modal" data-target="#signup">Sign up with your access code</a>
+						        <a href="#" data-toggle="modal" data-target="#signup"><strong>Sign up with your access code</strong></a>
 						      </div>
 						      
 						    </div>
@@ -82,7 +84,7 @@
 						        	<div class="form-group">
 						        		<input type="text" class="form-control" placeholder="Access Code">
 						        	</div>
-						        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
+						        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
 						       	</form>
 						      </div>
 						      
@@ -139,50 +141,22 @@
 
 		</div>
 			<div id="content">
-				<div class="container">
-					<div class="row my_booking">
-						<div class="col-lg-6">
+				<div class="container">					
+					<div class="row">
+						@foreach($tourlist as $item)
+						<div class="col-lg-6 my_booking">
 							<a href="{{ asset('/tripswithlogin') }}">
-							<div style="background: url(frontend/images/Depositphotos_12619090_original.jpg) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
+							<div style="background: url(upload/images/{{$item->image}}) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
 							</div>
 							</a>
-							<h2 class="text-center"> Thao Nguyen's</h2>
-							<h2 class="text-center"> Countryside Bicycle Trip</h2>
-							<p class="text-center">$19.00| 120mins | Bicycle Experience</p>
+							<h2 class="text-center"> {{ $item->userid->first_name }} {{ $item->userid->last_name }}'s</h2>
+							<a href="{{ url('/trip/'.$item->id) }}"><h2 class="text-center"> {{ $item->name }}</h2></a>
+							<p class="text-center">${{number_format((float)$item->price, 2, '.', '')}} | {{$item->time_period}}mins | {{ $item->transport }}</p>
 						</div>
-						<div class="col-lg-6">
-							<a href="{{ asset('/walking_experience') }}">
-							<div style="background: url(frontend/images/Depositphotos_85776940_original.jpg) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
-							</div>
-							</a>
-							<h2 class="text-center"> Uncle Vu's City</h2>
-							<h2 class="text-center"> Walking Adventure</h2>
-							<p class="text-center">$19.00| 120mins | Walking Experience</p>
-						</div>
+						@endforeach
 					</div>
-
-					<div class="row my_booking">
-						<div class="col-lg-6">
-							<a href="{{ asset('/') }}">
-							<div style="background: url(frontend/images/Depositphotos_70198701_original.jpg) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
-							</div>
-							</a>
-							<h2 class="text-center"> Joe's Best of Hoi An</h2>
-							<h2 class="text-center"> Bar Hop</h2>
-							<p class="text-center">$19.00| 120mins | Walking Experience</p>
-						</div>
-						<div class="col-lg-6">
-							<a href="{{ asset('') }}">
-							<div style="background: url(frontend/images/Depositphotos_81744730_original.jpg) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
-							</div>
-							</a>
-							<h2 class="text-center"> Tram Anh's Iphone</h2>
-							<h2 class="text-center"> Photography Adventure</h2>
-							<p class="text-center">$19.00| 120mins | Walking Experience</p>
-						</div>
-					</div>
+					<div class="text-center col-lg-12">{!! $tourinfos->render() !!}</div>
 				</div>
-				
 				<!-- form -->
 				<div class="container">
 				<!-- form -->
@@ -231,7 +205,7 @@
 			    </div>
 			    <!-- end form -->
 			    </div>
-			    <div id="footer">
+<div id="footer">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left webname">
