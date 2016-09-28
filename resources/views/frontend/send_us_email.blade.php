@@ -11,11 +11,21 @@
         <div class="col-lg-12">
             <div class="col-lg-12 text-center form_send">
 	        <div class="col-lg-offset-2 col-lg-8 text-center">
-	            <form class="form_access">
+	            <form class="form_access" method="POST" action="{{ url('/postSendCode') }}">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                {{ csrf_Field() }}
                  <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="text" name="youname" class="form-control form_padding input-lg" placeholder="Youname" width="100%">
+                        <input type="text" name="yourname" class="form-control form_padding input-lg" placeholder="Youname" width="100%">
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -31,7 +41,7 @@
                     </div>
                    </div>
                   </div>
-                  <button class="btn btn-lg btn_login col-lg-12 form_padding">Get in touch</button>
+                  <button type="submit" class="btn btn-lg btn_login col-lg-12 form_padding">Get in touch</button>
                 </form>
                 <div class="text-center col-lg-12 just_email"> Or just email on</div>
                 <div class="text-center col-lg-12 info"><u>info@tripshoes.com</u></div>

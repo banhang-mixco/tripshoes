@@ -10,17 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::group([ 'namespace' => 'Frontend' ], function () {
+	Route::post('/postLogin', 'AuthController@postLogin');
+	Route::get('/postRegister', 'UserController@postRegister');
+	Route::get('/sendusemail', 'HomeController@contact');
+	Route::post('/postSendCode', 'HomeController@postSendCode');
+	Route::get('/signup', 'HomeController@signup');
+	Route::get('/', 'HomeController@index');//21,22,1,11,5
+});
 
-Route::get('/', function () {
-	$banner = '/frontend/images/Depositphotos_53914195_original.jpg';
-	$text_banner = 
-	'<div class="banner-header">
-		<h4>Daily Guided Trips in Hoi An</h4>
-		<h1>Take a trip in <br> someone else\'s shoes</h1>
-		<a href="#" class="btn btn-lg btn-success">Get early access</a>
-	</div>';
-    return view('frontend.index', compact('banner', 'text_banner'));
-});//21,22,1,11,5
 
 Route::get('/profile', function(){
 	$banner = false;
@@ -96,8 +94,3 @@ Route::get('/blog', function(){
 	$text_banner = '';
 	return view('frontend.blog', compact('banner', 'text_banner'));
 });//14
-Route::get('/sendusemail', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.send_us_email', compact('banner', 'text_banner'));
-});
