@@ -41,11 +41,6 @@ Route::get('/aboutus', function(){
 	$text_banner = '';
 	return view('frontend.aboutUs', compact('banner', 'text_banner'));
 });
-Route::get('/bicycle_experience', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.bicycle_experience', compact('banner', 'text_banner'));
-});
 Route::get('/support', function(){
 	$banner = false;
 	$text_banner = '';

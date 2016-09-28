@@ -3,7 +3,7 @@
 		<div class="top">
 			<div class="pull-left">
 				<div class="link">
-					<a href="{{ asset('/tripsnologin') }}">Trips</a>
+					<a href="{{ asset('/trip') }}">Trips</a>
 					<a href="{{ asset('/blog') }}" class="padding_left_10">Blog</a>	
 				</div>
 			</div>
