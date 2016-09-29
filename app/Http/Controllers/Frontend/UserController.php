@@ -7,40 +7,52 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Hash;
+use Validator;
+use Session;
 
 class UserController extends Controller
 {
     public function postRegister(Request $request){
 
     	$validator = Validator::make($request->all(), [
-            'name' 		=> 'required',
+            //'name' 		=> 'required',
             'email' 	=> 'required|unique:users,email',
             'password' 	=> 'required',
-            'country' 	=> 'required',
+            //'country' 	=> 'required',
             'code' 		=> 'required'
 
         ], [
-            'name.required' => 'Phải nhập mã phố',
-            'email.unique' => 'Mã phố đã tồn tại',
-            'password.required' => 'Chưa có địa chỉ điểm đầu',
-            'country.required' => 'Chưa có địa chỉ điểm cuối',
-            'code.required' =>'đâs'	
+            //'name.required' => 'Name is not blank',
+            'email.required' => 'Email is not blank',
+            'email.unique' => 'Email is not unique',
+            'password.required' => 'Password is not blank',
+            //'country.required' => 'Country of Residence is not blank',
+            'code.required' =>'Access Code is not blank and suitable with mail we sent you'	
         ]);
+
+        if($validator->fails()){
+            return redirect('/sendusemail')
+                ->withErrors($validator)
+                ->withInput();
+        }
     	//Session::push('wrong_input', 0);
-    	$name = $request->name('name');
-    	$email = $request->name('email');
-    	$password = $request->name('password');
-    	$country = $request->name('country');
-    	$code = $request->name('code');
+    	$name = $request->get('name');
+    	$email = $request->get('email');
+    	$password = $request->get('password');
+        $age = $request->get('age');
+        $country = $request->get('country');
+    	$code = $request->get('code');
 
     	if(Session::has($email)){
-    		if(Session::get('email')[0] != $code){
+    		if(Session::get($email)[0] != $code){
+                return 'hello';
 
     			return response()->json([
 	                'errors' => 'Wrong access code',
 	                'code' => 0
 	            ]);
     		}
+            
     	}else{
 			return response()->json([
                 'errors' => 'This email have not been sent access code',
@@ -49,10 +61,13 @@ class UserController extends Controller
     	}
 
     	$user = new App\Models\User;
+        $user->username = $name;
     	$user->email = $email;
+        $user->age = $age;
     	$user->password = Hash::make($password);
     	$user->country = $country;
+        $user->save();
 
-
+        return 'Thành công';
     }	
 }

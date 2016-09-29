@@ -12,7 +12,7 @@
 */
 Route::group([ 'namespace' => 'Frontend' ], function () {
 	Route::post('/postLogin', 'AuthController@postLogin');
-	Route::get('/postRegister', 'UserController@postRegister');
+	Route::post('/postRegister', 'UserController@postRegister');
 	Route::get('/sendusemail', 'HomeController@contact');
 	Route::post('/postSendCode', 'HomeController@postSendCode');
 	Route::get('/signup', 'HomeController@signup');

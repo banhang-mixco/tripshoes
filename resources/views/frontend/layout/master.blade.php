@@ -18,6 +18,7 @@
 			
 		<script type="text/javascript" src="{{ asset('/jquery/jquery.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('/frontend/js/custom.js') }}"></script>
 		@yield('script')
 	</body>
 </html>

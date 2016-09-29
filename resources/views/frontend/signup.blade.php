@@ -10,6 +10,7 @@
 	      </div>
 	      <div class="modal-body">
 	       	<form method="POST" action="{{ url('/postRegister') }}">
+	       		{{ csrf_field() }}
 	       		<div class="form-group">
 	        		<input type="text" class="form-control" placeholder="Name" name="name">
 	        	</div>
