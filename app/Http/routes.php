@@ -39,11 +39,6 @@ Route::get('/aboutus', function(){
 	$text_banner = '';
 	return view('frontend.aboutUs', compact('banner', 'text_banner'));
 });
-Route::get('/bicycle_experience', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.bicycle_experience', compact('banner', 'text_banner'));
-});
 Route::get('/support', function(){
 	$banner = false;
 	$text_banner = '';
@@ -94,3 +89,16 @@ Route::get('/blog', function(){
 	$text_banner = '';
 	return view('frontend.blog', compact('banner', 'text_banner'));
 });//14
+
+
+Route::get('/sendusemail', function(){
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.send_us_email', compact('banner', 'text_banner'));
+});
+/*Trip*/
+Route::group(['namespace' => 'Frontend'], function () {
+	Route::get('/trip',['as' => 'trip','uses' => 'TripController@index']);
+	Route::get('/trip/{id}',['uses' => 'TripController@show']);
+});
+
