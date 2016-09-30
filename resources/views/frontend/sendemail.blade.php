@@ -1,0 +1,1 @@
+<h1> We sent you an access code. Please click to this <a href="{{ url('/signup') }}">link</a> and input access code if you want to register. Your access code is {{ $access_code }}</h1>

@@ -23,12 +23,12 @@
 				      </div>
 				      <div class="modal-body modal_login">
 				        <p>Sign in here if you have an account</p>
-				        <form>
+				        <form action="{{ url('/postLogin') }}" method="POST">
 				        	<div class="form-group">
-				        		<input type="text" class="form-control form_padding" placeholder="Email">
+				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
 				        	</div>
 				        	<div class="form-group">
-				        		<input type="password" class="form-control form_padding" placeholder="Password">
+				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password">
 				        	</div>
 				        	<div>
 				        	<div class="pull-left">
@@ -41,48 +41,62 @@
 				        	<div class="clearfix"></div>
 				        	<input type="submit" value="Sign In" class="btn btn-lg btn-success btn_login"> 
 				        </form>
-				        <a href="#" data-toggle="modal" data-target="#signup"><strong>Sign up with your access code</strong></a>
+				        <a href="{{ url('/sendusemail') }}"><strong>Sign up with your access code</strong></a>
 				      </div>
 				      
 				    </div>
 				  </div>
 				</div>
 
-				<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				        <h4 class="modal-title" id="myModalLabel">Sign up with Access Code</h4>
-				      </div>
-				      <div class="modal-body">
-				       	<form>
-				       		<div class="form-group">
-				        		<input type="text" class="form-control" placeholder="Name">
-				        	</div>
-				        	<div class="form-group">
-				        		<input type="text" class="form-control" placeholder="Email">
-				        	</div>
-				        	<div class="form-group">
-				        		<input type="text" class="form-control" placeholder="Password">
-				        	</div>
-				        	<div class="form-group">
-				        		<input type="text" class="form-control" placeholder="Age">
-				        	</div>
-				        	<div class="form-group">
-				        		<input type="text" class="form-control" placeholder="Country of Residence">
-				        	</div>
-				        	<div class="form-group">
-				        		<input type="text" class="form-control" placeholder="Access Code">
-				        	</div>
-				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
-				       	</form>
-				      </div>
-				      
-				    </div>
-				  </div>
-				</div>
+
+				
+	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Sign up with Access Code</h4>
+	      </div>
+	      <div class="modal-body">
+	       	<form method="POST" action="{{ url('/postRegister') }}">
+	       		{{ csrf_field() }}
+	       		@if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+	       		<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Name" name="name">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Email" name="email">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="password" class="form-control" placeholder="Password" name="password">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="number" class="form-control" placeholder="Age" name="age">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Access Code" name="code">
+	        	</div>
+	        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
+	       	</form>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+
 				@else
+					<a href="{{ url('/logout') }}" class="pull-right btn btn-success btn-lg">Logout</a>
 					<ul class="nav-right pull-right list-inline">
 						<li><a href="#">My Bookings</a></li>
 						<li>
