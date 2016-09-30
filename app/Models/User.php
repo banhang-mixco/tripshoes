@@ -2,20 +2,32 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements Transformable
+class User extends Model implements Transformable,
+                                    AuthenticatableContract,
+                                    AuthorizableContract,
+                                    CanResetPasswordContract
 {
-    use TransformableTrait;
-
+    use TransformableTrait, Authenticatable, Authorizable, CanResetPassword;
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $table= 'tbl_user';
+    const CREATED_AT = 'created_date';
+    const UPDATED_AT = 'modified_date';
+
     protected $fillable = [
         'username', 'email', 'q_user_id' , 'password_hash', 'age', 'country', 'avatar', 'lat', 'lng', 'first_name', 'last_name', 'is_available', 'is_deleted', 'modified_date', 'created_date', 'is_guide', 'about_guide', 'api_key', 'status',
     ];
@@ -26,7 +38,7 @@ class User extends Model implements Transformable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password_hash', 'remember_token',
     ];
     /* Get all from Booking.
      *
@@ -83,5 +95,11 @@ class User extends Model implements Transformable
     public function tourinformations()
     {
         return $this->hasMany('App\Models\TourInformation');
+    }
+
+    public function getAuthPassword () {
+
+        return $this->password_hash;
+
     }
 }

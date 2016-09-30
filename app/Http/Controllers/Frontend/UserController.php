@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Hash;
 use Validator;
 use Session;
+use App\Models\User;
+use Auth;
 
 class UserController extends Controller
 {
@@ -16,7 +18,7 @@ class UserController extends Controller
 
     	$validator = Validator::make($request->all(), [
             //'name' 		=> 'required',
-            'email' 	=> 'required|unique:users,email',
+            'email' 	=> 'required|unique:tbl_user,email',
             'password' 	=> 'required',
             //'country' 	=> 'required',
             'code' 		=> 'required'
@@ -31,7 +33,7 @@ class UserController extends Controller
         ]);
 
         if($validator->fails()){
-            return redirect('/sendusemail')
+            return redirect('/signup')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -60,14 +62,20 @@ class UserController extends Controller
             ]);
     	}
 
-    	$user = new App\Models\User;
+    	$user = new User;
         $user->username = $name;
     	$user->email = $email;
         $user->age = $age;
-    	$user->password = Hash::make($password);
+    	$user->password_hash = Hash::make($password);
+        $user->password = Hash::make($password);
     	$user->country = $country;
         $user->save();
 
         return 'Thành công';
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }	
 }

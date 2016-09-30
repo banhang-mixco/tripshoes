@@ -17,6 +17,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	Route::post('/postSendCode', 'HomeController@postSendCode');
 	Route::get('/signup', 'HomeController@signup');
 	Route::get('/', 'HomeController@index');//21,22,1,11,5
+	Route::get('/logout', 'UserController@logout');
 });
 
 
