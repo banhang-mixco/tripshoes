@@ -35,10 +35,7 @@ class AuthController extends Controller
             ]);
             
         }else{
-            return response()->json([
-                'message' => 'Đăng nhập thành công',
-                'code' => 2
-            ]);
+            return redirect('/');
         }
    	}
 }
