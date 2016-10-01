@@ -11,13 +11,20 @@
 |
 */
 Route::group([ 'namespace' => 'Frontend' ], function () {
+	/*Log in with access code and email*/
 	Route::post('/postLogin', 'AuthController@postLogin');
 	Route::post('/postRegister', 'UserController@postRegister');
 	Route::get('/sendusemail', 'HomeController@contact');
 	Route::post('/postSendCode', 'HomeController@postSendCode');
 	Route::get('/signup', 'HomeController@signup');
 	Route::get('/', 'HomeController@index');//21,22,1,11,5
+	/*Log out*/
 	Route::get('/logout', 'UserController@logout');
+	/*Trip*/
+	Route::get('/trip',['as' => 'trip','uses' => 'TripController@index']);
+	Route::get('/trip/{id}',['uses' => 'TripController@show']);
+	/*Profile with ajax*/
+	Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
 });
 
 
@@ -97,9 +104,3 @@ Route::get('/sendusemail', function(){
 	$text_banner = '';
 	return view('frontend.send_us_email', compact('banner', 'text_banner'));
 });
-/*Trip*/
-Route::group(['namespace' => 'Frontend'], function () {
-	Route::get('/trip',['as' => 'trip','uses' => 'TripController@index']);
-	Route::get('/trip/{id}',['uses' => 'TripController@show']);
-});
-

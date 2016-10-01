@@ -100,7 +100,11 @@
 					<div class="right-profile">
 						<div class="head-profile"></div>
 						<div class="content-profile">
-							<div class="avatar"></div>
+							<form id="img-upload-form" method="post" accept-charset="utf-8" onsubmit="return submitImageForm(this)">
+			                     <img id="logo-img" onclick="document.getElementById('add-new-logo').click();" src="{{ asset(config('path.avatar_view').Auth::user()->avatar)}}" class="img-rounded img-responsive" width="50%" />
+			                     <input type="file" style="display: none" id="add-new-logo" name="file" accept="image/*" onchange="addNewLogo(this)"/>
+			                     <input type="hidden" name="_token" value="{{ Session::token() }}" />
+			                  </form>
 							<form>
 								<div class="input-form">
 									<div class="form-group">
@@ -132,5 +136,9 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		var pathprofile = {!! json_encode(config('path.pathprofile')) !!};
+	</script>
+	<script type="text/javascript" src="{{ asset('frontend/js/profile.js') }}"></script>
 @endsection	
 		
