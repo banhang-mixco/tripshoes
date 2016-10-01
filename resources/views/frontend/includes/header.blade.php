@@ -32,10 +32,10 @@
 				        	</div>
 				        	<div>
 				        	<div class="pull-left">
-				        		<input type="checkbox">Remember me
+				        		<input type="checkbox" name="remember">Remember me
 				        	</div>
 				        	<div class="pull-right">
-				        		<a href="#">I forgot my password</a>
+				        		<a href="#" data-toggle="modal" data-target="#resetpassword" data-dismiss="modal">I forgot my password</a>
 				        	</div>
 				        	</div>
 				        	<div class="clearfix"></div>
@@ -43,6 +43,30 @@
 				        </form>
 				        <a href="{{ url('/sendusemail') }}"><strong>Sign up with your access code</strong></a>
 				      </div>
+				      
+				    </div>
+				  </div>
+				</div>
+
+				<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
+				  <div class="modal-dialog modal-sm">
+				  		<div class="modal-content">
+					    <form action="{{ url('/sendEmailChangePassword') }}" method="POST">
+						      <div class="modal-body modal_login">
+						        <p>Enter email to reset password</p>
+						        
+						        	<div class="form-group">
+						        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
+						        	</div>
+						        </div>
+						      <div class="modal-footer">
+						      	<div class="pull-right">
+						      		<a href="#" data-toggle="modal" data-target="#signin1" class="btn btn-lg btn-danger">Back</a>
+						      		<input type="submit" value="Send Email" class="btn btn-success btn-lg">
+						      	</div>
+
+						      </div>
+					      </form>
 				      
 				    </div>
 				  </div>
