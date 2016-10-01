@@ -1,0 +1,1 @@
+<h1>Please access this <a href="/resetPassword">link</a> to reset your password.</h1>
