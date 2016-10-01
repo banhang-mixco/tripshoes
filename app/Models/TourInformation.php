@@ -54,7 +54,7 @@ class TourInformation extends Model implements Transformable
      */
     public function bookings()
     {
-        return $this->hasMany('App\Models\User');
+        return $this->hasMany('App\Models\Booking');
     }
     /* Get all from Image.
      *

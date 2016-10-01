@@ -1165,7 +1165,7 @@ label{
 	margin-right: 15px;
 	margin-left: 15px;
 }
-#showPlay:hover {
+.showPlay:hover {
     content: url('../images/Icon23.png');
 }
 #detail{

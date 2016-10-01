@@ -17,7 +17,7 @@ class Booking extends Model implements Transformable
      */
     protected $table= 'tbl_booking';
     protected $fillable = [
-        'user_id', 'tour_id', 'ticket_id', 'number_ticket', 'cost', 'promo_id', 'date_created', 'date_modiffied',
+        'user_id', 'date_start', 'start_time','finish_time','travellers','tour_information_id', 'ticket_id', 'number_ticket', 'cost', 'promo_id', 'date_created', 'date_modiffied',
     ];
 
      /**
@@ -33,21 +33,21 @@ class Booking extends Model implements Transformable
     /**
      * Get ticket from Ticket.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
     public function tourinformations()
     {
-        return $this->hasMany('App\Models\TourInformation');
+        return $this->belongsTo('App\Models\TourInformation','tour_information_id');
     }
 
     /**
      * Get ticket from Ticket.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
      */
     public function tickets()
     {
-        return $this->hasMany('App\Models\Ticket','ticket_id');
+        return $this->belongsTo('App\Models\Ticket','ticket_id');
     }
     /**
      * Get ticket from Promo.
@@ -56,7 +56,7 @@ class Booking extends Model implements Transformable
      */
     public function promos()
     {
-        return $this->belongsTo('App\Models\Promo','ticket_id');
+        return $this->belongsTo('App\Models\Promo','promo_id');
     }
     /* Get all from Traveller.
      *

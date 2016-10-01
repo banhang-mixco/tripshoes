@@ -25,6 +25,8 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	Route::get('/trip/{id}',['uses' => 'TripController@show']);
 	/*Profile with ajax*/
 	Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
+	/*My booking*/
+	Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);
 });
 
 
@@ -68,9 +70,7 @@ Route::get('/trip3', function(){
 	return view('frontend.trips_checkout_3', compact('banner', 'text_banner'));
 });
 Route::get('/mybookings', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.my_bookings', compact('banner', 'text_banner'));
+	
 });
 Route::get('/tripslogin', function(){
 	$banner = false;
