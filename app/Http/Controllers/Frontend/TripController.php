@@ -66,4 +66,11 @@ class TripController extends Controller
             return redirect()->route('trip');
         }
     }
+
+    public function tripwithlogin(){
+        $tickets = $this->ticketrepo->all(); 
+        $banner = '';
+        $text_banner = '';
+        return view('frontend.trips_with_login', compact('banner', 'text_banner', 'tickets'));
+    }
 }

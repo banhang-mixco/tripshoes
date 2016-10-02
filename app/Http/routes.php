@@ -27,8 +27,13 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	/*Trip*/
 	Route::get('/trip',['as' => 'trip','uses' => 'TripController@index']);
 	Route::get('/trip/{id}',['uses' => 'TripController@show']);
+	Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 	/*Profile with ajax*/
 	Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
+
+	Route::get('/trip1', 'BookingController@trip1');
+	Route::get('/trip2', 'BookingController@trip2');
+	Route::get('/trip3', 'BookingController@trip3');
 });
 
 
@@ -56,21 +61,8 @@ Route::get('/support', function(){
 	$text_banner = '';
 	return view('frontend.support', compact('banner', 'text_banner'));
 });
-Route::get('/trip1', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.trips_checkout_1', compact('banner', 'text_banner'));
-});
-Route::get('/trip2', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.trips_checkout_2', compact('banner', 'text_banner'));
-});
-Route::get('/trip3', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.trips_checkout_3', compact('banner', 'text_banner'));
-});
+
+
 Route::get('/mybookings', function(){
 	$banner = false;
 	$text_banner = '';
@@ -81,11 +73,7 @@ Route::get('/tripslogin', function(){
 	$text_banner = '';
 	return view('frontend.trip_login', compact('banner', 'text_banner'));
 });
-Route::get('/tripswithlogin', function(){
-	$banner = '';
-	$text_banner = '';
-	return view('frontend.trips_with_login', compact('banner', 'text_banner'));
-});
+
 Route::get('/bicycle_booking', function(){
 	$banner = false;
 	$text_banner = '';
