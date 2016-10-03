@@ -21,7 +21,47 @@ $(document).ready(function(){
 	if(pathname == '/signup'){
 		$('#signup').modal('show');
 	}
+	
+
+	//form validation ajax
+	$formsignup = $('form#signupform');
+	$formsignup.submit(function(e){
+		e.preventDefault();
+
+		var name = $formsignup.find('input#name').val();
+		console.log(name);
+		var email = $formsignup.find('input#email').val();
+		var password = $formsignup.find('input#password').val();
+		var age = $formsignup.find('input#age').val();
+		var country = $formsignup.find('input#country').val();
+		var code = $formsignup.find('input#code').val();
+		var url = $(this).attr('action');
+		//console.log(url);
+		$.ajax({
+			url: url,
+	        type: 'POST',
+	        data: {name: name, email: email, password: password, age: age, country: country, code: code},
+	        dataType: 'text',
+	        success: function(data){
+	        	console.log(data);
+	        	/*if(data.code == 0){
+	        		var errors = data.errors;
+	        		for(var key in errors){
+	        			var i;
+	        			if(errors.hasOwnProperty(key)){
+
+	        			}
+	        		}
+	        	}*/
+	        },
+	        error:function(){
+
+	        }
+		});
+	});
 });
+
+
 
 //tick button to add or minus ticket
 $(document).ready(function(){

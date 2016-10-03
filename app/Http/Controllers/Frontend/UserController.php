@@ -61,27 +61,22 @@ class UserController extends Controller
      * @return Illuminate\Http\Response
      */
     public function postRegister(Request $request){
-
+        
     	$validator = Validator::make($request->all(), [
             'name' 		=> 'required',
             'email' 	=> 'required|unique:tbl_user,email',
+            'age'       => 'required',
             'password' 	=> 'required',
             'country' 	=> 'required',
             'code' 		=> 'required'
 
-        ], [
-            'name.required' => 'Name is not blank',
-            'email.required' => 'Email is not blank',
-            'email.unique' => 'Email is not unique',
-            'password.required' => 'Password is not blank',
-            'country.required' => 'Country of Residence is not blank',
-            'code.required' =>'Access Code is not blank and suitable with mail we sent you'	
         ]);
 
         if($validator->fails()){
-            return redirect('/signup')
-                ->withErrors($validator)
-                ->withInput();
+            return response()->json([
+                'errors' => $validator->messages(),
+                'code' => 0
+            ]);
         }
     	$name = $request->get('name');
     	$email = $request->get('email');
