@@ -12,14 +12,14 @@
 				<div class="top">
 					<div class="pull-left">
 						<div class="link">
-							<a href="{{ asset('/tripsnologin') }}">Trips</a>
-							<a href="{{ asset('/blog') }}" class="padding_left_10">Blog</a>	
+							<a href="{{ asset('/tripsnologin') }}">{{ trans('lang_user.header.trips') }}</a>
+							<a href="{{ asset('/blog') }}" class="padding_left_10">{{ trans('lang_user.header.blog') }}</a>	
 						</div>
 					</div>
 					@if(!Auth::check())
 						<div class="pull-right">
 							<div class="link">
-								<a href="#" data-toggle="modal" data-target="#signin1">Sign In</a>
+								<a href="#" data-toggle="modal" data-target="#signin1">{{ trans('lang_user.header.sign_in') }}</a>
 								<a href="{{ asset('/trip3') }}"><i class="fa fa-shopping-cart padding_left_10"></i>Cart</a>
 							</div>
 						</div>
@@ -28,10 +28,10 @@
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+						        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.sign_in') }}</h4>
 						      </div>
 						      <div class="modal-body modal_login">
-						        <p>Sign in here if you have an account</p>
+						        <p>{{ trans('lang_user.header.sign_in_here') }}</p>
 						        <form>
 						        	<div class="form-group">
 						        		<input type="text" class="form-control form_padding" placeholder="Email">
@@ -41,16 +41,16 @@
 						        	</div>
 						        	<div>
 						        	<div class="pull-left">
-						        		<input type="checkbox">Remember me
+						        		<input type="checkbox"> {{ trans('lang_user.header.remember_me') }}
 						        	</div>
 						        	<div class="pull-right">
-						        		<a href="#">I forgot my password</a>
+						        		<a href="#">{{ trans('lang_user.header.forgot_password') }}</a>
 						        	</div>
 						        	</div>
 						        	<div class="clearfix"></div>
 						        	<input type="submit" value="Sign In" class="btn btn-lg btn-success btn_login"> 
 						        </form>
-						        <a href="#" data-toggle="modal" data-target="#signup"><strong>Sign up with your access code</strong></a>
+						        <a href="#" data-toggle="modal" data-target="#signup"><strong>{{ trans('lang_user.header.access_code') }}</strong></a>
 						      </div>
 						      
 						    </div>
@@ -62,7 +62,7 @@
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						        <h4 class="modal-title" id="myModalLabel">Sign up with Access Code</h4>
+						        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
 						      </div>
 						      <div class="modal-body">
 						       	<form>
@@ -93,31 +93,31 @@
 						</div>
 						@else
 							<ul class="nav-right pull-right list-inline">
-								<li><a href="#">My Bookings</a></li>
+								<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 								<li>
-									<a href="#">Cart<span class="badge">1</span></a>
+									<a href="#">{{ trans('lang_user.header.cart') }}<span class="badge">1</span></a>
 								</li>
 
 								<li class="dropdown">
 									<a href class="dropdown-toggle" data-toggle="dropdown">
-										User
+										{{Auth::user()->first_name}} {{Auth::user()->last_name}}
 									</a>
 									<div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
 										<ul class="dropdown-menu animated littleFadeInRight" role="menu">
 
 							                <li>
 							                    <a role="button" tabindex="0">
-							                        <i class="fa fa-user"></i>Profile
+							                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
 							                    </a>
 							                </li>
 							                <li>
 							                    <a role="button" tabindex="0">
-							                        <i class="fa fa-cog"></i>Account
+							                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
 							                    </a>
 							                </li>
 							                <li>
 							                    <a role="button" tabindex="0">
-							                        <i class="fa fa-circle-logout"></i>Logout
+							                        <i class="fa fa-circle-logout"></i>{{ trans('lang_user.header.logout') }}
 							                    </a>
 							                </li>
 
@@ -145,7 +145,7 @@
 					<div class="row">
 						@foreach($tourlist as $item)
 						<div class="col-lg-6 my_booking">
-							<a href="{{ asset('/tripswithlogin') }}">
+							<a href="{{ url('/trip/'.$item->id) }}">
 							<div style="background: url(upload/images/{{$item->image}}) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
 							</div>
 							</a>

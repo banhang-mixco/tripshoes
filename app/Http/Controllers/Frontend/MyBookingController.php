@@ -15,6 +15,7 @@ use App\Repositories\Eloquent\TravellerRepositoryEloquent;
 use App\Repositories\Eloquent\InvoiceRepositoryEloquent;
 use App\Repositories\Eloquent\ImageRepositoryEloquent;
 use Auth;
+use Exception;
 class MyBookingController extends Controller
 {
 	protected $bookingrepo;
@@ -42,7 +43,7 @@ class MyBookingController extends Controller
     public function __construct(BookingRepositoryEloquent $booking,ImageRepositoryEloquent $image, TourInformationRepositoryEloquent $tourinfo, TicketRepositoryEloquent $ticket, PromoRepositoryEloquent $promo, TourUserRepositoryEloquent $touruser, TravellerRepositoryEloquent $traveller, InvoiceRepositoryEloquent $invoice)
     {
         $this->tourinforepo = $tourinfo;
-
+        $this->imagerepo = $image;
         $this->bookingrepo = $booking;
         $this->ticketrepo = $ticket;
         $this->promorepo = $promo;
@@ -66,5 +67,26 @@ class MyBookingController extends Controller
             }
         $bookings=$this->bookingrepo->findByField('user_id',Auth::id())->all();
 		return view('frontend.my_bookings', compact('banner', 'text_banner','bookings','tourlist','image'));
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        try {
+            $tour = $this->tourinforepo->find($id);
+            $images = $this->imagerepo->findByField('tour_information_id', $id);
+            $image = $this->imagerepo->findByField('tour_information_id', $id)->first('url');
+            $ticket = $this->ticketrepo->all();
+            $banner = false;
+            $text_banner = "";
+            return  view('frontend.bicycle_booking', compact('tour', 'ticket','images','image','banner','text_banner'));
+        } catch (Exception $ex) {
+            return redirect()->route('booking.index');
+        }
     }
 }
