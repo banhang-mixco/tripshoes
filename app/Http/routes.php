@@ -31,9 +31,21 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	/*Profile with ajax*/
 	Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
 
+
 	Route::get('/trip1', 'BookingController@trip1');
 	Route::get('/trip2', 'BookingController@trip2');
 	Route::get('/trip3', 'BookingController@trip3');
+
+	/*My booking*/
+	Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);
+	Route::get('bookings/{id}', ['as' => 'booking.show', 'uses' => 'MyBookingController@show']);
+	/*Information website*/
+	Route::get('about',['as' => 'about', 'uses' => 'InfoController@about']);
+	Route::get('support',['as' => 'support', 'uses' => 'InfoController@support']);
+	/*Blog*/
+	Route::get('/blog',['as' => 'blog.index', 'uses' => 'BlogController@index']);
+	Route::get('/blog/{id}', ['as' => 'blog.article', 'uses' => 'BlogController@article']);
+
 });
 
 
@@ -42,11 +54,7 @@ Route::get('/profile', function(){
 	$text_banner = '';
 	return view('frontend.profile', compact('banner', 'text_banner'));
 });
-Route::get('/article', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.article', compact('banner', 'text_banner'));
-});//17
+
 
 Route::get('/tripsnologin', function(){
 	return view('frontend.trips_no_login', compact('banner', 'text_banner', 'class'));
@@ -95,4 +103,5 @@ Route::get('/sendusemail', function(){
 	$banner = false;
 	$text_banner = '';
 	return view('frontend.send_us_email', compact('banner', 'text_banner'));
-});
+
+
