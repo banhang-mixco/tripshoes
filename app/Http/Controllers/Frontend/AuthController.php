@@ -26,7 +26,7 @@ class AuthController extends Controller
                     'code' => 0
                 ]);
             }
-        if(!Auth::attempt(['email' => $email, 'password' => $password]), $remember){
+        if(!Auth::attempt(['email' => $email, 'password' => $password], $remember)){
         	return response()->json([
                 'errors' => 'Mật khẩu hoặc tài khoản sai, hãy thử lại!',
                 'code' => 1
