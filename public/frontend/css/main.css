@@ -417,11 +417,14 @@ form.form_access{
 }
 .bacgound_no_login{
 	background-color: rgba(249, 249, 249, 0.2);
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 	padding: 0px;
-	border: 1px solid rgba(189, 195, 199,0.4);
+	border: 2px solid rgba(189, 195, 199,0.4);
 }
 .bacgound_no_login span{
+	margin-left: 50px;
+}
+.bacgound_no_login p{
 	margin-left: 50px;
 }
 .back{
@@ -438,6 +441,7 @@ form.form_access{
 .walking{
 	margin-left: 40px;
 	margin-top: 50px;
+	margin-bottom: 50px;	
 	font-family: 'Roboto-Regular';
 }
 .walking p{
@@ -445,6 +449,7 @@ form.form_access{
 	font-family: 'Roboto-Light';
 	margin-top: 30px;
 	margin-bottom: 40px;
+	margin-left: -5px;
 }
 .walking ul>li>a{
 	font-size: 15px;
@@ -480,7 +485,17 @@ form.form_access{
 	font-size: 16px;
 	color:rgba(149, 165, 166,1.0) ;
 }
-
+.booking_content{
+	margin-left: 40px;
+    font-size: 16px;
+    font-family: 'Roboto-Light';
+}
+.book_end{
+	margin-top: 20px;
+	margin-bottom: 50px;
+	font-size: 18px;
+	font-family: 'Roboto-Light';
+}
 .tripclass{
 	height: 500px;
 	width: 90.5%;
@@ -1038,7 +1053,7 @@ label{
 }
 .blog_info {
 	height: 350px;
-	margin-bottom: 40px;
+	margin-bottom: 500px;
 }
 .blog_text {
 	background-color:white; 
@@ -1063,63 +1078,7 @@ label{
 .blog_header {
 	background-color: rgba(236, 240, 241,0.6);
 }
-.blog_end{
-	margin-bottom: 30px;
-}
-.blog_img1{
-	background: url(../images/Depositphotos_6783329_original.jpg);
-    width: 100%;
-    height: 200px;
-    background-size: 120%;
-    background-position: -60px -10px;
-    border-top: 1px white;
-	border-radius: 10px 10px 0px 0px;
-}
-.blog_img2{
-	background: url(../images/Depositphotos_10710479_original.jpg);
-    width: 100%;
-    height: 200px;
-    background-size: 120%;
-    background-position: -60px -10px;
-    border-top: 1px white;
-	border-radius: 10px 10px 0px 0px;
-}
-.blog_img3{
-	background: url(../images/Depositphotos_70198701_original.jpg);
-    width: 100%;
-    height: 200px;
-    background-size: 120%;
-    background-position: -60px -10px;
-    border-top: 1px white;
-	border-radius: 10px 10px 0px 0px;
-}
-.blog_img4{
-	background: url(../images/Depositphotos_81744730_original.jpg);
-    width: 100%;
-    height: 200px;
-    background-size: 120%;
-    background-position: -60px -10px;
-    border-top: 1px white;
-	border-radius: 10px 10px 0px 0px;
-}
-.blog_img5{
-	background: url(../images/Depositphotos_11151289_original.jpg);
-    width: 100%;
-    height: 200px;
-    background-size: 120%;
-    background-position: -60px -10px;
-    border-top: 1px white;
-	border-radius: 10px 10px 0px 0px;
-}
-.blog_img6{
-	background: url(../images/Depositphotos_48823625_original.jpg);
-    width: 100%;
-    height: 200px;
-    background-size: 120%;
-    background-position: -60px -10px;
-    border-top: 1px white;
-	border-radius: 10px 10px 0px 0px;
-}
+
 .blog {
 	font-family: "Lato-Light";
 }

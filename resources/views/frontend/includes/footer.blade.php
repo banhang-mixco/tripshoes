@@ -3,7 +3,7 @@
 		<div class="top">
 			<div class="pull-left webname">
 				<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-				trip<span>shoes</span>
+				{{ trans('lang_user.footer.trip') }}<span>{{ trans('lang_user.footer.shoes') }}</span>
 			</div>
 			<div class="pull-right">
 				<ul>
@@ -14,9 +14,9 @@
 			</div>
 			<div class="text-center">
 				<ul>
-					<li><a href="{{ asset('/aboutus') }}">About</a></li>
-					<li><a href="{{ asset('/sendusemail')}}">Contact</a></li>
-					<li><a href="{{ asset('/support') }}">Support</a></li>
+					<li><a href="{{ asset('/aboutus') }}">{{ trans('lang_user.footer.about') }}</a></li>
+					<li><a href="{{ asset('/sendusemail')}}">{{ trans('lang_user.footer.contact') }}</a></li>
+					<li><a href="{{ asset('/support') }}">{{ trans('lang_user.footer.support') }}</a></li>
 				</ul>
 			</div>
 			<div class="border"></div>
@@ -24,6 +24,6 @@
 
 	</div>
 	<div class="text-center copyright">
-		<strong>© 2016 TripShoes Pty Ltd. All rights reserved.</strong>
+		<strong>{{ trans('lang_user.footer.copy_right') }}</strong>
 	</div>
 </div>

@@ -199,6 +199,9 @@
 								<div class="row">
 									<div class="col-md-8">
 										<div class="form-group comment-form">
+											<input type="hidden" name="_token" value="{{ Session::token() }}" />
+											<input type="hidden" name="users_id" value="{{Auth::user() ? Auth::user()->id : ''}}">
+											<input type="hidden" name="foods_id" value="{{$foods->id}}">
 											<input type="text" class="form-control" placeholder="Write a comment">
 										</div>
 									</div>
