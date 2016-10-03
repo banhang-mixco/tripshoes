@@ -5,7 +5,7 @@
 		<div class="row">
 		<div class="col-lg-offset-3 col-lg-6 trip2">
 			<div class="form-group trip_content edit_image">
-				<h3>Traveller Number1</h3><img src="{{ asset('frontend/images/Image20.png') }}" id="showPlay" class=" img-rounded"><br>	
+				<h3>Traveller Number1</h3><img src="{{ asset('frontend/images/Image20.png') }}" class="showPlay img-rounded"><br>	
 			</div>
 			<form action="{{ asset('/trip3') }}" method="GET">
 				<div class="form-group trip_content">
