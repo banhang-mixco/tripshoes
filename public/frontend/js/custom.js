@@ -7,6 +7,55 @@ $(document).ready(function(){
 
 //send email to reset password
 $(document).ready(function(){
+	$formsignup = $('form#signupform');
+	$formsignup.submit(function(e){
+		e.preventDefault();
+		var name = $formsignup.find('input#name').val();
+		var email = $formsignup.find('input#email').val();
+		var password = $formsignup.find('input#password').val();
+		var age = $formsignup.find('input#age').val();
+		var country = $formsignup.find('input#country').val();
+		var code = $formsignup.find('input#code').val();
+		var url = $(this).attr('action');
+
+		$.ajax({
+			url: url,
+	        type: 'POST',
+	        data: {name: name, email: email, password: password, age: age, country: country, code: code},
+	        dataType: 'json',
+	        success: function(data){
+	        	if(data.code == 0){
+	        		var errors = data.errors;
+	        		for(var key in errors){
+	        			var $id = $formsignup.find('#' + key);
+	        			var i;
+	        			$finddiv = $formsignup.find($id).parent();
+	        			$finddiv.addClass('has-error');
+	        			if(errors.hasOwnProperty(key)){
+	        				if(errors[key].length>0){
+                                for(i=0; i<errors[key].length;i++){
+                                	html = '';
+                                	html += '<span class="help-block mb-0">';
+                                	html += errors[key][i];
+                                	html += '</span>';
+                                	$finddiv.append(html);
+								}
+                            }
+	        			}
+	        		}
+	        	}
+	        },
+	        error:function(){
+
+	        }
+		});
+	});
+});
+
+
+//signin
+$(document).ready(function(){
+	//ajax validation
 
 });
 
@@ -21,44 +70,53 @@ $(document).ready(function(){
 	if(pathname == '/signup'){
 		$('#signup').modal('show');
 	}
-	
 
-	//form validation ajax
+	//ajax validation
 	$formsignup = $('form#signupform');
 	$formsignup.submit(function(e){
 		e.preventDefault();
-
 		var name = $formsignup.find('input#name').val();
-		console.log(name);
 		var email = $formsignup.find('input#email').val();
 		var password = $formsignup.find('input#password').val();
 		var age = $formsignup.find('input#age').val();
 		var country = $formsignup.find('input#country').val();
 		var code = $formsignup.find('input#code').val();
 		var url = $(this).attr('action');
-		//console.log(url);
+
 		$.ajax({
 			url: url,
 	        type: 'POST',
 	        data: {name: name, email: email, password: password, age: age, country: country, code: code},
-	        dataType: 'text',
+	        dataType: 'json',
 	        success: function(data){
-	        	console.log(data);
-	        	/*if(data.code == 0){
+	        	if(data.code == 0){
 	        		var errors = data.errors;
 	        		for(var key in errors){
+	        			var $id = $formsignup.find('#' + key);
 	        			var i;
+	        			$finddiv = $formsignup.find($id).parent();
+	        			$finddiv.addClass('has-error');
 	        			if(errors.hasOwnProperty(key)){
-
+	        				if(errors[key].length>0){
+                                for(i=0; i<errors[key].length;i++){
+                                	html = '';
+                                	html += '<span class="help-block mb-0">';
+                                	html += errors[key][i];
+                                	html += '</span>';
+                                	$finddiv.append(html);
+								}
+                            }
 	        			}
 	        		}
-	        	}*/
+	        	}
 	        },
 	        error:function(){
 
 	        }
 		});
+		console.log('hello');
 	});
+	
 });
 
 

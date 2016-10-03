@@ -43,10 +43,9 @@ ul,li{
 
 /* HEADER */
 #header.has-banner{
-	height: 850px;
+	height: 800px;
 	margin-bottom: 80px;
 	width: 100%;
-
 }
 #header.no-banner{
 	background: #444444 !important;
@@ -111,7 +110,10 @@ ul,li{
 	border: 1px solid;
 }
 .banner-header{
-	margin-top: 400px;
+	margin-top: 350px;
+}
+.banner-header h4{
+	color: #ffffff;
 }
 .banner-header h1{
 	color: #ffffff;
@@ -152,6 +154,9 @@ ul,li{
 /*CONTENT*/
 .container {
 	color: #444444;
+}
+.trip .info p{
+	margin: 20px 0 50px;
 }
 .img-round {
 border-radius: 15px;
@@ -195,6 +200,11 @@ border-radius: 15px;
 .gotchan img{
 	margin-top: 60px;
 	margin-bottom: 10px;
+}
+.gotchan p{
+    width: 65%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .app img{
@@ -270,13 +280,17 @@ border-radius: 15px;
 	height: 820px;
 	margin-top: -170px;
 	background-position: center;
-	transform: scale(1.2);
 }
 .giving_content{
 	margin-top: 140px;
 	background-color: white;
 	text-align: justify;
 	height: 550px;
+	width: 50%;
+}
+.giving-info{
+	width: 75%;
+	margin: 0 auto;
 }
 .giving_content h1{
 	margin-top: 70px;
@@ -297,13 +311,7 @@ border-radius: 15px;
 .giving_content h1{
 	margin-top: 70px;
 }
-.giving{
-	background: url(../images/Image15.png) no-repeat;
-	transform: scale(1.2);
-	height: 820px;
-	margin-top: -180px;
-	background-position: center;
-}
+
 .giving_content{
 	margin-top: 140px;
 	height: 550px;

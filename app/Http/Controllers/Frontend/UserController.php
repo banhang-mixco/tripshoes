@@ -72,6 +72,14 @@ class UserController extends Controller
 
         ]);
 
+        if(Session::has($email)){
+            if(Session::get($email)[0] != $code){
+                $validator->getMessageBag()->add('code', 'Wrong access code');
+            }
+            
+        }else{
+            $validator->getMessageBag()->add('code', 'This email have not been sent access code');
+        }
         if($validator->fails()){
             return response()->json([
                 'errors' => $validator->messages(),
@@ -85,22 +93,7 @@ class UserController extends Controller
         $country = $request->get('country');
     	$code = $request->get('code');
 
-    	if(Session::has($email)){
-    		if(Session::get($email)[0] != $code){
-                return 'hello';
-
-    			return response()->json([
-	                'errors' => 'Wrong access code',
-	                'code' => 0
-	            ]);
-    		}
-            
-    	}else{
-			return response()->json([
-                'errors' => 'This email have not been sent access code',
-                'code' => 1
-            ]);
-    	}
+    	
 
     	$user = new User;
         $user->username = $name;

@@ -1,4 +1,4 @@
-<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: url({{ asset($banner) }}) no-repeat; background-size: cover;">
+<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25) ), url({{ asset($banner) }}) no-repeat; background-size: 140%;background-position: -30px -175px;">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left">
@@ -23,7 +23,7 @@
 				      </div>
 				      <div class="modal-body modal_login">
 				        <p>Sign in here if you have an account</p>
-				        <form action="{{ url('/postLogin') }}" method="POST">
+				        <form action="{{ url('/postLogin') }}" method="POST" id="formsignin">
 				        	<div class="form-group">
 				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
 				        	</div>

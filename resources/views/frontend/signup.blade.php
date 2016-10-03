@@ -1,7 +1,7 @@
 @extends('frontend.layout.master')
 	
 @section('content')
-	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+	{{--<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
 	  <div class="modal-dialog modal-sm">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -36,7 +36,7 @@
 	      
 	    </div>
 	  </div>
-	</div>
+	</div>--}}
 	<div class="container">
 		<div class="trip">
 			<div class="text-center">
