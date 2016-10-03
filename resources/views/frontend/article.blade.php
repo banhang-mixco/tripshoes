@@ -201,8 +201,8 @@
 										<div class="form-group comment-form">
 											<input type="hidden" name="_token" value="{{ Session::token() }}" />
 											<input type="hidden" name="users_id" value="{{Auth::user() ? Auth::user()->id : ''}}">
-											<input type="hidden" name="foods_id" value="{{$foods->id}}">
-											<input type="text" class="form-control" placeholder="Write a comment">
+											<input type="hidden" name="tours_id" value="{{$tour->id}}">
+											<textarea type="text" class="form-control" placeholder="Write a comment" row="3" id="comment"></textarea>
 										</div>
 									</div>
 								</div>
