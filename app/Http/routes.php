@@ -29,6 +29,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	Route::get('/trip/{id}',['uses' => 'TripController@show']);
 	Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 	/*Profile with ajax*/
+	Route::get('/profile',['as' =>'profile', 'uses' => 'UserController@getprofile']);
 	Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
 
 
@@ -48,59 +49,3 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 
 });
 
-
-Route::get('/profile', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.profile', compact('banner', 'text_banner'));
-});
-
-
-Route::get('/tripsnologin', function(){
-	return view('frontend.trips_no_login', compact('banner', 'text_banner', 'class'));
-});
-Route::get('/aboutus', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.aboutUs', compact('banner', 'text_banner'));
-});
-Route::get('/support', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.support', compact('banner', 'text_banner'));
-});
-
-
-Route::get('/mybookings', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.my_bookings', compact('banner', 'text_banner'));
-});
-Route::get('/tripslogin', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.trip_login', compact('banner', 'text_banner'));
-});
-
-Route::get('/bicycle_booking', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.bicycle_booking', compact('banner', 'text_banner'));
-});
-Route::get('/walking_experience', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.walking_experience', compact('banner', 'text_banner'));
-});//15
-Route::get('/blog', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.blog', compact('banner', 'text_banner'));
-});//14
-
-
-Route::get('/sendusemail', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.send_us_email', compact('banner', 'text_banner'));
-});
