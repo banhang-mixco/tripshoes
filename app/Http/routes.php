@@ -103,5 +103,4 @@ Route::get('/sendusemail', function(){
 	$banner = false;
 	$text_banner = '';
 	return view('frontend.send_us_email', compact('banner', 'text_banner'));
-
-
+});
