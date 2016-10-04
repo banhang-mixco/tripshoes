@@ -25,7 +25,7 @@
 				        <p>{{ trans('lang_user.header.sign_in_here') }}</p>
 				        <form action="{{ url('/postLogin') }}" method="POST">
 				        	<div class="form-group">
-				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
+				        		<input type="text" class="form-control form_padding" title="Example: example@gmail.com" name="email" placeholder="Email" required>
 				        	</div>
 				        	<div class="form-group">
 				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password">
@@ -42,8 +42,7 @@
 				        	<input type="submit" value="Sign In" class="btn btn-lg btn-success btn_login"> 
 				        </form>
 				        <a href="{{ url('/sendusemail') }}"><strong>{{ trans('lang_user.header.access_code') }}</strong></a>
-				      </div>
-				      
+				      </div>			      
 				    </div>
 				  </div>
 				</div>
@@ -56,69 +55,63 @@
 						        <p>{{ trans('lang_user.header.email_reset') }}</p>
 						        
 						        	<div class="form-group">
-						        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
+						        		<input type="text" class="form-control form_padding" title="Example: example@gmail.com" name="email" placeholder="Email" required>
 						        	</div>
-						        </div>
+						      </div>
 						      <div class="modal-footer">
 						      	<div class="pull-right">
 						      		<a href="#" data-toggle="modal" data-target="#signin1" class="btn btn-lg btn-danger">{{ trans('lang_user.header.back') }}</a>
-						      		<input type="submit" value="Send Email" class="btn btn-success btn-lg">
+						      		<input type="submit" value="Send Email" class="btn btn-success btn-lg ">
 						      	</div>
-
 						      </div>
-					      </form>
+					     </form>			      
+				    </div>
+				  </div>
+				</div>			
+				<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+				  <div class="modal-dialog modal-sm">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
+				      </div>
+				      <div class="modal-body">
+				       	<form method="POST" action="{{ url('/postRegister') }}">
+				       		{{ csrf_field() }}
+				       		@if (count($errors) > 0)
+			                    <div class="alert alert-danger">
+			                        <ul>
+			                            @foreach ($errors->all() as $error)
+			                                <li>{{ $error }}</li>
+			                            @endforeach
+			                        </ul>
+			                    </div>
+			                @endif
+				       		<div class="form-group">
+				        		<input type="text" class="form-control" placeholder="Name" name="name">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control" placeholder="Email" name="email" required>
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="password" class="form-control" placeholder="Password" name="password" required="">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="number" class="form-control" placeholder="Age" name="age">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control" placeholder="Country of Residence" name="country">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control" placeholder="Access Code" name="code" required>
+				        	</div>
+				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
+				       	</form>
+				      </div>
 				      
 				    </div>
 				  </div>
 				</div>
-
-
-				
-	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
-	  <div class="modal-dialog modal-sm">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
-	      </div>
-	      <div class="modal-body">
-	       	<form method="POST" action="{{ url('/postRegister') }}">
-	       		{{ csrf_field() }}
-	       		@if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-	       		<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Name" name="name">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Email" name="email">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="password" class="form-control" placeholder="Password" name="password">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="number" class="form-control" placeholder="Age" name="age">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Access Code" name="code">
-	        	</div>
-	        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
-	       	</form>
-	      </div>
-	      
-	    </div>
-	  </div>
-	</div>
-
 				@else
 					<a  class="pull-right btn btn-success btn-lg">{{ trans('lang_user.header.logout') }}</a>
 					<ul class="nav-right pull-right list-inline">
@@ -128,37 +121,34 @@
 						</li>
 
 						<li class="dropdown">
-							<a href class="dropdown-toggle" data-toggle="dropdown">
+							<a href="{{ route('profile') }}" class="dropdown-toggle" data-toggle="dropdown">
 								{{Auth::user()->first_name}} {{Auth::user()->last_name}}
 							</a>
 							<div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
 								<ul class="dropdown-menu animated littleFadeInRight" role="menu">
-
-					                <li>
-					                    <a role="button" tabindex="0" href="">
-					                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
-					                    </a>
-					                </li>
-					                <li>
-					                    <a role="button" tabindex="0">
-					                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
-					                    </a>
-					                </li>
-					                <li>
-					                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
-					                        <i class="fa fa-circle-logout"></i>{{ trans('lang_user.header.logout') }}
-					                    </a>
-					                </li>
-
-					            </ul>
+		                <li>
+		                    <a role="button" tabindex="0" href="">
+		                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
+		                    </a>
+		                </li>
+		                <li>
+		                    <a role="button" tabindex="0">
+		                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
+		                    </a>
+		                </li>
+		                <li>
+		                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
+		                        <i class="fa fa-circle-logout"></i>{{ trans('lang_user.header.logout') }}
+		                    </a>
+		                </li>
+		            </ul>
 							</div>
 						</li>
 					</ul>
-				@endif
-			
+				@endif		
 		</div>
 		<div class="text-center webname">
-			<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+			<a href="{{ asset('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
 			trip<span>shoes</span>
 		</div>
 		{!! $text_banner !!}

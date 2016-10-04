@@ -4,9 +4,9 @@
 <div class="container">
 <div class="row">
 	<div class="col-lg-12">
-        <h1 class="text-center">Send us a message</h1>
+        <h1 class="text-center">{{ trans('lang_user.send_us.header') }}</h1>
         <div class="col-lg-offset-3 col-lg-6 text-center">
-        	<h3>Fell free to send us a an email with any question you might have</h3>
+        	<h3>{{ trans('lang_user.send_us.content_1') }}</h3>
     	</div>
         <div class="col-lg-12">
             <div class="col-lg-12 text-center form_send">
@@ -30,7 +30,7 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%">
+                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%" required>
                     </div>
                    </div>
                   </div>
@@ -41,10 +41,10 @@
                     </div>
                    </div>
                   </div>
-                  <button type="submit" class="btn btn-lg btn_login col-lg-12 form_padding">Get in touch</button>
+                  <button type="submit" class="btn btn-lg btn_login col-lg-12 form_padding">{{ trans('lang_user.send_us.content_2') }}</button>
                 </form>
-                <div class="text-center col-lg-12 just_email"> Or just email on</div>
-                <div class="text-center col-lg-12 info"><u>info@tripshoes.com</u></div>
+                <div class="text-center col-lg-12 just_email"> {{ trans('lang_user.send_us.content_3') }}</div>
+                <div class="text-center col-lg-12 info"><u>{{ trans('lang_user.send_us.info') }}</u></div>
 	        </div>
 	    </div>
         </div>

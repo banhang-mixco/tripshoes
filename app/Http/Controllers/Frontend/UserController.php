@@ -127,5 +127,17 @@ class UserController extends Controller
         Auth::logout();
         return redirect('/');
     }
+    /**
+     * Store a report to the database.
+     *
+     * @param Request $request the reporting request
+     *
+     * @return Illuminate\Http\Response
+     */
+    public function getprofile(){
+        $banner = false;
+        $text_banner = '';
+        return view('frontend.profile', compact('banner', 'text_banner'));
+    }
 
 }

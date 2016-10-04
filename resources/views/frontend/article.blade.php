@@ -174,46 +174,7 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="fullwidth">
-					<div class="comments-content">
-						<div class="row">
-							<div class="col-lg-3"></div>
-							<div class="col-lg-7 comments-info">
-								<span class="comments-number">32 comments<i class="fa fa-caret-down"></i></span>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-md-11">
-										<span class="small-info">Yulia Petrova 3:32 pm</span>
-										<p>Play the hits! Some of our favorite editorial features of the last few years with Miguel, Kindness, Toro y Moi, Future Islands, Lee Fields.</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-md-11">
-										<span class="small-info">Artyom Tarasov 3:32 pm</span>
-										<p>I've seen people drop hints that they were Bitcoin's creator seemingly to try to bring in investment money</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-8">
-										<div class="form-group comment-form">
-											<input type="hidden" name="_token" value="{{ Session::token() }}" />
-											<input type="hidden" name="users_id" value="{{Auth::user() ? Auth::user()->id : ''}}">
-											<input type="hidden" name="tours_id" value="{{$tour->id}}">
-											<textarea type="text" class="form-control" placeholder="Write a comment" row="3" id="comment"></textarea>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		
+		</div>		
 	</div>
 </div>
 @endsection
