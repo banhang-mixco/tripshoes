@@ -17,7 +17,6 @@ function isJson(item) {
     return false;
 }
 
-
 //profile
 $(document).ready(function(){
 
@@ -256,5 +255,169 @@ $(document).ready(function(){
 	if(pathname == '/resetPassword'){
 		$('#resetPassword').modal('show');
 	}
+
+
+
+	//ajax validation
+	$formresetpassword = $('form#formresetpassword');
+	$formresetpassword.submit(function(e){
+		e.preventDefault();
+		
+		var email = $formresetpassword.find('input#email').val();
+		var url = $(this).attr('action');
+
+		$.ajax({
+			url: url,
+	        type: 'POST',
+	        data: {email: email},
+	        dataType: 'json',
+	        success: function(data){
+	        	var showerror = $formresetpassword.find('span.errors');
+	        	showerror.addClass('hidden');
+
+	        	$formresetpassword.find('.form-group').each(function(){
+	        		$(this).removeClass('has-error');
+	        		$(this).find('.help-block').remove();
+	        	});
+	        	if(data.code == 0){
+	        		var errors = data.errors;
+	        		if(isJson(errors)){
+	        			for(var key in errors){
+
+		        			var $id = $formresetpassword.find('#' + key);
+
+		        			var i;
+		        			$finddiv = $formresetpassword.find($id).parent();
+		        			$finddiv.addClass('has-error');
+		        			
+		        			if(errors.hasOwnProperty(key)){
+		        				if(errors[key].length>0){
+	                                for(i=0; i<errors[key].length;i++){
+	                                	html = '';
+	                                	html += '<span class="help-block mb-0">';
+	                                	html += errors[key][i];
+	                                	html += '</span>';
+	                                	$finddiv.append(html);
+									}
+	                            }
+		        			}
+		        		}
+	        		
+	        		}else if(typeof errors === 'string' || errors instanceof String){
+	        			showerror.append(errors).removeClass('hidden');
+	        		}
+	        	}else if(data.code==1){
+	        		html = '';
+        			html += '<div class="modal fade" id="successnotify" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">';
+        			html += '<div class="modal-dialog modal-md">';
+        			html += '<div class="modal-content">';
+        			html += '<div class="modal-body">';
+        			html += '<h4 class="text-center">' + data.message + '...</h4>';
+        			html += '</div>';
+        			html += '</div>';
+        			html += '</div>';
+        			html += '</div>';
+        			$('body').append(html);
+        			$('body #signin1').modal('hide');
+        			$('body #successnotify').modal('show');
+
+	        		setTimeout(function(){
+
+	        			window.location.href = '/';
+	        			$('body #successnotify').modal('hide');
+	        			$('body #successnotify').remove();
+
+	        		}, 3000);	
+        			
+        		}
+	        	
+	        },
+	        error:function(){
+
+	        }
+		});
+	});
+
+
+	//ajax validation new password
+	$formResetPassword = $('form#formResetPassword');
+	$formResetPassword.submit(function(e){
+		e.preventDefault();
+		
+		var password = $formResetPassword.find('input#password').val();
+		var confirm_password = $formResetPassword.find('input#confirm_password').val();
+		var url = $(this).attr('action');
+
+		$.ajax({
+			url: url,
+	        type: 'POST',
+	        data: {password: password, confirm_password: confirm_password},
+	        dataType: 'json',
+	        success: function(data){
+	        	var showerror = $formResetPassword.find('span.errors');
+	        	showerror.addClass('hidden');
+
+	        	$formResetPassword.find('.form-group').each(function(){
+	        		$(this).removeClass('has-error');
+	        		$(this).find('.help-block').remove();
+	        	});
+	        	if(data.code == 0){
+	        		var errors = data.errors;
+	        		if(isJson(errors)){
+	        			for(var key in errors){
+
+		        			var $id = $formResetPassword.find('#' + key);
+
+		        			var i;
+		        			$finddiv = $formResetPassword.find($id).parent();
+		        			$finddiv.addClass('has-error');
+		        			
+		        			if(errors.hasOwnProperty(key)){
+		        				if(errors[key].length>0){
+	                                for(i=0; i<errors[key].length;i++){
+	                                	html = '';
+	                                	html += '<span class="help-block mb-0">';
+	                                	html += errors[key][i];
+	                                	html += '</span>';
+	                                	$finddiv.append(html);
+									}
+	                            }
+		        			}
+		        		}
+	        		
+	        		}else if(typeof errors === 'string' || errors instanceof String){
+	        			showerror.append(errors).removeClass('hidden');
+	        		}
+	        	}else if(data.code==1){
+	        		html = '';
+        			html += '<div class="modal fade" id="successnotify" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">';
+        			html += '<div class="modal-dialog modal-md">';
+        			html += '<div class="modal-content">';
+        			html += '<div class="modal-body">';
+        			html += '<h4 class="text-center">' + data.message + '...</h4>';
+        			html += '</div>';
+        			html += '</div>';
+        			html += '</div>';
+        			html += '</div>';
+        			$('body').append(html);
+        			$('body #signin1').modal('hide');
+        			$('body #successnotify').modal('show');
+
+	        		setTimeout(function(){
+
+	        			window.location.href = '/';
+	        			$('body #successnotify').modal('hide');
+	        			$('body #successnotify').remove();
+
+	        		}, 3000);	
+        			
+        		}
+	        	
+	        },
+	        error:function(){
+
+	        }
+		});
+	});
 });
 
