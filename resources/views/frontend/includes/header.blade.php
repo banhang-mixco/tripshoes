@@ -1,4 +1,4 @@
-<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: url({{ asset($banner) }}) no-repeat; background-size: cover;">
+<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25) ), url({{ asset($banner) }}) no-repeat; background-size: 140%;background-position: -30px -175px;">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left">
@@ -22,8 +22,11 @@
 				        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.sign_in') }}</h4>
 				      </div>
 				      <div class="modal-body modal_login">
+
+
 				        <p>{{ trans('lang_user.header.sign_in_here') }}</p>
-				        <form action="{{ url('/postLogin') }}" method="POST">
+				        <form action="{{ url('/postLogin') }}" method="POST" id="formsignin">
+
 				        	<div class="form-group">
 				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
 				        	</div>
@@ -82,7 +85,7 @@
 	        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
 	      </div>
 	      <div class="modal-body">
-	       	<form method="POST" action="{{ url('/postRegister') }}">
+	       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
 	       		{{ csrf_field() }}
 	       		@if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -94,22 +97,22 @@
                     </div>
                 @endif
 	       		<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Name" name="name">
+	        		<input type="text" class="form-control" placeholder="Name" name="name" id="name">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Email" name="email">
+	        		<input type="text" class="form-control" placeholder="Email" name="email" id="email">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="password" class="form-control" placeholder="Password" name="password">
+	        		<input type="password" class="form-control" placeholder="Password" name="password" id="password">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="number" class="form-control" placeholder="Age" name="age">
+	        		<input type="number" class="form-control" placeholder="Age" name="age" id="age">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country">
+	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country" id="country">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Access Code" name="code">
+	        		<input type="text" class="form-control" placeholder="Access Code" name="code" id="code">
 	        	</div>
 	        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
 	       	</form>

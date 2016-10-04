@@ -60,33 +60,42 @@
 				</div>
 			</div>
 		</div>
-		<div class="row select_content">
-			<div class="col-md-3">
-				<select class="form-control">
-					<option>Select Date</option>
-				</select>
+		<form method="GET" action="{{ url('/trip1') }}">
+			<div class="row select_content">
+				<div class="col-md-3">
+					<select class="form-control" name="date">
+						<option>Select Date</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control" name="time">
+						<option>Select Time</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control" name="ticket">
+						<option value="">Select No of Tickets</option>
+						@for($i=1; $i<=20; $i++)
+							<option value="{{ $i }}">{{ $i }} tickets</option>
+						@endfor
+					</select>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control" name="type">
+						<option value="">Select Type</option>
+						@foreach($tickets as $ticket)
+							<option value="{{ $ticket->id }}">{{ $ticket->name }}</option>
+						@endforeach	
+					</select>
+				</div>
 			</div>
-			<div class="col-md-3">
-				<select class="form-control">
-					<option>Select Time</option>
-				</select>
+			<span>$21.00</span>
+			<input type="hidden" name="price" value="21">
+			<div class="button_end">
+				<button type="submit" href="{{ url('/trip1') }}" class="btn btn-lg btn-success">Enquire Now</button>
+				<a href="#" class="btn btn-lg btn-default">Add promo code</a>
 			</div>
-			<div class="col-md-3">
-				<select class="form-control">
-					<option>Select No of Tickets</option>
-				</select>
-			</div>
-			<div class="col-md-3">
-				<select class="form-control">
-					<option>Select Type</option>
-				</select>
-			</div>
-		</div>
-		<span>$21.00</span>
-		<div class="button_end">
-			<a href="#" class="btn btn-lg btn-success">Enquire Now</a>
-			<a href="#" class="btn btn-lg btn-default">Add promo code</a>
-		</div>
+		</form>
 	</div>
 @section('script')
 	<script type="text/javascript" src="{{ asset('frontend/js/map.js') }}"></script>

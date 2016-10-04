@@ -27,8 +27,15 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	/*Trip*/
 	Route::get('/trip',['as' => 'trip','uses' => 'TripController@index']);
 	Route::get('/trip/{id}',['uses' => 'TripController@show']);
+	Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 	/*Profile with ajax*/
 	Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
+
+
+	Route::get('/trip1', 'BookingController@trip1');
+	Route::get('/trip2', 'BookingController@trip2');
+	Route::get('/trip3', 'BookingController@trip3');
+
 	/*My booking*/
 	Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);
 	Route::get('bookings/{id}', ['as' => 'booking.show', 'uses' => 'MyBookingController@show']);
@@ -38,6 +45,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	/*Blog*/
 	Route::get('/blog',['as' => 'blog.index', 'uses' => 'BlogController@index']);
 	Route::get('/blog/{id}', ['as' => 'blog.article', 'uses' => 'BlogController@article']);
+
 });
 
 
@@ -47,24 +55,52 @@ Route::get('/profile', function(){
 	return view('frontend.profile', compact('banner', 'text_banner'));
 });
 
-Route::get('/trip1', function(){
-	$banner = false;
-	$text_banner = '';
-	return view('frontend.trips_checkout_1', compact('banner', 'text_banner'));
+
+Route::get('/tripsnologin', function(){
+	return view('frontend.trips_no_login', compact('banner', 'text_banner', 'class'));
 });
-Route::get('/trip2', function(){
+Route::get('/aboutus', function(){
 	$banner = false;
 	$text_banner = '';
-	return view('frontend.trips_checkout_2', compact('banner', 'text_banner'));
+	return view('frontend.aboutUs', compact('banner', 'text_banner'));
 });
-Route::get('/trip3', function(){
+Route::get('/support', function(){
 	$banner = false;
 	$text_banner = '';
-	return view('frontend.trips_checkout_3', compact('banner', 'text_banner'));
+	return view('frontend.support', compact('banner', 'text_banner'));
 });
 
-Route::get('/tripswithlogin', function(){
-	$banner = '';
+
+Route::get('/mybookings', function(){
+	$banner = false;
 	$text_banner = '';
-	return view('frontend.trips_with_login', compact('banner', 'text_banner'));
+	return view('frontend.my_bookings', compact('banner', 'text_banner'));
+});
+Route::get('/tripslogin', function(){
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.trip_login', compact('banner', 'text_banner'));
+});
+
+Route::get('/bicycle_booking', function(){
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.bicycle_booking', compact('banner', 'text_banner'));
+});
+Route::get('/walking_experience', function(){
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.walking_experience', compact('banner', 'text_banner'));
+});//15
+Route::get('/blog', function(){
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.blog', compact('banner', 'text_banner'));
+});//14
+
+
+Route::get('/sendusemail', function(){
+	$banner = false;
+	$text_banner = '';
+	return view('frontend.send_us_email', compact('banner', 'text_banner'));
 });

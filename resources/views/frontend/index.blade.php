@@ -5,7 +5,7 @@
 		<div class="trip">
 			<div class="text-center">
 				<div class="col-lg-offset-1 col-lg-10"><h1>Every trips designed by someone who lives and breathes the cultures</h1></div>
-				<div class="col-lg-12" style="padding:0px;"><p>TripShoes offers daily guided trips in Hoi An. Each trip allows you the chance to experience a culture in someone else's shoes. Because each trip has been created in partnership with someone who has a special bond with the location, every tour takes place on a specially designed route filled with personal stories and experiences that only someone who lives, loves and breathes the area will be able to share.</p></div>
+				<div class="col-lg-12 info" style="padding:0px;"><p>TripShoes offers daily guided trips in Hoi An. Each trip allows you the chance to experience a culture in someone else's shoes. Because each trip has been created in partnership with someone who has a special bond with the location, every tour takes place on a specially designed route filled with personal stories and experiences that only someone who lives, loves and breathes the area will be able to share.</p></div>
 			</div>
 			<div class="col-lg-12 img-round bagia"></div>
 			<div class="row">
@@ -36,11 +36,9 @@
 	<div class="col-lg-12">
 		<div class="row">
 		<div class="gotchan text-center">
-			<div class="col-lg-offset-2 col-lg-8 ">
-				<img src="{{ asset('frontend/images/noun_145969.png') }}">
+			<img src="{{ asset('frontend/images/noun_145969.png') }}">
 				<p>In order to truly allow you to step into someone's else shoes, Tripshoes has built a remarkably clever app to ensure that you won't miss a single beat of your journey.</p>
 			</div>
-		</div>
 		</div>
 	</div>
 	<div class="container">
@@ -66,46 +64,53 @@
 			<div class="photobook"></div>	
 		</div>
 	</div>	
-	<div class="container">
+	<div class="giving">
 		<!-- Begin A new form of giving -->
-		<div class="col-lg-12 giving">
-			<div class="col-lg-offset-1 col-lg-5 giving_content img-round">
-				<div class="col-lg-12"><h1 class="text-center"> A new form of giving</h1></div>
-				<div class="col-lg-offset-1 col-lg-10"><p class="text-center"> Every booking undertaken on TripShoes sees a donation made to assist the under privileged living in Vietnam. TripShoes is associated with a host of charities and education centres across Vietnam an Australia and you'll be pleased to know you'll be "giving with every foottep indertaken on each trip."</p></div>
+		<div class="container">
+			<div class="col-lg-5 giving_content img-round">
+				<div class="giving-info text-center">
+					<h1> A new form of giving</h1>
+					<p> Every booking undertaken on TripShoes sees a donation made to assist the underprivileged living in Vietnam. TripShoes is associated with a host of charities and education centres across Vietnam an Australia and you'll be pleased to know you'll be "giving with every foottep indertaken on each trip."</p>
+				</div>
 			</div>
 		</div>
+	</div>
 		<!-- End giving -->
 
 		<!-- How to book -->
-		<div class="col-lg-12 book">
-			<h4 class="text-center">How to Book</h4>
-			<h1 class="text-center"> Booking is as easy as 1,2,3</h1>
-			<div class="col-lg-12 book_content">
-				<div class="col-lg-4 text-center">
-					<img src="{{ asset('frontend/images/noun_464.png') }}">
-					<div class="col-lg-offset-1 col-lg-10 ">
-						<h4 class="text-center"> Download the TripShoes app</h4>
-						<p class="text-center"> TripShoes is currently only available on iphone. Simply download the secure TripShoes app onto your iphone on the App Store</p>
+	<div class="book text-center">
+		<h4>How to Book</h4>
+		<h1> Booking is as easy as 1,2,3</h1>
+		<div class="container">
+			<div class="row">
+				<div class="book_content">
+					<div class="col-lg-4">
+						<img src="{{ asset('frontend/images/noun_464.png') }}">
+						<h4> Download the TripShoes app</h4>
+						<div class="col-lg-offset-1 col-lg-10">
+							<p> TripShoes is currently only available on iphone. Simply download the secure TripShoes app onto your iphone on the App Store</p>
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 text-center">
-					<img src="{{ asset('frontend/images/noun_579236.png') }}">
-					<h4 class="text-center"> Book a trip in-app or on the website</h4>
-					<div class="col-lg-offset-1 col-lg-10 ">
-						<p class="text-center"> Payments can be made via Paypal or credit card. All trips offer incredible value.</p>
+					<div class="col-lg-4">
+						<img src="{{ asset('frontend/images/noun_579236.png') }}">
+						<h4> Book a trip in-app or on the website</h4>
+						<div class="col-lg-offset-1 col-lg-10">
+							<p> Payments can be made via Paypal or credit card. All trips offer incredible value.</p>
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 text-center">
-					<img src="{{ asset('frontend/images/noun_532311.png') }}">
-					<h4 class="text-center"> Meet at the Starting Location</h4 >
-					<div class="col-lg-offset-1 col-lg-10 ">
-						<p class="text-center"> Arrive ad your starting locaition 5 minutes before your trip begins, log into your app, tap on Tour Mode and you're all ser. TripShoes will handle the rest.</p>
+					<div class="col-lg-4">
+						<img src="{{ asset('frontend/images/noun_532311.png') }}">
+						<h4> Meet at the Starting Location</h4 >
+						<div class="col-lg-offset-1 col-lg-10 ">
+							<p> Arrive ad your starting locaition 5 minutes before your trip begins, log into your app, tap on Tour Mode and you're all ser. TripShoes will handle the rest.</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- End how to book -->
 	</div>
+		<!-- End how to book -->
+	
 	<div class="photolauch"></div>	
 	<!-- Begin Launch -->
 	<div class="col-lg-12 launch">
