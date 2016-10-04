@@ -122,7 +122,7 @@
 	</div>
 	<div class="container">
 		<!-- form -->
-		<div class="col-lg-12 text-center form_send">
+		<div class="col-lg-12 text-center form_send" id="form_send">
 	       	<h1 class="text-center">Get early access</h1>
 	        <div class="col-lg-offset-2 col-lg-8 text-center">
 	            <form class="form_access">
