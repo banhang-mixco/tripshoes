@@ -41,7 +41,6 @@
 				<p>{{ trans('lang_user.index.content_8')}}</p>
 			</div>
 		</div>
-		</div>
 	</div>
 	<div class="container">
 		<div class="app">
@@ -66,7 +65,7 @@
 			<div class="photobook"></div>	
 		</div>
 	</div>	
-	<div class="container">
+	<div class="giving">
 		<!-- Begin A new form of giving -->
 		<div class="col-lg-12 giving">
 			<div class="col-lg-offset-1 col-lg-5 giving_content img-round">
@@ -74,6 +73,7 @@
 				<div class="col-lg-offset-1 col-lg-10"><p class="text-center"> {{ trans('lang_user.index.content_16')}}</p></div>
 			</div>
 		</div>
+	</div>
 		<!-- End giving -->
 
 		<!-- How to book -->
@@ -104,8 +104,9 @@
 				</div>
 			</div>
 		</div>
-		<!-- End how to book -->
 	</div>
+		<!-- End how to book -->
+	
 	<div class="photolauch"></div>	
 	<!-- Begin Launch -->
 	<div class="col-lg-12 launch">

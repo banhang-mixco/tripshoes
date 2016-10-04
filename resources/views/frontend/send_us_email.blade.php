@@ -12,32 +12,43 @@
             <div class="col-lg-12 text-center form_send">
 	        <div class="col-lg-offset-2 col-lg-8 text-center">
 	            <form class="form_access" method="POST" action="{{ url('/postSendCode') }}">
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                {{ csrf_Field() }}
+                
+                {{ csrf_field() }}
                  <div class="row">
                   <div class="col-lg-6">
-                    <div class="form-group">
-                        <input type="text" name="yourname" class="form-control form_padding input-lg" placeholder="Youname" width="100%">
+                  
+                    <div class="form-group {{ $errors->has('yourname') ? ' has-error' : '' }}">
+                    @if( $errors->has('yourname') )
+                          <span class="help-block mb-0">
+                            {{ $errors->first('yourname') }}
+                          </span>
+                        @endif
+                        <input type="text" name="yourname" class="form-control form_padding input-lg" placeholder="Youname" width="100%" value="{{ old('yourname') }}">
+                        
                     </div>
                   </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%" required>
+                  <div class="col-lg-6">                  
+                    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+                      @if( $errors->has('email') )
+                          <span class="help-block mb-0">
+                            {{ $errors->first('email') }}
+                          </span>
+                        @endif
+                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%" value="{{ old('email') }}" required>
                     </div>
                    </div>
                   </div>
                   <div class="row">
                    <div class="col-lg-12">
-                    <div class="form-group">
-                        <textarea cols="70" rows="5" resize="false" class="form-control form_padding" name="message" placeholder="Message"></textarea>
+                   
+                    <div class="form-group {{ $errors->has('message') ? ' has-error' : '' }}">
+                    @if( $errors->has('message') )
+                          <span class="help-block mb-0">
+                            {{ $errors->first('message') }}
+                          </span>
+                        @endif
+                        <textarea cols="70" rows="5" resize="false" class="form-control form_padding" name="message" placeholder="Message">{{ old('message') }}</textarea>
+                        
                     </div>
                    </div>
                   </div>

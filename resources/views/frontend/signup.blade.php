@@ -1,7 +1,7 @@
 @extends('frontend.layout.master')
 	
 @section('content')
-	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+	{{--<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
 	  <div class="modal-dialog modal-sm">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -11,15 +11,6 @@
 	      <div class="modal-body">
 	       	<form method="POST" action="{{ url('/postRegister') }}">
 	       		{{ csrf_field() }}
-	       		@if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
 	       		<div class="form-group">
 	        		<input type="text" class="form-control" placeholder="Name" name="name" required>
 	        	</div>
@@ -27,13 +18,13 @@
 	        		<input type="text" class="form-control" placeholder="Email" name="email" required>
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="password" class="form-control" placeholder="Password" name="password">
+	        		<input type="password" class="form-control" placeholder="Password" name="password" id="password">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="number" class="form-control" placeholder="Age" name="age">
+	        		<input type="number" class="form-control" placeholder="Age" name="age" id="age">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country">
+	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country" id="country">
 	        	</div>
 	        	<div class="form-group">
 	        		<input type="text" class="form-control" placeholder="Access Code" name="code" required>
@@ -44,7 +35,7 @@
 	      
 	    </div>
 	  </div>
-	</div>
+	</div>--}}
 	<div class="container">
 		<div class="trip">
 			<div class="text-center">

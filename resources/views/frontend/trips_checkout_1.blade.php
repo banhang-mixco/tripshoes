@@ -6,7 +6,7 @@
 		<div class="cart-title">
 			<h3 class="text-left">Cart</h3>						
 		</div>
-		<form>
+		<form action="{{ asset('/trip2') }}" method="GET">
 			<div class="info-cart">
 				<div class="row">
 					<div class="col-lg-1 text-center">
@@ -23,7 +23,15 @@
 						</div>
 					</div>
 					<div class="col-lg-3 text-center">
-						<p class="number_ticket"><span class="sign-cart">+</span> 1 <span class="sign-cart">-</span></p>
+						<p class="number_ticket">
+							<a href="#" class="plus">
+								<span class="sign-cart">+</span>
+							</a>
+							<span class="ticket">1</span> 
+							<a href="#" class="minus">
+								<span class="sign-cart">-</span>
+							</a>
+						</p>
 					</div>
 					<div class="col-lg-2">
 						<div class="price">
@@ -50,7 +58,7 @@
 			<div class="row">
 				<div class="col-lg-12 btn-group ">
 				  	<a href="{{ asset('/tripsnologin') }}" class="btn btn-default btn-lg-5 return">Return to Shopping</a>
-					<a href="{{ asset('/trip2') }}" class="btn btn-lg-7 btn-default continue">Continue Customer Detail <i class="fa fa-arrow-right"></i></a>
+					<button class="btn btn-lg-7 btn-default continue" type="submit">Continue Customer Detail <i class="fa fa-arrow-right"></i></button>>
 				</div>
 			</div>
 			

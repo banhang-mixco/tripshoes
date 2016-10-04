@@ -7,7 +7,7 @@
 			<div class="form-group trip_content edit_image">
 				<h3>Traveller Number1</h3><img src="{{ asset('frontend/images/Image20.png') }}" class="showPlay img-rounded"><br>	
 			</div>
-			<form>
+			<form action="{{ asset('/trip3') }}" method="GET">
 				<div class="form-group trip_content">
 					<label >E-mail</label>
 					<input type="emai" name="emai" class="form-control form_padding">
@@ -43,7 +43,7 @@
 				<div class="row">
 				<div class="btn-group btn_trip2">
 				  	<a href="{{ asset('/tripsnologin') }}" class="btn btn-lg-6 btn_addtravel">Add Traveller</a>
-					<a href="{{ asset('/trip3') }}" class="btn btn-lg-6 complete">Continue to Payment <i class="fa fa-arrow-right"></i></a>
+					<button type="submit" class="btn btn-lg complete">Continue to Payment <i class="fa fa-arrow-right"></i></button>
 				</div>
 				</div>
 			</form>

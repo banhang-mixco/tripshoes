@@ -1,4 +1,4 @@
-<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: url({{ asset($banner) }}) no-repeat; background-size: cover;">
+<div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25) ), url({{ asset($banner) }}) no-repeat; background-size: 140%;background-position: -30px -175px;">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left">
@@ -15,20 +15,23 @@
 					</div>
 				</div>
 				<div class="modal fade" id="signin1" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
+				  <div class="modal-dialog modal-md">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.sign_in') }}</h4>
 				      </div>
 				      <div class="modal-body modal_login">
+
+
 				        <p>{{ trans('lang_user.header.sign_in_here') }}</p>
-				        <form action="{{ url('/postLogin') }}" method="POST">
+				        <form action="{{ url('/postLogin') }}" method="POST" id="formsignin">
+				       		<span class="errors hidden"></span>
 				        	<div class="form-group">
 				        		<input type="text" class="form-control form_padding" title="Example: example@gmail.com" name="email" placeholder="Email" required>
 				        	</div>
 				        	<div class="form-group">
-				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password">
+				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password" id="password">
 				        	</div>
 				        	<div>
 				        	<div class="pull-left">
@@ -48,7 +51,7 @@
 				</div>
 
 				<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
+				  <div class="modal-dialog">
 				  		<div class="modal-content">
 					    <form action="{{ url('/sendEmailChangePassword') }}" method="POST">
 						      <div class="modal-body modal_login">
@@ -111,15 +114,57 @@
 				      
 				    </div>
 				  </div>
-				</div>
-				@else
-					<a  class="pull-right btn btn-success btn-lg">{{ trans('lang_user.header.logout') }}</a>
-					<ul class="nav-right pull-right list-inline">
-						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
-						<li>
-							<a href="#">{{ trans('lang_user.header.cart') }}<span class="badge">1</span></a>
-						</li>
-
+				</div>				
+	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
+	      </div>
+	      <div class="modal-body">
+	       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
+	       		{{ csrf_field() }}
+	       		@if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+	       		<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Name" name="name" id="name">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Email" name="email" id="email">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="password" class="form-control" placeholder="Password" name="password" id="password">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="number" class="form-control" placeholder="Age" name="age" id="age">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country" id="country">
+	        	</div>
+	        	<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Access Code" name="code" id="code">
+	        	</div>
+	        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
+	       	</form>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+					<div class="link">
+						<ul class="nav-right pull-right list-inline">
+							<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
+							<li>
+								<a href="#"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							</li>
 						<li class="dropdown">
 							<a href="{{ route('profile') }}" class="dropdown-toggle" data-toggle="dropdown">
 								{{Auth::user()->first_name}} {{Auth::user()->last_name}}
@@ -149,6 +194,39 @@
 		</div>
 		<div class="text-center webname">
 			<a href="{{ asset('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+							<li class="dropdown">
+								<a href class="dropdown-toggle" data-toggle="dropdown">
+									{{Auth::user()->email}}
+								</a>
+								
+								<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">
+
+					                <li>
+					                    <a role="button" href="{{ url('/profile') }}">
+					                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
+					                    </a>
+					                </li>
+					                <li>
+					                    <a role="button">
+					                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
+					                    </a>
+					                </li>
+					                <li>
+					                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
+					                        <i class="fa fa-sign-out"></i>{{ trans('lang_user.header.logout') }}
+					                    </a>
+					                </li>
+
+					            </ul>
+								
+							</li>
+						</ul>
+					</div>
+				@endif
+			
+		</div>
+		<div class="text-center webname">
+			<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
 			trip<span>shoes</span>
 		</div>
 		{!! $text_banner !!}
