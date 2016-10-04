@@ -111,15 +111,7 @@
 	      <div class="modal-body">
 	       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
 	       		{{ csrf_field() }}
-	       		@if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+	       		<span class="errors hidden"></span>
 	       		<div class="form-group">
 	        		<input type="text" class="form-control form_padding" placeholder="Name" name="name" id="name">
 	        	</div>
@@ -152,7 +144,7 @@
 						<ul class="nav-right pull-right list-inline">
 							<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 							<li>
-								<a href="#"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+								<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
 							</li>
 
 							<li class="dropdown">

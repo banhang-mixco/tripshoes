@@ -72,17 +72,25 @@ class UserController extends Controller
 
         ]);
 
-        if(Session::has($email)){
-            if(Session::get($email)[0] != $code){
-                $validator->errors()->add('code', 'Wrong access code');
-            }
-            
-        }else{
-            $validator->errors()->add('code', 'This email have not been sent access code');
-        }
+        
         if($validator->fails()){
             return response()->json([
                 'errors' => $validator->messages(),
+                'code' => 0
+            ]);
+        }
+        if(Session::has($email)){
+            if(Session::get($email)[0] != $code){
+                return response()->json([
+                    'errors' => 'Wrong access code',
+                    'code' => 0
+                ]);
+                
+            }
+            
+        }else{
+            return response()->json([
+                'errors' => 'This email have not been sent access code',
                 'code' => 0
             ]);
         }
@@ -104,7 +112,10 @@ class UserController extends Controller
     	$user->country = $country;
         $user->save();
 
-        return 'Thành công';
+        return response()->json([
+            'message' => 'Register Sucess...',
+            'code' => 0
+        ]);
     }
      /**
      * log out a report to the database.
@@ -114,6 +125,18 @@ class UserController extends Controller
     public function logout(){
         Auth::logout();
         return redirect('/');
+    }
+    /**
+     * Store a report to the database.
+     *
+     * @param Request $request the reporting request
+     *
+     * @return Illuminate\Http\Response
+     */
+    public function getprofile(){
+        $banner = false;
+        $text_banner = '';
+        return view('frontend.profile', compact('banner', 'text_banner'));
     }
 
 }

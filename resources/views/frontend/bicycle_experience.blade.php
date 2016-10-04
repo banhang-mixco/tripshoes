@@ -6,7 +6,7 @@
 @section('content')
 	<div class="container bacgound_no_login">
 		<div class="back">
-			<p><a href="{{ asset('/trip') }}"><i class="fa fa-chevron-left"></a></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back to Trips</p>
+			<p><a href="{{ asset('/trip') }}"><i class="fa fa-chevron-left"></a></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ trans('lang_user.booking.back_to_trips') }}</p>
 		</div>
 
 		<div class="row">
@@ -16,10 +16,10 @@
 				 	<h2>{{ $tour->userid->first_name }} {{ $tour->userid->last_name }}'s {{ $tour->transport}}</h2>
 				 	<p>{{ $tour->about }}</p>
 				 	<ul class="nav nav-tabs">
-					  	<li class="active"><a data-toggle="tab" href="#about">About</a></li>
-					  	<li><a data-toggle="tab" href="#host">Your Host</a></li>
-					  	<li><a data-toggle="tab" href="#reviews">Reviews</a></li>
-					  	<li ><a data-toggle="tab" href="#locations">Starting Location</a></li>
+					  	<li class="active"><a data-toggle="tab" href="#about">{{ trans('lang_user.booking.about') }}</a></li>
+					  	<li><a data-toggle="tab" href="#host">{{ trans('lang_user.booking.your_host') }}</a></li>
+					  	<li><a data-toggle="tab" href="#reviews">{{ trans('lang_user.booking.reviews') }}</a></li>
+					  	<li ><a data-toggle="tab" href="#locations">{{ trans('lang_user.booking.starting_location') }}</a></li>
 					</ul>
 
 					<div class="tab-content">
@@ -84,13 +84,13 @@
 		<span>${{number_format((float)$tour->price, 2, '.', '')}}</span>
 		@if(Auth::check())
 		<div class="button_end">
-			<a href="#" class="btn btn-lg btn-success">Add to cart</a>
-			<a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#promo_code">Add promo code</a>
+			<a href="#" class="btn btn-lg btn-success">{{ trans('lang_user.booking.add_to_cart') }}</a>
+			<a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#promo_code">{{ trans('lang_user.booking.add_promo_code') }}</a>
 		</div>
 		@else
 		<div class="button_end">
-			<a href="#" class="btn btn-lg btn-danger">Enquire Now</a>
-			<a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#promo_code">Add promo code</a>
+			<a href="#" class="btn btn-lg btn-danger">{{ trans('lang_user.booking.add_promo_code') }}</a>
+			<a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#promo_code">{{ trans('lang_user.booking.enquire_now') }}</a>
 		</div>
 		@endif
 	</div>
@@ -101,17 +101,17 @@
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
-	        <h4 class="modal-title" id="myModalLabel">Add promo code</h4>
+	        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.booking.add_promo_code') }}</h4>
 	      </div>
 	      <div class="modal-body">
 	      	<div class="form-group">
-	        	<label class="label-control">Promo Code</label>
+	        	<label class="label-control">{{ trans('lang_user.booking.promo_code') }}</label>
 	        	<input type="text" name="promo" class="form-control">
 	        </div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-success">Send Promo Code</button>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">{{ trans('lang_user.booking.close') }}</button>
+	        <button type="button" class="btn btn-success">{{ trans('lang_user.booking.send_promo_code') }}</button>
 	      </div>
 	    </div>
 	  </div>
