@@ -15,7 +15,7 @@
 					</div>
 				</div>
 				<div class="modal fade" id="signin1" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
+				  <div class="modal-dialog modal-md">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -26,12 +26,12 @@
 
 				        <p>{{ trans('lang_user.header.sign_in_here') }}</p>
 				        <form action="{{ url('/postLogin') }}" method="POST" id="formsignin">
-
+				       		<span class="errors hidden"></span>
 				        	<div class="form-group">
-				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
+				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email" id="email">
 				        	</div>
 				        	<div class="form-group">
-				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password">
+				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password" id="password">
 				        	</div>
 				        	<div>
 				        	<div class="pull-left">
@@ -44,7 +44,7 @@
 				        	<div class="clearfix"></div>
 				        	<input type="submit" value="Sign In" class="btn btn-lg btn-success btn_login"> 
 				        </form>
-				        <a href="{{ url('/sendusemail') }}"><strong>{{ trans('lang_user.header.access_code') }}</strong></a>
+				        <a href="{{ url('/sendusemail') }}">{{ trans('lang_user.header.access_code') }}</a>
 				      </div>
 				      
 				    </div>
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
+				  <div class="modal-dialog">
 				  		<div class="modal-content">
 					    <form action="{{ url('/sendEmailChangePassword') }}" method="POST">
 						      <div class="modal-body modal_login">
@@ -78,7 +78,7 @@
 
 				
 	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
-	  <div class="modal-dialog modal-sm">
+	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -123,45 +123,47 @@
 	</div>
 
 				@else
-					<a  class="pull-right btn btn-success btn-lg">{{ trans('lang_user.header.logout') }}</a>
-					<ul class="nav-right pull-right list-inline">
-						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
-						<li>
-							<a href="#">{{ trans('lang_user.header.cart') }}<span class="badge">1</span></a>
-						</li>
+					
+					<div class="link">
+						<ul class="nav-right pull-right list-inline">
+							<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
+							<li>
+								<a href="#"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							</li>
 
-						<li class="dropdown">
-							<a href class="dropdown-toggle" data-toggle="dropdown">
-								{{Auth::user()->first_name}} {{Auth::user()->last_name}}
-							</a>
-							<div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
-								<ul class="dropdown-menu animated littleFadeInRight" role="menu">
+							<li class="dropdown">
+								<a href class="dropdown-toggle" data-toggle="dropdown">
+									{{Auth::user()->email}}
+								</a>
+								
+								<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">
 
 					                <li>
-					                    <a role="button" tabindex="0" href="">
+					                    <a role="button" href="{{ url('/profile') }}">
 					                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
 					                    </a>
 					                </li>
 					                <li>
-					                    <a role="button" tabindex="0">
+					                    <a role="button">
 					                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
 					                    </a>
 					                </li>
 					                <li>
 					                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
-					                        <i class="fa fa-circle-logout"></i>{{ trans('lang_user.header.logout') }}
+					                        <i class="fa fa-sign-out"></i>{{ trans('lang_user.header.logout') }}
 					                    </a>
 					                </li>
 
 					            </ul>
-							</div>
-						</li>
-					</ul>
+								
+							</li>
+						</ul>
+					</div>
 				@endif
 			
 		</div>
 		<div class="text-center webname">
-			<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+			<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
 			trip<span>shoes</span>
 		</div>
 		{!! $text_banner !!}

@@ -1,3 +1,23 @@
+//general function
+function isJson(item) {
+    item = typeof item !== "string"
+        ? JSON.stringify(item)
+        : item;
+
+    try {
+        item = JSON.parse(item);
+    } catch (e) {
+        return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+        return true;
+    }
+
+    return false;
+}
+
+
 //profile
 $(document).ready(function(){
 
@@ -56,7 +76,85 @@ $(document).ready(function(){
 //signin
 $(document).ready(function(){
 	//ajax validation
+	$formsignin = $('form#formsignin');
+	$formsignin.submit(function(e){
+		e.preventDefault();
+		
+		var email = $formsignin.find('input#email').val();
+		var password = $formsignin.find('input#password').val();
+		var url = $(this).attr('action');
 
+		$.ajax({
+			url: url,
+	        type: 'POST',
+	        data: {email: email, password: password},
+	        dataType: 'json',
+	        success: function(data){
+	        	var showerror = $formsignin.find('span.errors');
+	        	showerror.addClass('hidden');
+
+	        	$formsignin.find('.form-group').each(function(){
+	        		$(this).removeClass('has-error');
+	        		$(this).find('.help-block').remove();
+	        	});
+	        	if(data.code == 0){
+	        		var errors = data.errors;
+	        		if(isJson(errors)){
+	        			for(var key in errors){
+
+		        			var $id = $formsignin.find('#' + key);
+
+		        			var i;
+		        			$finddiv = $formsignin.find($id).parent();
+		        			$finddiv.addClass('has-error');
+		        			
+		        			if(errors.hasOwnProperty(key)){
+		        				if(errors[key].length>0){
+	                                for(i=0; i<errors[key].length;i++){
+	                                	html = '';
+	                                	html += '<span class="help-block mb-0">';
+	                                	html += errors[key][i];
+	                                	html += '</span>';
+	                                	$finddiv.append(html);
+									}
+	                            }
+		        			}
+		        		}
+	        		
+	        		}else if(typeof errors === 'string' || errors instanceof String){
+	        			showerror.append(errors).removeClass('hidden');
+	        		}
+	        	}else if(data.code==1){
+	        		html = '';
+        			html += '<div class="modal fade" id="successnotify" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">';
+        			html += '<div class="modal-dialog modal-md">';
+        			html += '<div class="modal-content">';
+        			html += '<div class="modal-body">';
+        			html += '<h4 class="text-center">' + data.errors + '...</h4>';
+        			html += '</div>';
+        			html += '</div>';
+        			html += '</div>';
+        			html += '</div>';
+        			$('body').append(html);
+        			$('body #signin1').modal('hide');
+        			$('body #successnotify').modal('show');
+
+	        		setTimeout(function(){
+
+	        			window.location.href = '/';
+	        			$('body #successnotify').modal('hide');
+	        			$('body #successnotify').remove();
+
+	        		}, 3000);	
+        			
+        		}
+	        	
+	        },
+	        error:function(){
+
+	        }
+		});
+	});
 });
 
 //signup
