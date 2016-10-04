@@ -30,6 +30,9 @@ class AuthController extends Controller
                 'code' => 0
             ]);
         }
-        return redirect('/');
+        return response()->json([
+            'errors' => 'Login Success',
+            'code' => 1
+        ]);
    	}
 }

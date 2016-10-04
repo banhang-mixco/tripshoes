@@ -70,9 +70,11 @@ $(document).ready(function(){
 	        data: {email: email, password: password},
 	        dataType: 'json',
 	        success: function(data){
-	        	console.log($formsignin.find('.form-group'));
-	        	//$formsignin.find('.form-group').removeClass('has-error');
-	        	//$formsignin.find('.form-group').find('.help-block').remove();
+	        	
+	        	$formsignin.find('.form-group').each(function(){
+	        		$(this).removeClass('has-error');
+	        		$(this).find('.help-block').remove();
+	        	});
 	        	if(data.code == 0){
 
 	        		var errors = data.errors;
@@ -95,6 +97,8 @@ $(document).ready(function(){
 								}
                             }
 	        			}
+	        		}else if(data.code==1){
+	        			window.location.href = '/';
 	        		}
 	        	}
 	        },
