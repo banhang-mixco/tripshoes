@@ -10,6 +10,7 @@ use App\Repositories\Eloquent\UserRepositoryEloquent;
 use Hash;
 use Mail;
 use Session;
+use Validator;
 
 class PasswordController extends Controller
 {
@@ -23,13 +24,26 @@ class PasswordController extends Controller
    }
 
     public function sendEmailChangePassword(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email'
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'errors' => $validator->messages(),
+                'code' => 0
+            ]);
+        }
     	$email = $request->get('email');
     	Session::forget('email');
     	Session::push('email', $email);
-    	Mail::send('frontend.sendEmailChangePassword', ['message' => $message], function ($m) use ($email){
+    	Mail::send('frontend.sendEmailChangePassword', array(), function ($m) use ($email){
 
             $m->to($email, 'abc')->subject('Reset Password');
         });
+        return response()->json([
+            'message' => 'An confirmation was sent to your. Be check it',
+            'code' => 1     
+        ]);
     }
 
     public function resetPassword(){
@@ -48,11 +62,27 @@ class PasswordController extends Controller
     }
 
     public function postResetPassword(Request $request){
+        $validator = Validator::make($request->all(), [
+            'password' => 'required',
+            'confirm_password' => 'required|same:password'
+        ]);
+        if($validator->fails()){
+            return response()->json([
+                'errors' => $validator->messages(),
+                'code' => 0
+            ]);
+        }
+
     	$password = $request->get('password');
-    	$confirm = $request->get('confirm');
+    	$confirm = $request->get('confirm_password');
 
     	$findUser = $this->user->findByField('email', Session::get('email')[0]);
     	$findUser->password = Hash::make($password);
     	$findUser->save();
+
+        return response()->json([
+            'message' => 'New Password is saved',
+            'code' => 1
+        ]);
     }
 }
