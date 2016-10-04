@@ -20,15 +20,19 @@ class AuthController extends Controller
         $email = $request->get('email');
         $password = $request->get('password');
         $remember = $request->has('remember');
-        if(!Auth::attempt(['email' => $email, 'password' => $password], $remember)){
-            $validator->getMessageBag()->add('password', 'Email or password not match');
-            
-        }
+        
         if($validator->fails()){
             return response()->json([
                 'errors' => $validator->messages(),
                 'code' => 0
             ]);
+        }
+        if(!Auth::attempt(['email' => $email, 'password' => $password], $remember)){
+            return response()->json([
+                'errors' => 'Email or password not match',
+                'code' => 0
+            ]);
+            
         }
         return response()->json([
             'errors' => 'Login Success',

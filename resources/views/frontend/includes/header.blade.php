@@ -26,7 +26,7 @@
 
 				        <p>{{ trans('lang_user.header.sign_in_here') }}</p>
 				        <form action="{{ url('/postLogin') }}" method="POST" id="formsignin">
-
+				       		<span class="errors hidden"></span>
 				        	<div class="form-group">
 				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email" id="email">
 				        	</div>
@@ -123,7 +123,7 @@
 	</div>
 
 				@else
-					<a  class="pull-right btn btn-success btn-lg">{{ trans('lang_user.header.logout') }}</a>
+					<a href="{{ url('/logout') }}" class="pull-right btn btn-success btn-lg">{{ trans('lang_user.header.logout') }}</a>
 					<ul class="nav-right pull-right list-inline">
 						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 						<li>

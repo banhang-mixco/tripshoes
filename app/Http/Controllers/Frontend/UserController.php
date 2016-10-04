@@ -74,11 +74,11 @@ class UserController extends Controller
 
         if(Session::has($email)){
             if(Session::get($email)[0] != $code){
-                $validator->getMessageBag()->add('code', 'Wrong access code');
+                $validator->errors()->add('code', 'Wrong access code');
             }
             
         }else{
-            $validator->getMessageBag()->add('code', 'This email have not been sent access code');
+            $validator->errors()->add('code', 'This email have not been sent access code');
         }
         if($validator->fails()){
             return response()->json([
