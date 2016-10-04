@@ -151,6 +151,26 @@ ul,li{
 .header-banner .h4{
 	font-size: 15px;
 }
+
+.modal-dialog{
+	width: 30%;
+}
+.modal-header{
+	padding: 20px;
+	font-size: 40px !important;
+}
+.modal-header h4{
+	font-size: 21px !important;
+}
+.modal-header .close{
+	font-size: 40px;
+}
+.modal-body{
+	width: 90%;
+	margin: 0 auto;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
 /*CONTENT*/
 .container {
 	color: #444444;

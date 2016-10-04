@@ -15,7 +15,7 @@
 					</div>
 				</div>
 				<div class="modal fade" id="signin1" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
+				  <div class="modal-dialog modal-md">
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -28,10 +28,10 @@
 				        <form action="{{ url('/postLogin') }}" method="POST" id="formsignin">
 
 				        	<div class="form-group">
-				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
+				        		<input type="text" class="form-control form_padding" name="email" placeholder="Email" id="email">
 				        	</div>
 				        	<div class="form-group">
-				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password">
+				        		<input type="password" class="form-control form_padding" name="password" placeholder="Password" id="password">
 				        	</div>
 				        	<div>
 				        	<div class="pull-left">
@@ -44,7 +44,7 @@
 				        	<div class="clearfix"></div>
 				        	<input type="submit" value="Sign In" class="btn btn-lg btn-success btn_login"> 
 				        </form>
-				        <a href="{{ url('/sendusemail') }}"><strong>{{ trans('lang_user.header.access_code') }}</strong></a>
+				        <a href="{{ url('/sendusemail') }}">{{ trans('lang_user.header.access_code') }}</a>
 				      </div>
 				      
 				    </div>
@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
+				  <div class="modal-dialog">
 				  		<div class="modal-content">
 					    <form action="{{ url('/sendEmailChangePassword') }}" method="POST">
 						      <div class="modal-body modal_login">
@@ -78,7 +78,7 @@
 
 				
 	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
-	  <div class="modal-dialog modal-sm">
+	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

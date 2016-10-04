@@ -56,7 +56,53 @@ $(document).ready(function(){
 //signin
 $(document).ready(function(){
 	//ajax validation
+	$formsignin = $('form#formsignin');
+	$formsignin.submit(function(e){
+		e.preventDefault();
+		
+		var email = $formsignin.find('input#email').val();
+		var password = $formsignin.find('input#password').val();
+		var url = $(this).attr('action');
 
+		$.ajax({
+			url: url,
+	        type: 'POST',
+	        data: {email: email, password: password},
+	        dataType: 'json',
+	        success: function(data){
+	        	console.log($formsignin.find('.form-group'));
+	        	//$formsignin.find('.form-group').removeClass('has-error');
+	        	//$formsignin.find('.form-group').find('.help-block').remove();
+	        	if(data.code == 0){
+
+	        		var errors = data.errors;
+	        		for(var key in errors){
+
+	        			var $id = $formsignin.find('#' + key);
+
+	        			var i;
+	        			$finddiv = $formsignin.find($id).parent();
+	        			$finddiv.addClass('has-error');
+	        			
+	        			if(errors.hasOwnProperty(key)){
+	        				if(errors[key].length>0){
+                                for(i=0; i<errors[key].length;i++){
+                                	html = '';
+                                	html += '<span class="help-block mb-0">';
+                                	html += errors[key][i];
+                                	html += '</span>';
+                                	$finddiv.append(html);
+								}
+                            }
+	        			}
+	        		}
+	        	}
+	        },
+	        error:function(){
+
+	        }
+		});
+	});
 });
 
 //signup
