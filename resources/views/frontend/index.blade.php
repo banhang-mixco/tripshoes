@@ -41,6 +41,7 @@
 				<p>{{ trans('lang_user.index.content_8')}}</p>
 			</div>
 		</div>
+		</div>
 	</div>
 	<div class="container">
 		<div class="app">
@@ -65,7 +66,7 @@
 			<div class="photobook"></div>	
 		</div>
 	</div>	
-	<div class="giving">
+	<div class="container">
 		<!-- Begin A new form of giving -->
 		<div class="col-lg-12 giving">
 			<div class="col-lg-offset-1 col-lg-5 giving_content img-round">
@@ -73,7 +74,6 @@
 				<div class="col-lg-offset-1 col-lg-10"><p class="text-center"> {{ trans('lang_user.index.content_16')}}</p></div>
 			</div>
 		</div>
-	</div>
 		<!-- End giving -->
 
 		<!-- How to book -->
@@ -104,9 +104,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
 		<!-- End how to book -->
-	
+	</div>
 	<div class="photolauch"></div>	
 	<!-- Begin Launch -->
 	<div class="col-lg-12 launch">
@@ -130,7 +129,7 @@
                    </div>
                    <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%">
+                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%" required>
                     </div>
                    </div>
                  </div>
@@ -144,7 +143,7 @@
                    </div>
                    <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="Which country are you from?">
+                        <input type="text" class="form-control form_padding input-lg" name="email" placeholder="Which country are you from?">
                     </div>
                    </div>
                  </div> 
@@ -162,6 +161,6 @@
 	        </div>
 	    </div>
 	    <!-- end form -->	
-	</div>    
+	</div> 
 
 @endsection
