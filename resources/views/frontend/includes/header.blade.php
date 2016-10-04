@@ -59,22 +59,13 @@
 					        <h4 class="modal-title" id="myModalLabel">Reset Password</h4>
 					      </div>
 					      <div class="modal-body">
-					       	<form method="POST" action="{{ url('/postResetPassword') }}">
+					       	<form method="POST" action="{{ url('/postResetPassword') }}" id="formResetPassword">
 					       		{{ csrf_field() }}
-					       		@if (count($errors) > 0)
-				                    <div class="alert alert-danger">
-				                        <ul>
-				                            @foreach ($errors->all() as $error)
-				                                <li>{{ $error }}</li>
-				                            @endforeach
-				                        </ul>
-				                    </div>
-				                @endif
 					       		<div class="form-group"> 
-					        		<input type="password" class="form-control form_padding" placeholder="Password" name="password">
+					        		<input type="password" class="form-control form_padding" placeholder="Password" name="password" id="password">
 					        	</div>
 					        	<div class="form-group">
-					        		<input type="password" class="form-control form_padding" placeholder="Confirm password" name="confirm_password"> 
+					        		<input type="password" class="form-control form_padding" placeholder="Confirm password" name="confirm_password" id="confirm_password"> 
 					        	</div>
 					        	<input type="submit" value="Submit" class="btn btn-lg btn-success btn_login"> 
 					       	</form>
@@ -87,12 +78,12 @@
 				<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog" aria-labelledby="resetpassword" aria-hidden="true">
 				  <div class="modal-dialog">
 				  		<div class="modal-content">
-					    <form action="{{ url('/sendEmailChangePassword') }}" method="POST">
+					    <form action="{{ url('/sendEmailChangePassword') }}" method="POST" id="formresetpassword">
 						      <div class="modal-body modal_login">
 						        <p>{{ trans('lang_user.header.email_reset') }}</p>
 						        
 						        	<div class="form-group">
-						        		<input type="text" class="form-control form_padding" name="email" placeholder="Email">
+						        		<input type="text" class="form-control form_padding" name="email" id="email" placeholder="Email">
 						        	</div>
 						        </div>
 						      <div class="modal-footer">
