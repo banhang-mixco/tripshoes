@@ -51,7 +51,40 @@
 				  </div>
 				</div>
 
-				<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
+				<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-labelledby="resetPassword" aria-hidden="true">
+					  <div class="modal-dialog modal-sm">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					        <h4 class="modal-title" id="myModalLabel">Reset Password</h4>
+					      </div>
+					      <div class="modal-body">
+					       	<form method="POST" action="{{ url('/postResetPassword') }}">
+					       		{{ csrf_field() }}
+					       		@if (count($errors) > 0)
+				                    <div class="alert alert-danger">
+				                        <ul>
+				                            @foreach ($errors->all() as $error)
+				                                <li>{{ $error }}</li>
+				                            @endforeach
+				                        </ul>
+				                    </div>
+				                @endif
+					       		<div class="form-group"> 
+					        		<input type="password" class="form-control form_padding" placeholder="Password" name="password">
+					        	</div>
+					        	<div class="form-group">
+					        		<input type="password" class="form-control form_padding" placeholder="Confirm password" name="confirm_password"> 
+					        	</div>
+					        	<input type="submit" value="Submit" class="btn btn-lg btn-success btn_login"> 
+					       	</form>
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+
+				<div class="modal fade" id="resetpassword" tabindex="-1" role="dialog" aria-labelledby="resetpassword" aria-hidden="true">
 				  <div class="modal-dialog">
 				  		<div class="modal-content">
 					    <form action="{{ url('/sendEmailChangePassword') }}" method="POST">
@@ -64,8 +97,8 @@
 						        </div>
 						      <div class="modal-footer">
 						      	<div class="pull-right">
-						      		<a href="#" data-toggle="modal" data-target="#signin1" class="btn btn-lg btn-danger">{{ trans('lang_user.header.back') }}</a>
-						      		<input type="submit" value="Send Email" class="btn btn-success btn-lg">
+						      		<a href="#" data-toggle="modal" data-target="#signin1" data-dismiss="modal" class="btn btn-lg btn-danger">{{ trans('lang_user.header.back') }}</a>
+						      		<input type="submit" value="Send Email" class="btn btn-success btn-lg" style="background-color: #99CC33; ">
 						      	</div>
 
 						      </div>
@@ -97,24 +130,24 @@
                     </div>
                 @endif
 	       		<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Name" name="name" id="name">
+	        		<input type="text" class="form-control form_padding" placeholder="Name" name="name" id="name">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Email" name="email" id="email">
+	        		<input type="text" class="form-control form_padding" placeholder="Email" name="email" id="email">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="password" class="form-control" placeholder="Password" name="password" id="password">
+	        		<input type="password" class="form-control form_padding" placeholder="Password" name="password" id="password">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="number" class="form-control" placeholder="Age" name="age" id="age">
+	        		<input type="number" class="form-control form_padding" placeholder="Age" name="age" id="age">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Country of Residence" name="country" id="country">
+	        		<input type="text" class="form-control form_padding" placeholder="Country of Residence" name="country" id="country">
 	        	</div>
 	        	<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Access Code" name="code" id="code">
+	        		<input type="text" class="form-control form_padding" placeholder="Access Code" name="code" id="code">
 	        	</div>
-	        	<input type="submit" value="Get me access" class="btn btn-lg btn-success"> 
+	        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
 	       	</form>
 	      </div>
 	      

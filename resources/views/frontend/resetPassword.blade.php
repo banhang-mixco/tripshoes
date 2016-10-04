@@ -1,38 +1,7 @@
 @extends('frontend.layout.master')
 	
 @section('content')
-	<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-labelledby="resetPassword" aria-hidden="true">
-	  <div class="modal-dialog modal-sm">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">Reset Password</h4>
-	      </div>
-	      <div class="modal-body">
-	       	<form method="POST" action="{{ url('/postResetPassword') }}">
-	       		{{ csrf_field() }}
-	       		@if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-	       		<div class="form-group">
-	        		<input type="password" class="form-control" placeholder="Password" name="password">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="password" class="form-control" placeholder="Confirm password" name="confirm_password">
-	        	</div>
-	        	<input type="submit" value="Submit" class="btn btn-lg btn-success"> 
-	       	</form>
-	      </div>
-	      
-	    </div>
-	  </div>
-	</div>
+	
 	<div class="container">
 		<div class="trip">
 			<div class="text-center">
