@@ -123,45 +123,47 @@
 	</div>
 
 				@else
-					<a href="{{ url('/logout') }}" class="pull-right btn btn-success btn-lg">{{ trans('lang_user.header.logout') }}</a>
-					<ul class="nav-right pull-right list-inline">
-						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
-						<li>
-							<a href="#">{{ trans('lang_user.header.cart') }}<span class="badge">1</span></a>
-						</li>
+					
+					<div class="link">
+						<ul class="nav-right pull-right list-inline">
+							<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
+							<li>
+								<a href="#"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							</li>
 
-						<li class="dropdown">
-							<a href class="dropdown-toggle" data-toggle="dropdown">
-								{{Auth::user()->first_name}} {{Auth::user()->last_name}}
-							</a>
-							<div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
-								<ul class="dropdown-menu animated littleFadeInRight" role="menu">
+							<li class="dropdown">
+								<a href class="dropdown-toggle" data-toggle="dropdown">
+									{{Auth::user()->email}}
+								</a>
+								
+								<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">
 
 					                <li>
-					                    <a role="button" tabindex="0" href="">
+					                    <a role="button" href="{{ url('/profile') }}">
 					                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
 					                    </a>
 					                </li>
 					                <li>
-					                    <a role="button" tabindex="0">
+					                    <a role="button">
 					                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
 					                    </a>
 					                </li>
 					                <li>
 					                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
-					                        <i class="fa fa-circle-logout"></i>{{ trans('lang_user.header.logout') }}
+					                        <i class="fa fa-sign-out"></i>{{ trans('lang_user.header.logout') }}
 					                    </a>
 					                </li>
 
 					            </ul>
-							</div>
-						</li>
-					</ul>
+								
+							</li>
+						</ul>
+					</div>
 				@endif
 			
 		</div>
 		<div class="text-center webname">
-			<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+			<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
 			trip<span>shoes</span>
 		</div>
 		{!! $text_banner !!}
