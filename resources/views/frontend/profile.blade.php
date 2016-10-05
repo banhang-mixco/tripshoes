@@ -45,9 +45,14 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">Work Phone</label>
-												<input type="tel" id="phone">												
+												<div class="row">
+													<div class="col-md-12">
+														<input id="phone" type="tel" class="form-control form-padding">
+													</div>
+												</div>
 											</div>
 										</div>
+										
 									</div>
 									<div class="row">
 										<div class="col-lg-12">

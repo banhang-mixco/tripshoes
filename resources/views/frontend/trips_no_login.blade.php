@@ -136,7 +136,7 @@
 				</div>
 				<div class="text-center webname">
 					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-					{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span>
+					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
 				</div>
 				<div class="border_header"></div>
 				<div class="title-header text-center">
@@ -186,7 +186,7 @@
 		                  <div class="col-lg-6">
 		                   <div class="form-group">
 		                        <select class="form-control form_padding input-lg">
-		                         <option value="">When will you be in Hoi An?</option>
+		                         <option value="">{{ trans('lang_user.index.content_29') }}</option>
 		                        </select>
 		                    </div>
 		                   </div>
@@ -200,23 +200,23 @@
 		                  <div class="col-lg-12">
 		                   <div class="form-group">
 		                        <select class="form-control form_padding input-lg">
-		                         <option value="">Which trip are you most interested in?</option>
+		                         <option value="">{{ trans('lang_user.index.content_30') }}</option>
 		                        </select>
 		                    </div>
 		                   </div>
 		                 </div>
-		                 <button class="btn btn-lg btn_login col-lg-12 form_padding">Get me early access</button>
+		                 <button class="btn btn-lg btn_login col-lg-12 form_padding">{{ trans('lang_user.index.end') }}</button>
 		             </form>
 			        </div>
 			    </div>
 			    <!-- end form -->
 			    </div>
-<div id="footer">
+				<div id="footer">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left webname">
-				<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-				trip<span>shoes</span>
+				<a href="{{ asset('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+				{{ trans('lang_user.footer.trip') }}<span>{{ trans('lang_user.footer.shoes') }}</span>
 			</div>
 			<div class="pull-right">
 				<ul>
@@ -227,9 +227,9 @@
 			</div>
 			<div class="text-center">
 				<ul>
-					<li><a href="{{ asset('/aboutus') }}">About</a></li>
-					<li><a href="{{ asset('/sendusemail')}}">Contact</a></li>
-					<li><a href="{{ asset('/support') }}">Support</a></li>
+					<li><a href="{{ asset('/about') }}">{{ trans('lang_user.footer.about') }}</a></li>
+					<li><a href="{{ asset('/sendusemail')}}">{{ trans('lang_user.footer.contact') }}</a></li>
+					<li><a href="{{ asset('/support') }}">{{ trans('lang_user.footer.support') }}</a></li>
 				</ul>
 			</div>
 			<div class="border"></div>
@@ -237,7 +237,7 @@
 
 	</div>
 	<div class="text-center copyright">
-		<strong>© 2016 TripShoes Pty Ltd. All rights reserved.</strong>
+		<strong>{{ trans('lang_user.footer.copy_right') }}</strong>
 	</div>
 </div>
 <script type="text/javascript" src="{{ asset('/jquery/jquery.min.js') }}"></script>

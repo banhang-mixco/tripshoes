@@ -142,53 +142,90 @@
 				    </div>
 				  </div>
 				</div>
-				@else					
-					<div class="link">
-						<ul class="nav-right pull-right list-inline">
-							<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
-							<li>
-								<a href="#"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
-							</li>
+				<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
+				      </div>
+				      <div class="modal-body">
+				       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
+				       		{{ csrf_field() }}
+				       		<span class="errors hidden"></span>
+				       		<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Name" name="name" id="name">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Email" name="email" id="email">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="password" class="form-control form_padding" placeholder="Password" name="password" id="password">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="number" class="form-control form_padding" placeholder="Age" name="age" id="age">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Country of Residence" name="country" id="country">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Access Code" name="code" id="code">
+				        	</div>
+				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
+				       	</form>
+				      </div>
+				      
+				    </div>
+				  </div>
+				</div>
 
-							<li class="dropdown">
-								<a href class="dropdown-toggle" data-toggle="dropdown">
-									@if(Auth::user()->avatar)
-										<img src="{{ asset(config('path.avatar_view').Auth::user()->avatar) }}" class="img-circle img-responsive" width="40px" height="40px">
-									@else
-										<img src="{{ asset(config('path.profile_default')) }}" class="img-circle img-responsive" width="40px" height="40px">
-									@endif
-								</a>
-								
-								<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">
+				@else
+				<div class="link">
+					<ul class="nav-right pull-right list-inline">
+						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
+						<li>
+							<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+						</li>
 
-					                <li>
-					                    <a role="button" href="{{ url('/profile') }}">
-					                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
-					                    </a>
-					                </li>
-					                <li>
-					                    <a role="button">
-					                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
-					                    </a>
-					                </li>
-					                <li>
-					                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
-					                        <i class="fa fa-sign-out"></i>{{ trans('lang_user.header.logout') }}
-					                    </a>
-					                </li>
+						<li class="dropdown">
+							<a href class="dropdown-toggle" data-toggle="dropdown">
+								@if(Auth::user()->avatar)
+									<img src="{{ asset(config('path.avatar_view').Auth::user()->avatar) }}" class="img-circle img-responsive" width="40px" height="40px">
+								@else
+									<img src="{{ asset(config('path.profile_default')) }}" class="img-circle img-responsive" width="40px" height="40px">
+								@endif
+							</a>
+							
+							<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">
 
-					            </ul>
-								
-							</li>
-						</ul>
-					</div>
+				                <li>
+				                    <a role="button" href="{{ url('/profile') }}">
+				                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
+				                    </a>
+				                </li>
+				                <li>
+				                    <a role="button">
+				                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
+				                    </a>
+				                </li>
+				                <li>
+				                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
+				                        <i class="fa fa-sign-out"></i>{{ trans('lang_user.header.logout') }}
+				                    </a>
+				                </li>
+
+				            </ul>
+							
+						</li>
+					</ul>
+				</div>
 				@endif
 			
-		</div>
-		<div class="text-center webname">
-			<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-			{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span>
-		</div>
-		{!! $text_banner !!}
+				</div>
+				<div class="text-center webname">
+					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
+				</div>
+				{!! $text_banner !!}
 	</div>
 </div>

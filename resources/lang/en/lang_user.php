@@ -34,6 +34,7 @@ return [
     ],
 'header' => [
         'trips' => 'Trips',
+        'shoes' => 'shoes',
         'blog' => 'Blog',
         'sign_in' => 'Sign In',
         'cart' => 'Cart',
@@ -51,7 +52,7 @@ return [
         'contact' => 'Experience village life',
         'contact_1' => 'through the eyes of a local',
         'button' => 'Book now',
-        
+
     ],
 'footer' => [
         'trip' => 'trip',
