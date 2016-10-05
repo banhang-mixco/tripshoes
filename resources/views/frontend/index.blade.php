@@ -5,7 +5,7 @@
 		<div class="trip">
 			<div class="text-center">
 				<div class="col-lg-offset-1 col-lg-10"><h1>{{ trans('lang_user.index.content')}}</h1></div>
-				<div class="col-lg-12" style="padding:0px;"><p>{{ trans('lang_user.index.content_1')}}</p></div>
+				<div class="col-lg-12 info" style="padding:0px;"><p>{{ trans('lang_user.index.content_1')}}</p></div>
 			</div>
 			<div class="col-lg-12 img-round bagia"></div>
 			<div class="row">
@@ -36,11 +36,9 @@
 	<div class="col-lg-12">
 		<div class="row">
 		<div class="gotchan text-center">
-			<div class="col-lg-offset-2 col-lg-8 ">
-				<img src="{{ asset('frontend/images/noun_145969.png') }}">
+			<img src="{{ asset('frontend/images/noun_145969.png') }}">
 				<p>{{ trans('lang_user.index.content_8')}}</p>
 			</div>
-		</div>
 		</div>
 	</div>
 	<div class="container">
@@ -61,66 +59,71 @@
 					</div>
 				</div>
 			</div>
-			<h1 class="text-center"> {{ trans('lang_user.index.content_13')}}</h1>
+			<h1 class="text-center">{{ trans('lang_user.index.content_13')}}</h1>
 			<p id="app_end">{{ trans('lang_user.index.content_14')}}</p>
 			<div class="photobook"></div>	
 		</div>
 	</div>	
-	<div class="container">
+	<div class="giving">
 		<!-- Begin A new form of giving -->
-		<div class="col-lg-12 giving">
-			<div class="col-lg-offset-1 col-lg-5 giving_content img-round">
-				<div class="col-lg-12"><h1 class="text-center"> {{ trans('lang_user.index.content_15')}}</h1></div>
-				<div class="col-lg-offset-1 col-lg-10"><p class="text-center"> {{ trans('lang_user.index.content_16')}}</p></div>
+		<div class="container">
+			<div class="col-lg-5 giving_content img-round">
+				<div class="giving-info text-center">
+					<h1> {{ trans('lang_user.index.content_15')}}</h1>
+					<p> {{ trans('lang_user.index.content_16')}}</p>
+				</div>
 			</div>
 		</div>
+	</div>
 		<!-- End giving -->
 
 		<!-- How to book -->
-		<div class="col-lg-12 book">
-			<h4 class="text-center">{{ trans('lang_user.index.content_17')}}</h4>
-			<h1 class="text-center"> {{ trans('lang_user.index.content_18')}}</h1>
-			<div class="col-lg-12 book_content">
-				<div class="col-lg-4 text-center">
-					<img src="{{ asset('frontend/images/noun_464.png') }}">
-					<div class="col-lg-offset-1 col-lg-10 ">
-						<h4 class="text-center"> {{ trans('lang_user.index.content_19')}}</h4>
-						<p class="text-center"> {{ trans('lang_user.index.content_20')}}</p>
+	<div class="book text-center">
+		<h4>{{ trans('lang_user.index.content_17')}}</h4>
+		<h1> {{ trans('lang_user.index.content_18')}}</h1>
+		<div class="container">
+			<div class="row">
+				<div class="book_content">
+					<div class="col-lg-4">
+						<img src="{{ asset('frontend/images/noun_464.png') }}">
+						<h4> {{ trans('lang_user.index.content_19')}}</h4>
+						<div class="col-lg-offset-1 col-lg-10">
+							<p> {{ trans('lang_user.index.content_20')}}</p>
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 text-center">
-					<img src="{{ asset('frontend/images/noun_579236.png') }}">
-					<h4 class="text-center"> {{ trans('lang_user.index.content_21')}}</h4>
-					<div class="col-lg-offset-1 col-lg-10 ">
-						<p class="text-center"> {{ trans('lang_user.index.content_22')}}</p>
+					<div class="col-lg-4">
+						<img src="{{ asset('frontend/images/noun_579236.png') }}">
+						<h4> {{ trans('lang_user.index.content_21')}}</h4>
+						<div class="col-lg-offset-1 col-lg-10">
+							<p> {{ trans('lang_user.index.content_22')}}</p>
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 text-center">
-					<img src="{{ asset('frontend/images/noun_532311.png') }}">
-					<h4 class="text-center"> {{ trans('lang_user.index.content_23')}}</h4 >
-					<div class="col-lg-offset-1 col-lg-10 ">
-						<p class="text-center"> {{ trans('lang_user.index.content_24')}}</p>
+					<div class="col-lg-4">
+						<img src="{{ asset('frontend/images/noun_532311.png') }}">
+						<h4> {{ trans('lang_user.index.content_23')}}</h4 >
+						<div class="col-lg-offset-1 col-lg-10 ">
+							<p> {{ trans('lang_user.index.content_24')}}</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- End how to book -->
 	</div>
+		<!-- End how to book -->
+	
 	<div class="photolauch"></div>	
 	<!-- Begin Launch -->
 	<div class="col-lg-12 launch">
 		<div class="col-lg-offset-1 col-lg-10 launch_content">
 			<h3 class="text-center"> {{ trans('lang_user.index.content_25')}}</h3>
 			<h1 class="text-center"> {{ trans('lang_user.index.content_26')}}</h1>
-			<p class="text-center">{{ trans('lang_user.index.content_27')}}</p>
+			<p class="text-center">{{ trans('lang_user.index.content_26')}}</p>
 		</div>
 	</div>
 	<div class="container">
 		<!-- form -->
-
-	<div class="col-lg-12 text-center form_send" id="form_send">
-       	<h1 class="text-center">{{ trans('lang_user.index.content_28')}}</h1>
-
+		<div class="col-lg-12 text-center form_send">
+	       	<h1 class="text-center">{{ trans('lang_user.index.content_28')}}</h1>
 	        <div class="col-lg-offset-2 col-lg-8 text-center">
 	            <form class="form_access">
                  <div class="row">
@@ -131,7 +134,7 @@
                    </div>
                    <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%" required>
+                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="E-mail" width="100%">
                     </div>
                    </div>
                  </div>
@@ -145,7 +148,7 @@
                    </div>
                    <div class="col-lg-6">
                     <div class="form-group">
-                        <input type="text" class="form-control form_padding input-lg" name="email" placeholder="Which country are you from?">
+                        <input type="email" class="form-control form_padding input-lg" name="email" placeholder="Which country are you from?">
                     </div>
                    </div>
                  </div> 
@@ -163,6 +166,6 @@
 	        </div>
 	    </div>
 	    <!-- end form -->	
-	</div> 
+	</div>    
 
 @endsection
