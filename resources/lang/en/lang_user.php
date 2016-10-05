@@ -48,6 +48,10 @@ return [
         'logout' => 'Logout',
         'profile' => 'Profile',
         'account' => 'Account',
+        'contact' => 'Experience village life',
+        'contact_1' => 'through the eyes of a local',
+        'button' => 'Book now',
+        
     ],
 'footer' => [
         'trip' => 'trip',

@@ -56,7 +56,7 @@
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					        <h4 class="modal-title" id="myModalLabel">Reset Password</h4>
+					        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.index.reset_password') }}</h4>
 					      </div>
 					      <div class="modal-body">
 					       	<form method="POST" action="{{ url('/postResetPassword') }}" id="formResetPassword">
@@ -97,57 +97,52 @@
 				      
 				    </div>
 				  </div>
+				</div>				
+				<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
+				      </div>
+				      <div class="modal-body">
+				       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
+				       		{{ csrf_field() }}
+				       		@if (count($errors) > 0)
+			                    <div class="alert alert-danger">
+			                        <ul>
+			                            @foreach ($errors->all() as $error)
+			                                <li>{{ $error }}</li>
+			                            @endforeach
+			                        </ul>
+			                    </div>
+			                @endif
+				       		<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Name" name="name" id="name">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Email" name="email" id="email">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="password" class="form-control form_padding" placeholder="Password" name="password" id="password">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="number" class="form-control form_padding" placeholder="Age" name="age" id="age">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Country of Residence" name="country" id="country">
+				        	</div>
+				        	<div class="form-group">
+				        		<input type="text" class="form-control form_padding" placeholder="Access Code" name="code" id="code">
+				        	</div>
+				        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
+				       	</form>
+				      </div>
+				      
+				    </div>
+				  </div>
 				</div>
-
-
-				
-	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.header.access_code_send') }}</h4>
-	      </div>
-	      <div class="modal-body">
-	       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
-	       		{{ csrf_field() }}
-	       		@if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-	       		<div class="form-group">
-	        		<input type="text" class="form-control form_padding" placeholder="Name" name="name" id="name">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="text" class="form-control form_padding" placeholder="Email" name="email" id="email">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="password" class="form-control form_padding" placeholder="Password" name="password" id="password">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="number" class="form-control form_padding" placeholder="Age" name="age" id="age">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="text" class="form-control form_padding" placeholder="Country of Residence" name="country" id="country">
-	        	</div>
-	        	<div class="form-group">
-	        		<input type="text" class="form-control form_padding" placeholder="Access Code" name="code" id="code">
-	        	</div>
-	        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
-	       	</form>
-	      </div>
-	      
-	    </div>
-	  </div>
-	</div>
-
-				@else
-					
+				@else					
 					<div class="link">
 						<ul class="nav-right pull-right list-inline">
 							<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
@@ -157,7 +152,11 @@
 
 							<li class="dropdown">
 								<a href class="dropdown-toggle" data-toggle="dropdown">
-									{{Auth::user()->email}}
+									@if(Auth::user()->avatar)
+										<img src="{{ asset(config('path.avatar_view').Auth::user()->avatar) }}" class="img-circle img-responsive" width="40px" height="40px">
+									@else
+										<img src="{{ asset(config('path.profile_default')) }}" class="img-circle img-responsive" width="40px" height="40px">
+									@endif
 								</a>
 								
 								<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">
@@ -188,7 +187,7 @@
 		</div>
 		<div class="text-center webname">
 			<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-			trip<span>shoes</span>
+			{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span>
 		</div>
 		{!! $text_banner !!}
 	</div>
