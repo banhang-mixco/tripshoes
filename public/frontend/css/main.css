@@ -1030,6 +1030,7 @@ form.form_access{
 .right-profile .content-profile{
 	width: 90%;
 	margin: 0 auto;
+	margin-top: -26%;
 }
 .right-profile .form-group{
 	margin-top: 20px !important;
@@ -1059,6 +1060,9 @@ label{
 }
 .content-profile a.add{
 	font-size: 12px;
+}
+.right-profile img#logo-img{
+	margin: 0 auto;
 }
 .changePassword{
 	font-size: 18px;
@@ -1104,6 +1108,9 @@ label{
 	background-position: -55px 0px;
 	border-radius: 5px;
 	margin-top: -60px;
+}
+#logo-img{
+	height: 100px !important;
 }
 .left-profile button.cancel{
 	float: left;
@@ -1376,4 +1383,12 @@ ul.support-step span{
 }
 .help-block{
 	text-align: left !important; 
+}
+.intl-tel-input{
+	width: 100%;
+}
+ul.country-list li{
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 16px;
 }
