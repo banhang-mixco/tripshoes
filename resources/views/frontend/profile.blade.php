@@ -42,18 +42,14 @@
 											<div class="form-group">
 												<label class="control-label">Work Phone</label>
 												<div class="row">
-													<div class="col-lg-5">
-														<select class="form-control form_padding">
-															<option>Country Code(+0)</option>
-														</select>
-													</div>
-													<div class="col-lg-7">
-														<input type="text" class="form-control form_padding">
+													<div class="col-md-12">
+														<input id="phone" type="tel" class="form-control form-padding">
 													</div>
 												</div>
 												
 											</div>
 										</div>
+										
 									</div>
 									<div class="row">
 										<div class="col-lg-12">
