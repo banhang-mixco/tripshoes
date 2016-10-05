@@ -4,6 +4,7 @@
 	<style type="text/css">
 		.iti-flag {background-image: url("frontend/images/flags.png");}
 
+
 	</style>
 @endsection
 @section('content')
@@ -50,7 +51,9 @@
 													<div class="col-md-12">
 														<input type="tel" id="phone" class="form-control form-padding">
 													</div>
-												</div>										
+
+												</div>
+
 											</div>
 										</div>
 									</div>

@@ -12,7 +12,7 @@
 				<div class="top">
 					<div class="pull-left">
 						<div class="link">
-							<a href="{{ asset('/tripsnologin') }}">{{ trans('lang_user.header.trips') }}</a>
+							<a href="{{ asset('/trip') }}">{{ trans('lang_user.header.trips') }}</a>
 							<a href="{{ asset('/blog') }}" class="padding_left_10">{{ trans('lang_user.header.blog') }}</a>	
 						</div>
 					</div>
@@ -92,50 +92,56 @@
 						  </div>
 						</div>
 						@else
-							<ul class="nav-right pull-right list-inline">
-								<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
-								<li>
-									<a href="#">{{ trans('lang_user.header.cart') }}<span class="badge">1</span></a>
-								</li>
+							<div class="link">
+						<ul class="nav-right pull-right list-inline">
+							<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
+							<li>
+								<a href="#"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							</li>
 
-								<li class="dropdown">
-									<a href class="dropdown-toggle" data-toggle="dropdown">
-										{{Auth::user()->first_name}} {{Auth::user()->last_name}}
-									</a>
-									<div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
-										<ul class="dropdown-menu animated littleFadeInRight" role="menu">
+							<li class="dropdown">
+								<a href class="dropdown-toggle" data-toggle="dropdown">
+									@if(Auth::user()->avatar)
+										<img src="{{ asset(config('path.avatar_view').Auth::user()->avatar) }}" class="img-circle img-responsive" width="40px" height="40px">
+									@else
+										<img src="{{ asset(config('path.profile_default')) }}" class="img-circle img-responsive" width="40px" height="40px">
+									@endif
+								</a>
+								
+								<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">
 
-							                <li>
-							                    <a role="button" tabindex="0">
-							                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
-							                    </a>
-							                </li>
-							                <li>
-							                    <a role="button" tabindex="0">
-							                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
-							                    </a>
-							                </li>
-							                <li>
-							                    <a role="button" tabindex="0">
-							                        <i class="fa fa-circle-logout"></i>{{ trans('lang_user.header.logout') }}
-							                    </a>
-							                </li>
+					                <li>
+					                    <a role="button" href="{{ url('/profile') }}">
+					                        <i class="fa fa-user"></i>{{ trans('lang_user.header.profile') }}
+					                    </a>
+					                </li>
+					                <li>
+					                    <a role="button">
+					                        <i class="fa fa-cog"></i>{{ trans('lang_user.header.account') }}
+					                    </a>
+					                </li>
+					                <li>
+					                    <a role="button" href="{{ url('/logout') }}" tabindex="0">
+					                        <i class="fa fa-sign-out"></i>{{ trans('lang_user.header.logout') }}
+					                    </a>
+					                </li>
 
-							            </ul>
-									</div>
-								</li>
-							</ul>
-						@endif
+					            </ul>
+								
+							</li>
+						</ul>
+					</div>
+				@endif
 					
 				</div>
 				<div class="text-center webname">
-					<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-					trip<span>shoes</span>
+					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
 				</div>
 				<div class="border_header"></div>
 				<div class="title-header text-center">
-					<h1>Experience village life<br> through the eyes of a local</h1>
-					<a href="" class="btn btn-lg">Book now</a>
+					<h1>{{ trans('lang_user.header.contact') }}<br> {{ trans('lang_user.header.contact_1') }}</h1>
+					<a href="" class="btn btn-lg">{{ trans('lang_user.header.button') }}</a>
 				</div>
 			</div>
 
@@ -161,7 +167,7 @@
 				<div class="container">
 				<!-- form -->
 				<div class="col-lg-12 text-center form_send">
-			       	<h1 class="text-center">Get early access</h1>
+			       	<h1 class="text-center">{{ trans('lang_user.index.content_28')}}</h1>
 			        <div class="col-lg-offset-2 col-lg-8 text-center">
 			            <form class="form_access">
 		                 <div class="row">
@@ -180,7 +186,7 @@
 		                  <div class="col-lg-6">
 		                   <div class="form-group">
 		                        <select class="form-control form_padding input-lg">
-		                         <option value="">When will you be in Hoi An?</option>
+		                         <option value="">{{ trans('lang_user.index.content_29') }}</option>
 		                        </select>
 		                    </div>
 		                   </div>
@@ -194,23 +200,23 @@
 		                  <div class="col-lg-12">
 		                   <div class="form-group">
 		                        <select class="form-control form_padding input-lg">
-		                         <option value="">Which trip are you most interested in?</option>
+		                         <option value="">{{ trans('lang_user.index.content_30') }}</option>
 		                        </select>
 		                    </div>
 		                   </div>
 		                 </div>
-		                 <button class="btn btn-lg btn_login col-lg-12 form_padding">Get me early access</button>
+		                 <button class="btn btn-lg btn_login col-lg-12 form_padding">{{ trans('lang_user.index.end') }}</button>
 		             </form>
 			        </div>
 			    </div>
 			    <!-- end form -->
 			    </div>
-<div id="footer">
+				<div id="footer">
 	<div class="container">
 		<div class="top">
 			<div class="pull-left webname">
-				<a href="#"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-				trip<span>shoes</span>
+				<a href="{{ asset('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
+				{{ trans('lang_user.footer.trip') }}<span>{{ trans('lang_user.footer.shoes') }}</span>
 			</div>
 			<div class="pull-right">
 				<ul>
@@ -221,9 +227,9 @@
 			</div>
 			<div class="text-center">
 				<ul>
-					<li><a href="{{ asset('/aboutus') }}">About</a></li>
-					<li><a href="{{ asset('/sendusemail')}}">Contact</a></li>
-					<li><a href="{{ asset('/support') }}">Support</a></li>
+					<li><a href="{{ asset('/about') }}">{{ trans('lang_user.footer.about') }}</a></li>
+					<li><a href="{{ asset('/sendusemail')}}">{{ trans('lang_user.footer.contact') }}</a></li>
+					<li><a href="{{ asset('/support') }}">{{ trans('lang_user.footer.support') }}</a></li>
 				</ul>
 			</div>
 			<div class="border"></div>
@@ -231,7 +237,7 @@
 
 	</div>
 	<div class="text-center copyright">
-		<strong>© 2016 TripShoes Pty Ltd. All rights reserved.</strong>
+		<strong>{{ trans('lang_user.footer.copy_right') }}</strong>
 	</div>
 </div>
 <script type="text/javascript" src="{{ asset('/jquery/jquery.min.js') }}"></script>
