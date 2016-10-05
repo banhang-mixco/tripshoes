@@ -67,22 +67,22 @@
 						      <div class="modal-body">
 						       	<form>
 						       		<div class="form-group">
-						        		<input type="text" class="form-control" placeholder="Name">
+						        		<input type="text" class="form-control form_padding" placeholder="Name">
 						        	</div>
 						        	<div class="form-group">
-						        		<input type="text" class="form-control" placeholder="Email">
+						        		<input type="text" class="form-control form_padding" placeholder="Email">
 						        	</div>
 						        	<div class="form-group">
-						        		<input type="text" class="form-control" placeholder="Password">
+						        		<input type="text" class="form-control form_padding" placeholder="Password">
 						        	</div>
 						        	<div class="form-group">
-						        		<input type="text" class="form-control" placeholder="Age">
+						        		<input type="text" class="form-control form_padding" placeholder="Age">
 						        	</div>
 						        	<div class="form-group">
-						        		<input type="text" class="form-control" placeholder="Country of Residence">
+						        		<input type="text" class="form-control form_padding" placeholder="Country of Residence">
 						        	</div>
 						        	<div class="form-group">
-						        		<input type="text" class="form-control" placeholder="Access Code">
+						        		<input type="text" class="form-control form_padding" placeholder="Access Code">
 						        	</div>
 						        	<input type="submit" value="Get me access" class="btn btn-lg btn-success btn_login"> 
 						       	</form>
@@ -102,10 +102,11 @@
 							<li class="dropdown">
 								<a href class="dropdown-toggle" data-toggle="dropdown">
 									@if(Auth::user()->avatar)
-										<img src="{{ asset(config('path.avatar_view').Auth::user()->avatar) }}" class="img-circle img-responsive" width="40px" height="40px">
+										<div class="ava-info" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
 									@else
-										<img src="{{ asset(config('path.profile_default')) }}" class="img-circle img-responsive" width="40px" height="40px">
+										<div class="ava-info" style="background: url({{ asset(config('path.profile_default').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
 									@endif
+									
 								</a>
 								
 								<ul class="dropdown-menu pull-right with-arrow panel panel-default littleFadeInUp" role="menu">

@@ -1392,3 +1392,8 @@ ul.country-list li{
 	padding-bottom: 0;
 	font-size: 16px;
 }
+.ava-info{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
