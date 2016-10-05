@@ -1,10 +1,14 @@
 @extends('frontend.layout.master')
-
+@section('header')
+	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/intlTelInput.css') }}">
+	<style type="text/css">
+		.iti-flag {background-image: url("frontend/images/flags.png");}
+	</style>
+@endsection
 @section('content')
 	<div class="container">
 		<div class="profile">
-			<div class="row">
-			
+			<div class="row">			
 				<div class="col-lg-8">
 					<div class="left-profile">
 						<form>
@@ -46,7 +50,6 @@
 														<input id="phone" type="tel" class="form-control form-padding">
 													</div>
 												</div>
-												
 											</div>
 										</div>
 										
@@ -97,10 +100,14 @@
 						<div class="head-profile"></div>
 						<div class="content-profile">
 							<form id="img-upload-form" method="post" accept-charset="utf-8" onsubmit="return submitImageForm(this)">
-			                     <img id="logo-img" onclick="document.getElementById('add-new-logo').click();" src="{{ asset(config('path.avatar_view').Auth::user()->avatar)}}" class="img-rounded img-responsive showPlay" width="50%" />
-			                     <input type="file" style="display: none" id="add-new-logo" name="file" accept="image/*" onchange="addNewLogo(this)"/>
-			                     <input type="hidden" name="_token" value="{{ Session::token() }}" />
-			                  </form>
+								@if(Auth::user()->avatar)
+			                    <img id="logo-img" onclick="document.getElementById('add-new-logo').click();" src="{{ asset(config('path.avatar_view').Auth::user()->avatar)}}" class="img-rounded img-responsive showPlay" width="50%" />
+			                    @else
+			                    	<img id="logo-img" onclick="document.getElementById('add-new-logo').click();" src="{{ asset(config('path.profile_default'))}}" class="img-rounded img-responsive showPlay" width="50%" />
+			                    @endif
+			                    <input type="file" style="display: none" id="add-new-logo" name="file" accept="image/*" onchange="addNewLogo(this)"/>
+			                    <input type="hidden" name="_token" value="{{ Session::token() }}" />
+			                </form>
 							<form>
 								<div class="input-form">
 									<div class="form-group">
@@ -137,6 +144,11 @@
 		var pathprofile = {!! json_encode(config('path.pathprofile')) !!};
 	</script>
 	<script type="text/javascript" src="{{ asset('frontend/js/profile.js') }}"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="{{ asset('frontend/js/intlTelInput.js') }}"></script>
+	<script>
+	  $("#phone").intlTelInput();
+	</script>
 @endsection	
 @endsection	
 		
