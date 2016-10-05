@@ -17,9 +17,32 @@ function isJson(item) {
     return false;
 }
 
+
+
 //profile
 $(document).ready(function(){
-
+	//show phone code from country
+	
+      $("#phone").intlTelInput({
+      // allowDropdown: false,
+      // autoHideDialCode: false,
+      // autoPlaceholder: "off",
+      // dropdownContainer: "body",
+      // excludeCountries: ["us"],
+      // geoIpLookup: function(callback) {
+      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      //     var countryCode = (resp && resp.country) ? resp.country : "";
+      //     callback(countryCode);
+      //   });
+      // },
+      // initialCountry: "auto",
+      // nationalMode: false,
+      // numberType: "MOBILE",
+      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+      // preferredCountries: ['cn', 'jp'],
+      // separateDialCode: true,
+      utilsScript: "/frontend/js/utils.js"
+    });
 });
 
 
