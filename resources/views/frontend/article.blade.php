@@ -1,8 +1,8 @@
 @extends('frontend.layout.master')
 
 @section('content')
-<div class="container">
 
+	<div style="background: rgba(128, 128, 128, 0.16);">
 	<div class="head-banner text-center artical">
 		<h4>Food</h4>
 		<h1>Is it "fur" or "pho"?</h1>
@@ -10,6 +10,7 @@
 		<p>November 27 <span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comment-o"></i>&nbsp;&nbsp;34</span></p>
 
 	</div>
+	<div class="container">
 	<div class="seagull">
 		<div class="container">
 			<div class="row">
@@ -103,11 +104,9 @@
 						</div>
 					</div>
 				</div>
-
+				<div class="bluebird-slide"></div>
 			</div>
-
-			<div class="bluebird-slide"></div>
-
+		
 			<div class="row">
 				<div class="seagull-content">
 					<div class="col-lg-3"></div>
@@ -176,5 +175,6 @@
 			</div>
 		</div>		
 	</div>
+</div>
 </div>
 @endsection

@@ -131,12 +131,8 @@ $(document).ready(function(){
 		});
 	});
 });
-
-
 //signin
-$(document).ready(function(){
-	//ajax validation
-	$formsignin = $('form#formsignin');
+$formsignin = $('form#formsignin');
 	$formsignin.submit(function(e){
 		e.preventDefault();
 		
@@ -215,7 +211,7 @@ $(document).ready(function(){
 	        }
 		});
 	});
-});
+
 
 //signup
 

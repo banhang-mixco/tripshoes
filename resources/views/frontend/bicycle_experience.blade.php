@@ -34,7 +34,7 @@
 					  </div>
 					  <div id="locations" class="tab-pane fade">
 					  	<p>
-					  		<img src="https://maps.googleapis.com/maps/api/staticmap?center={{$tour->lat}},{{$tour->lng}}&zoom=13&size=420x270&maptype=roadmap&markers=color:red%7Clabel:S%7C{{$tour->lat}},{{$tour->lng}}&key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0">
+					  		<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>
 					  	</p>
 					  </div>
 					</div>				
@@ -56,25 +56,25 @@
 		<div class="row select_content">
 			<div class="col-md-3">
 				<div class="input-append date" data-date="Select Date" data-date-format="dd-mm-yyyy">
-				  <input class="form-control" id="datepciker" size="16" type="text" value="Select Date">
+				  <input class="form-control form_padding" id="datepciker" size="16" type="text" value="Select Date">
 				  <span class="add-on"><i class="icon-th"></i></span>
 				</div>
 			</div>
 			<div class="col-md-3">
 			<div class="input-group bootstrap-timepicker timepicker">
-	            <input id="timepicker1" type="text" class="form-control input-small" >
+	            <input id="timepicker1" type="text" class="form-control form_padding input-small" >
 	            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 	        </div>
 	        </div>
 			<div class="col-md-3">
-				<select class="form-control">
+				<select class="form-control form_padding">
 					@foreach($ticket as $ticket)
 					<option>{{ $ticket->name }}</option>
 					@endforeach
 				</select>
 			</div>
 			<div class="col-md-3">
-				<select class="form-control">
+				<select class="form-control form_padding">
 					@for($i=0;$i<=20;$i++)
 					<option>{{$i}}</option>
 					@endfor
