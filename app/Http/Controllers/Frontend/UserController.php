@@ -136,7 +136,53 @@ class UserController extends Controller
     public function getprofile(){
         $banner = false;
         $text_banner = '';
-        return view('frontend.profile', compact('banner', 'text_banner'));
+        $user = Auth::user();
+        return view('frontend.profile', compact('banner', 'text_banner', 'user'));
     }
 
+
+    public function updateLeftProfile(Request $request){
+
+        $validator = Validator::make($request->all(),[
+            'mobilephone'   => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/'],
+            'phone'         => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/']
+        ]); 
+
+        if($validator->fails()){
+            return response()->json([
+                'errors' => $validator->messages(),
+                'code' => 0
+            ]);
+        }
+
+        $firstname = $request->get('firstname');
+        $lastname = $request->get('lastname');
+        $mobilephone = $request->get('mobilephone');
+        $address = $request->get('address');
+        $confirmcurrentpassword = $request->get('confirmcurrentpassword');
+        $confirmnewpassword = $request->get('confirmnewpassword');
+        $newpassword = $request->get('newpassword');
+
+        $user = Auth::user();
+        $user->firstname = $firstname;
+        $user->lastname = $lastname;
+        $user->mobilephone = $mobilephone;
+        $user->phone = $phone;
+        $user->address = $address;
+
+        if($confirmcurrentpassword != '' && $confirmnewpassword && '' || $newpassword && ''){
+            if(!Hash::check($confirmcurrentpassword, Auth::user()->password)){
+                return response()->json([
+                    'errors' => 'Wrong password',
+                    'code' => 0
+                ]);
+                $user->password = Hash::make($confirmnewpassword);
+            }
+        }
+        $user->save();
+        return response()->json([
+            'message' => 'Update Success',
+            'code' => 1
+        ]);
+    }
 }

@@ -19,57 +19,32 @@ function isJson(item) {
 
 
 
-//profile
+//profile update
 $(document).ready(function(){
-	//show phone code from country
-	
-      $("#phone").intlTelInput({
-      // allowDropdown: false,
-      // autoHideDialCode: false,
-      // autoPlaceholder: "off",
-      // dropdownContainer: "body",
-      // excludeCountries: ["us"],
-      // geoIpLookup: function(callback) {
-      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-      //     var countryCode = (resp && resp.country) ? resp.country : "";
-      //     callback(countryCode);
-      //   });
-      // },
-      // initialCountry: "auto",
-      // nationalMode: false,
-      // numberType: "MOBILE",
-      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-      // preferredCountries: ['cn', 'jp'],
-      // separateDialCode: true,
-      utilsScript: "/frontend/js/utils.js"
-    });
-});
-
-
-
-//send email to reset password
-$(document).ready(function(){
-	$formsignup = $('form#reset');
-	$formsignup.submit(function(e){
+	formleftprofile = $('form#formleftprofile');
+	$formleftprofile.submit(function(e){
 		e.preventDefault();
-		var name = $formsignup.find('input#name').val();
-		var email = $formsignup.find('input#email').val();
-		var password = $formsignup.find('input#password').val();
-		var age = $formsignup.find('input#age').val();
-		var country = $formsignup.find('input#country').val();
-		var code = $formsignup.find('input#code').val();
+		
+		var firstname = $formleftprofile.find('input#firstname').val();
+		var lastname = $formleftprofile.find('input#lastname').val();
+		var mobilephone = $formleftprofile.find('input#mobilephone').val();
+		var address = $formleftprofile.find('input#address').val();
+		var confirmcurrentpassword = $formleftprofile.find('input#confirmcurrentpassword').val();
+		var confirmnewpassword = $formleftprofile.find('input#confirmnewpassword').val();
+		var newpassword = $formleftprofile.find('input#newpassword').val();
 		var url = $(this).attr('action');
 
 		$.ajax({
 			url: url,
 	        type: 'POST',
-	        data: {name: name, email: email, password: password, age: age, country: country, code: code},
+	        data: {firstname: firstname, lastname: lastname, mobilephone: mobilephone, address: address, confirmcurrentpassword: confirmcurrentpassword
+	        	confirmnewpassword: confirmnewpassword, newpassword: newpassword},
 	        dataType: 'json',
 	        success: function(data){
-	        	/*var showerror = $formsignup.find('span.errors');
+	        	var showerror = $formleftprofile.find('span.errors');
 	        	showerror.addClass('hidden');
 
-	        	$formsignup.find('.form-group').each(function(){
+	        	$formleftprofile.find('.form-group').each(function(){
 	        		$(this).removeClass('has-error');
 	        		$(this).find('.help-block').remove();
 	        	});
@@ -78,10 +53,10 @@ $(document).ready(function(){
 	        		if(isJson(errors)){
 	        			for(var key in errors){
 
-		        			var $id = $formsignup.find('#' + key);
+		        			var $id = $formleftprofile.find('#' + key);
 
 		        			var i;
-		        			$finddiv = $formsignup.find($id).parent();
+		        			$finddiv = $formleftprofile.find($id).parent();
 		        			$finddiv.addClass('has-error');
 		        			
 		        			if(errors.hasOwnProperty(key)){
@@ -112,25 +87,25 @@ $(document).ready(function(){
         			html += '</div>';
         			html += '</div>';
         			$('body').append(html);
-        			$('body #signin1').modal('hide');
         			$('body #successnotify').modal('show');
 
 	        		setTimeout(function(){
-
-	        			window.location.href = '/';
-	        			$('body #successnotify').modal('hide');
+						$('body #successnotify').modal('hide');
 	        			$('body #successnotify').remove();
 
 	        		}, 3000);	
         			
-        		}*/
+        		}
+	        	
 	        },
 	        error:function(){
 
 	        }
 		});
 	});
+
 });
+
 //signin
 $formsignin = $('form#formsignin');
 	$formsignin.submit(function(e){

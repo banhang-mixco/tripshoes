@@ -46,6 +46,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		/*Profile with ajax*/
 		Route::get('/profile',['as' =>'profile', 'uses' => 'UserController@getprofile']);
 		Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
+		Route::post('/updateLeftProfile', 'UserController@updateLeftProfile');
 	});
 });
 

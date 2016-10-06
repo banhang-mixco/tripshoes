@@ -13,7 +13,8 @@
 			<div class="row">			
 				<div class="col-lg-8">
 					<div class="left-profile">
-						<form>
+						<form action="{{ url('/updateLeftProfile') }}" method="POST" id="formleftprofile">
+							<span class="errors hidden"></span>
 							<div class="head-profile"></div>
 							<div class="content-profile">
 								<div class="avatar"></div>
@@ -23,13 +24,13 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">First name</label>
-												<input type="text" class="form-control form_padding">
+												<input type="text" class="form-control form_padding" name="firstname" id="firstname">
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">Last name</label>
-												<input type="text" class="form-control form_padding">
+												<input type="text" class="form-control form_padding" name="lastname" id="lastname">
 											</div>
 										</div>
 									</div>
@@ -37,7 +38,7 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">Mobile Phone</label>
-												<input type="text" class="form-control form_padding">
+												<input type="text" class="form-control form_padding" name="mobilephone">
 												<a href="#" class="add">
 													<i class="fa fa-plus"></i>
 													Add mobile number (if different)
@@ -49,7 +50,7 @@
 												<label class="control-label">Work Phone</label>
 												<div class="row">
 													<div class="col-md-12">
-														<input type="tel" id="phone" class="form-control form-padding">
+														<input type="tel" id="phone" class="form-control form-padding" name="phone">
 													</div>
 
 												</div>
@@ -61,7 +62,7 @@
 										<div class="col-lg-12">
 											<div class="form-group">
 												<label class="control-label">Address</label>
-												<input type="password" class="form-control form_padding">
+												<input type="text" class="form-control form_padding" name="address" id="address">
 											</div>
 										</div>
 										
@@ -71,13 +72,13 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">Confirm current password</label>
-												<input type="password" class="form-control form_padding" placeholder="....." >
+												<input type="password" class="form-control form_padding" name="confirmcurrentpassword" id="confirmcurrentpassword">
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">Confirm new password</label>
-												<input type="text" class="form-control form_padding">
+												<input type="text" class="form-control form_padding" name="confirmnewpassword" id="confirmnewpassword">
 											</div>
 										</div>
 									</div>
@@ -85,7 +86,7 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">New password</label>
-												<input type="text" class="form-control form_padding">
+												<input type="text" class="form-control form_padding" name="newpassword" id="newpassword">
 											</div>
 										</div>
 										
@@ -122,7 +123,7 @@
 									</div>
 								</div>
 								<div class="border-profile"></div>
-								<div class="username">
+								{{--<div class="username">
 									<div class="form-group">
 										<select class="form-control pull-left">
 											<option value=""><i class="fa fa-facebook"></i></option>
@@ -132,7 +133,7 @@
 											<i class="fa fa-plus"></i>Add another link
 										</a>
 									</div>
-								</div>
+								</div>--}}
 								
 								<button type="submit" class="btn btn-success btn-lg">Save Changes</button>
 							</form>
