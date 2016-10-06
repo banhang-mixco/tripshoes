@@ -113,7 +113,6 @@ function isJson(item) {
 //signin
 $formsignin = $('form#formsignin');
 	$formsignin.submit(function(e){
-		jQuery.noConflict();
 		e.preventDefault();
 		
 		var email = $formsignin.find('input#email').val();
@@ -208,7 +207,6 @@ $(document).ready(function(){
 	//ajax validation
 	$formsignup = $('form#signupform');
 	$formsignup.submit(function(e){
-		jQuery.noConflict();
 		e.preventDefault();
 		var name = $formsignup.find('input#name').val();
 		var email = $formsignup.find('input#email').val();
@@ -297,7 +295,6 @@ $(document).ready(function(){
 //tick button to add or minus ticket
 $(document).ready(function(){
 	$('.number_ticket a.plus').click(function(e){
-		jQuery.noConflict();
 		e.preventDefault();
 		//console.log($(this).parent().find('.ticket').text());
 		var findticket = $(this).parent().find('.ticket');
@@ -338,7 +335,6 @@ $(document).ready(function(){
 	//ajax validation
 	$formresetpassword = $('form#formresetpassword');
 	$formresetpassword.submit(function(e){
-		jQuery.noConflict();
 		e.preventDefault();
 		
 		var email = $formresetpassword.find('input#email').val();
@@ -420,7 +416,6 @@ $(document).ready(function(){
 	//ajax validation new password
 	$formResetPassword = $('form#formResetPassword');
 	$formResetPassword.submit(function(e){
-		jQuery.noConflict();
 		e.preventDefault();
 		
 		var password = $formResetPassword.find('input#password').val();
