@@ -186,8 +186,7 @@
 						<li>
 							<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
 						</li>
-
-						<li class="dropdown">
+						<li class="dropdown pull-right">
 							<a href class="dropdown-toggle" data-toggle="dropdown">
 								@if(Auth::user()->avatar)
 									<div class="ava-info" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
@@ -217,8 +216,11 @@
 				            </ul>
 							
 						</li>
+						
 					</ul>
+					
 				</div>
+
 				@endif
 			
 				</div>

@@ -19,18 +19,17 @@
 							<div class="content-profile">
 								<div class="avatar"></div>
 								<h4>General Info</h4>
-								
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">First name</label>
-												<input type="text" class="form-control form_padding" name="firstname" id="firstname">
+												<input type="text" class="form-control form_padding" name="firstname" id="firstname" value="{{ $user->first_name }}">
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">Last name</label>
-												<input type="text" class="form-control form_padding" name="lastname" id="lastname">
+												<input type="text" class="form-control form_padding" name="lastname" id="lastname" value="{{ $user->last_name }}">
 											</div>
 										</div>
 									</div>
@@ -38,7 +37,7 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">Mobile Phone</label>
-												<input type="text" class="form-control form_padding" name="mobilephone">
+												<input type="text" class="form-control form_padding" name="mobilephone" id="mobilephone" value="{{ $user->mobile_phone }}">
 												<a href="#" class="add">
 													<i class="fa fa-plus"></i>
 													Add mobile number (if different)
@@ -50,7 +49,7 @@
 												<label class="control-label">Work Phone</label>
 												<div class="row">
 													<div class="col-md-12">
-														<input type="tel" id="phone" class="form-control form-padding" name="phone">
+														<input type="tel" id="phone" class="form-control form-padding" name="phone" value="{{ $user->workphone }}">
 													</div>
 
 												</div>
@@ -62,7 +61,7 @@
 										<div class="col-lg-12">
 											<div class="form-group">
 												<label class="control-label">Address</label>
-												<input type="text" class="form-control form_padding" name="address" id="address">
+												<input type="text" class="form-control form_padding" name="address" id="address" value="{{ $user->address }}">
 											</div>
 										</div>
 										

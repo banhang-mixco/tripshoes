@@ -20,31 +20,34 @@ function isJson(item) {
 
 
 //profile update
-$(document).ready(function(){
+
 	formleftprofile = $('form#formleftprofile');
-	$formleftprofile.submit(function(e){
+	formleftprofile.submit(function(e){
+		jQuery.noConflict();
 		e.preventDefault();
 		
-		var firstname = $formleftprofile.find('input#firstname').val();
-		var lastname = $formleftprofile.find('input#lastname').val();
-		var mobilephone = $formleftprofile.find('input#mobilephone').val();
-		var address = $formleftprofile.find('input#address').val();
-		var confirmcurrentpassword = $formleftprofile.find('input#confirmcurrentpassword').val();
-		var confirmnewpassword = $formleftprofile.find('input#confirmnewpassword').val();
-		var newpassword = $formleftprofile.find('input#newpassword').val();
+		var firstname = formleftprofile.find('input#firstname').val();
+		var lastname = formleftprofile.find('input#lastname').val();
+		var mobilephone = formleftprofile.find('input#mobilephone').val();
+		var phone = formleftprofile.find('input#phone').val();
+		var address = formleftprofile.find('input#address').val();
+		var confirmcurrentpassword = formleftprofile.find('input#confirmcurrentpassword').val();
+		var confirmnewpassword = formleftprofile.find('input#confirmnewpassword').val();
+		var newpassword = formleftprofile.find('input#newpassword').val();
 		var url = $(this).attr('action');
 
 		$.ajax({
 			url: url,
 	        type: 'POST',
-	        data: {firstname: firstname, lastname: lastname, mobilephone: mobilephone, address: address, confirmcurrentpassword: confirmcurrentpassword
+	        data: {firstname: firstname, lastname: lastname, mobilephone: mobilephone, phone: phone, address: address, confirmcurrentpassword: confirmcurrentpassword,
 	        	confirmnewpassword: confirmnewpassword, newpassword: newpassword},
 	        dataType: 'json',
 	        success: function(data){
-	        	var showerror = $formleftprofile.find('span.errors');
+	        	console.log(data.message);
+	        	var showerror = formleftprofile.find('span.errors');
 	        	showerror.addClass('hidden');
 
-	        	$formleftprofile.find('.form-group').each(function(){
+	        	formleftprofile.find('.form-group').each(function(){
 	        		$(this).removeClass('has-error');
 	        		$(this).find('.help-block').remove();
 	        	});
@@ -53,10 +56,10 @@ $(document).ready(function(){
 	        		if(isJson(errors)){
 	        			for(var key in errors){
 
-		        			var $id = $formleftprofile.find('#' + key);
+		        			var $id = formleftprofile.find('#' + key);
 
 		        			var i;
-		        			$finddiv = $formleftprofile.find($id).parent();
+		        			$finddiv = formleftprofile.find($id).parent();
 		        			$finddiv.addClass('has-error');
 		        			
 		        			if(errors.hasOwnProperty(key)){
@@ -77,19 +80,20 @@ $(document).ready(function(){
 	        		}
 	        	}else if(data.code==1){
 	        		html = '';
-        			html += '<div class="modal fade" id="successnotify" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">';
+        			html += '<div class="modal fade" id="successnotify" tabindex="-1" role="dialog" aria-labelledby="success" aria-hidden="true">';
         			html += '<div class="modal-dialog modal-md">';
         			html += '<div class="modal-content">';
         			html += '<div class="modal-body">';
-        			html += '<h4 class="text-center">' + data.errors + '...</h4>';
+        			html += '<h4 class="text-center">' + data.message + '...</h4>';
         			html += '</div>';
         			html += '</div>';
         			html += '</div>';
         			html += '</div>';
         			$('body').append(html);
-        			$('body #successnotify').modal('show');
+        			$('#successnotify').modal('show');
 
 	        		setTimeout(function(){
+	        			window.location.href = '/profile';
 						$('body #successnotify').modal('hide');
 	        			$('body #successnotify').remove();
 
@@ -104,11 +108,12 @@ $(document).ready(function(){
 		});
 	});
 
-});
+
 
 //signin
 $formsignin = $('form#formsignin');
 	$formsignin.submit(function(e){
+		jQuery.noConflict();
 		e.preventDefault();
 		
 		var email = $formsignin.find('input#email').val();
@@ -203,6 +208,7 @@ $(document).ready(function(){
 	//ajax validation
 	$formsignup = $('form#signupform');
 	$formsignup.submit(function(e){
+		jQuery.noConflict();
 		e.preventDefault();
 		var name = $formsignup.find('input#name').val();
 		var email = $formsignup.find('input#email').val();
@@ -291,6 +297,7 @@ $(document).ready(function(){
 //tick button to add or minus ticket
 $(document).ready(function(){
 	$('.number_ticket a.plus').click(function(e){
+		jQuery.noConflict();
 		e.preventDefault();
 		//console.log($(this).parent().find('.ticket').text());
 		var findticket = $(this).parent().find('.ticket');
@@ -331,6 +338,7 @@ $(document).ready(function(){
 	//ajax validation
 	$formresetpassword = $('form#formresetpassword');
 	$formresetpassword.submit(function(e){
+		jQuery.noConflict();
 		e.preventDefault();
 		
 		var email = $formresetpassword.find('input#email').val();
@@ -412,6 +420,7 @@ $(document).ready(function(){
 	//ajax validation new password
 	$formResetPassword = $('form#formResetPassword');
 	$formResetPassword.submit(function(e){
+		jQuery.noConflict();
 		e.preventDefault();
 		
 		var password = $formResetPassword.find('input#password').val();
