@@ -139,12 +139,14 @@
 					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
 					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
 				</div>
-				<div class="border_header"></div>
+			</div>
+			<div class="border_header"></div>
+
 				<div class="title-header text-center">
 					<h1>{{ trans('lang_user.header.contact') }}<br> {{ trans('lang_user.header.contact_1') }}</h1>
 					<a href="" class="btn btn-lg">{{ trans('lang_user.header.button') }}</a>
 				</div>
-			</div>
+			
 
 		</div>
 			<div id="content">
