@@ -53,38 +53,40 @@
 				</div>
 			</div>
 		</div>
-		<div class="row select_content">
-			<div class="col-md-3">
-				<div class="input-append date" data-date="Select Date" data-date-format="dd-mm-yyyy">
-				  <input class="form-control form_padding" id="datepciker" size="16" type="text" value="Select Date">
-				  <span class="add-on"><i class="icon-th"></i></span>
+		<form action="{{ url('/trip1') }}" method="POST">
+			<div class="row select_content">
+				<div class="col-md-3">
+					<div class="input-append date" data-date="Select Date">
+					  <input class="form-control form_padding" id="datepciker" size="16" type="text" value="Select Date" name="date_booking">
+					  <span class="add-on"><i class="icon-th"></i></span>
+					</div>
+				</div>
+				<div class="col-md-3">
+				<div class="input-group bootstrap-timepicker timepicker">
+		            <input id="timepicker1" type="text" class="form-control form_padding input-small" name="time_booking">
+		            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+		        </div>
+		        </div>
+				<div class="col-md-3">
+					<select class="form-control form_padding" name="ticket_booking">
+						@foreach($ticket as $ticket)
+						<option value="{{ $ticket->id }}">{{ $ticket->name }}</option>
+						@endforeach
+					</select>
+				</div>
+				<div class="col-md-3">
+					<select class="form-control form_padding" name="number_ticket">
+						@for($i=0;$i<=20;$i++)
+						<option value="{{ $i }}">{{$i}}</option>
+						@endfor
+					</select>
 				</div>
 			</div>
-			<div class="col-md-3">
-			<div class="input-group bootstrap-timepicker timepicker">
-	            <input id="timepicker1" type="text" class="form-control form_padding input-small" >
-	            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-	        </div>
-	        </div>
-			<div class="col-md-3">
-				<select class="form-control form_padding">
-					@foreach($ticket as $ticket)
-					<option>{{ $ticket->name }}</option>
-					@endforeach
-				</select>
-			</div>
-			<div class="col-md-3">
-				<select class="form-control form_padding">
-					@for($i=0;$i<=20;$i++)
-					<option>{{$i}}</option>
-					@endfor
-				</select>
-			</div>
-		</div>
+		
 		<span>${{number_format((float)$tour->price, 2, '.', '')}}</span>
 		@if(Auth::check())
 		<div class="button_end">
-			<a href="#" class="btn btn-lg btn-success">{{ trans('lang_user.booking.add_to_cart') }}</a>
+			<button type="submit" class="btn btn-lg btn-success">{{ trans('lang_user.booking.add_to_cart') }}</button>
 			<a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#promo_code">{{ trans('lang_user.booking.add_promo_code') }}</a>
 		</div>
 		@else
@@ -93,6 +95,7 @@
 			<a href="#" class="btn btn-lg btn-default" data-toggle="modal" data-target="#promo_code">{{ trans('lang_user.booking.enquire_now') }}</a>
 		</div>
 		@endif
+		</form>
 	</div>
 	<div class="modal fade" id="promo_code" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
@@ -120,8 +123,10 @@
 	<script type="text/javascript" src="{{ asset('frontend/js/bootstrap-datepicker.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('frontend/js/bootstrap-timepicker.min.js') }}"></script>
 	<script type="text/javascript">
-        $('#timepicker1').timepicker();
-        $('#datepciker').datepicker();
+        $('#timepicker1').timepicker({showMeridian:false});
+        $('#datepciker').datepicker({
+        	format: 'dd/mm/yyyy',
+        });
     </script>
 @endsection
 @endsection
