@@ -61,7 +61,7 @@ class TripController extends Controller
             $ticket = $this->ticketrepo->all();
             $banner = false;
 			$text_banner = "";
-            return  view('frontend.bicycle_experience', compact('tour', 'ticket','images','image','banner','text_banner'));
+            return  view('frontend.bicycle_experience', compact('tour', 'ticket','images','image','banner','text_banner', 'id'));
         } catch (Exception $ex) {
             return redirect()->route('trip');
         }

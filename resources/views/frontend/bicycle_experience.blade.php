@@ -84,6 +84,9 @@
 			</div>
 		
 		<span>${{number_format((float)$tour->price, 2, '.', '')}}</span>
+		<input type="hidden" name="price" value="{{number_format((float)$tour->price, 2, '.', '')}}">
+		<input type="hidden" name="tour_id" value="{{ $id }}">	
+		<input type="hidden" name="promo_id">
 		@if(Auth::check())
 		<div class="button_end">
 			<button type="submit" class="btn btn-lg btn-success">{{ trans('lang_user.booking.add_to_cart') }}</button>
@@ -126,9 +129,9 @@
 	<script type="text/javascript" src="{{ asset('frontend/js/bootstrap-datepicker.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('frontend/js/bootstrap-timepicker.min.js') }}"></script>
 	<script type="text/javascript">
-        $('#timepicker1').timepicker({showMeridian:false});
+        $('#timepicker1').timepicker();
         $('#datepciker').datepicker({
-        	format: 'dd/mm/yyyy',
+        	format: 'dd.mm.yy',
         });
     </script>
 @endsection
