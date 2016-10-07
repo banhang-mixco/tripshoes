@@ -8,13 +8,15 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Session;
 use App\Repositories\Eloquent\UserRepositoryEloquent;
+use App\Repositories\Eloquent\BookingRepositoryEloquent;
 use Auth;
+use App\Models\Booking;
 
 class BookingController extends Controller
 {
 
 	protected $userinfo;
-	public function __construct(UserRepositoryEloquent $userinfo){
+	public function __construct(UserRepositoryEloquent $userinfo, BookingRepositoryEloquent $bookinfo){
 		$this->userinfo = $userinfo;
 	}
 
@@ -23,22 +25,42 @@ class BookingController extends Controller
         $time_booking = $request->get('time_booking');
         $ticket_booking = $request->get('ticket_booking');
         $number_ticket = $request->get('number_ticket');
+        $price = $request->get('price');
+        $tour_id = $request->get('tour_id');
+        $promo_id = $request->get('promo_id');
 
-    	Session::forget('booking');
-    	$booking = new \stdClass();
-    	$booking->{"date"} = $request->get('date');
-    	$booking->{"time"} = $request->get('time');
-    	$booking->{"ticket"} = $request->get('ticket');
-    	$booking->{"type"} = $request->get('type');
-    	$booking->{"price"} = $request->get('price');
-    	Session::push('booking', $booking);
     	$banner = false;
 		$text_banner = '';
-		return view('frontend.trips_checkout_1', compact('banner', 'text_banner'));
+		return view('frontend.trips_checkout_1', compact('banner', 'text_banner', 'date_booking', 'time_booking', 'ticket_booking', 'number_ticket', 'price', 'tour_id', 'promo_id'));
     }
 
     public function trip2(Request $request){
-    	
+    	$date_booking = $request->get('date_booking');
+        $date_booking = str_replace('.', '-', $date_booking);
+        $date_booking = date('Y-m-d', strtotime($date_booking));
+
+        $time_booking = $request->get('time_booking');
+        $time_booking = date('H:i', strtotime($time_booking));
+
+        $ticket_booking = $request->get('ticket_booking');
+        $number_ticket = $request->get('number_ticket');
+        $tour_id = $request->get('tour_id');
+        $cost = $request->get('cost');
+        $promo_id = $request->get('promo_id');
+
+        $created_at = date('Y-m-d H:i:s');
+
+        $booking = new Booking;
+        $booking->user_id = Auth::user()->id;
+        $booking->date_start = $date_booking;
+        $booking->start_time = $time_booking;
+        $booking->tour_information_id = $tour_id;
+        $booking->ticket_id = $ticket_booking;
+        $booking->number_ticket = $number_ticket;
+        $booking->cost = $cost;
+        $booking->promo_id = $promo_id;
+        $booking->date_created = $created_at;
+        $booking->save();
 
     	$banner = false;
 		$text_banner = '';
@@ -50,18 +72,6 @@ class BookingController extends Controller
     	$banner = false;
 			
 		$text_banner = '';
-	
-    	$email = $request->get('email');
-    	$first_name = $request->get('first_name');
-    	$last_name = $request->get('last_name');
-    	$country_of_residence = $request->get('country_of_residence');
-    	$age = $request->get('age');
-
-    	$findUser = $this->userinfo->find(Auth::user()->id);
-    	$findUser->country = $country_of_residence;
-    	$findUser->age = $age;
-    	$findUser->first_name = $first_name;
-    	$findUser->last_name = $last_name;
 
     	$findUser->save();
 

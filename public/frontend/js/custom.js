@@ -315,6 +315,7 @@ $(document).ready(function(){
 			number_ticket = number_ticket - 1;
 		}
 		findticket.text(number_ticket);
+		$('#number_ticket').val(number_ticket);
 
 	});
 });
