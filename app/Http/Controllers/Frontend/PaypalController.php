@@ -14,8 +14,39 @@ class PaypalController extends Controller
 	public function __construct(){
 		 $this->_apiContext = Paypalpayment::apiContext(config('paypal_payment.Account.ClientId'), config('paypal_payment.Account.ClientSecret'));
 	}
+    public function transaction(Request $request){
+        $expire_month = $request->get('expire_month');
+        $expire_year = $request->get('expire_year');
+        $code = $request->get('code');
+        $name_card = $request->get('name_card');
+        $credit_card = $request->get('credit_card');
 
-   	public function createPaypal(){
+        $card = Paypalpayment::creditCard();
+        $card->setType("visa")
+            ->setNumber($credit_card)
+            ->setExpireMonth($expire_month)
+            ->setExpireYear($expire_year)
+            ->setCvv2($code)
+            ->setFirstName("Joe")
+            ->setLastName("Shopper");
+
+        $fi = Paypalpayment::fundingInstrument();
+        $fi->setCreditCard($card);
+
+        $payer = Paypalpayment::payer();
+        $payer->setPaymentMethod("credit_card")
+            ->setFundingInstruments(array($fi));
+
+        $item = Paypalpayment::item();
+        $item->setName('Ground Coffee 40 oz')
+                ->setDescription('Ground Coffee 40 oz')
+                ->setCurrency('USD')
+                ->setQuantity(1)
+                ->setTax(0.3)
+                ->setPrice(7.50);
+    }
+   	public function createPaypal(Request $request){
+
    		$card = Paypalpayment::creditCard();
         $card->setType("visa")
             ->setNumber("4758411877817150")

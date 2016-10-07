@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6 payment">
-				<form>
+				<form action="{{ url('/transaction') }}" method="POST">
 					<div class="row">
 					<div class="form-group">
 						<h3 class="text-left">Choose your payment method</h3>						
@@ -54,13 +54,13 @@
 					<div class="col-lg-12">
 						<div class="col-lg-6">
 							<div class="col-lg-6">
-							<select class="form_payment">
-								<option>01</option>
+							<select class="form_payment" name="expire_month">
+								<option value="1">01</option>
 							</select>
 							</div>
 							<div class="col-lg-6">
-							<select class="form_payment">
-								<option>16</option>
+							<select class="form_payment" name="expire_year">
+								<option value="16">16</option>
 							</select>
 							</div>
 						</div>
@@ -76,7 +76,7 @@
 					<div class="row">
 					<div class="col-lg-12 btn-group patment_btn">
 					  	<a href="{{ asset('/trip2') }}" class="btn btn-lg-6 btn-default">Return to Detail</a>
-						<a href="#" class="btn btn-lg-6 btn-default complete">Complete Order <i class="fa fa-arrow-right"></i></a>
+						<button class="btn btn-lg-6 btn-default complete">Complete Order <i class="fa fa-arrow-right"></i></button>
 					</div>
 					</div>
 					</div>
