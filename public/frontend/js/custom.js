@@ -290,7 +290,36 @@ $(document).ready(function(){
 	
 });
 
+/*Promo code*/
+$('#send_promo').on("click",function(e){
+	var promo = $('#promo').val();
+    var token = $("[name='_token']").val();
 
+    e.preventDefault(e);
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "http://tripshoes.web/promo",
+        data: {
+           	promo:promo
+        },
+        dataType: 'json',
+        success: function(data){
+        	$('#promo').attr('value',data.id);
+        	alert("With "+ data.code+ "You have discount "+ data.discount+".Thanks you!");            
+        },
+        error: function(data){
+        	$('#promo').html("");
+            alert(data.mes);
+        }
+    });
+});
+/*End promo code*/
 
 //tick button to add or minus ticket
 $(document).ready(function(){

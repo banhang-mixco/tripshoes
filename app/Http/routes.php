@@ -36,6 +36,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		/*My booking*/
 		Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);
 		Route::get('bookings/{id}', ['as' => 'booking.show', 'uses' => 'MyBookingController@show']);
+		Route::post('/promo','MyBookingController@comparepromo');
 		/*Trip with login*/
 		Route::get('/trip/{id}',['uses' => 'TripController@show']);
 		Route::get('/tripswithlogin', 'TripController@tripwithlogin');

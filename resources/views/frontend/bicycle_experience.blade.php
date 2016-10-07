@@ -110,14 +110,17 @@
 	        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.booking.add_promo_code') }}</h4>
 	      </div>
 	      <div class="modal-body">
-	      	<div class="form-group">
-	        	<label class="label-control">{{ trans('lang_user.booking.promo_code') }}</label>
-	        	<input type="text" name="promo" class="form-control">
-	        </div>
+	      	<form action="" method="POST">
+		      	<div class="form-group">
+		      		<input type="hidden" name="_token" value="{{ Session::token() }}" />
+		        	<label class="label-control" >{{ trans('lang_user.booking.promo_code') }}</label>
+		        	<input type="text" id="promo" name="promo_id" class="form-control">
+		        </div>
+		    	</form>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">{{ trans('lang_user.booking.close') }}</button>
-	        <button type="button" class="btn btn-success">{{ trans('lang_user.booking.send_promo_code') }}</button>
+	        <button type="button" class="btn btn-success" id="send_promo">{{ trans('lang_user.booking.send_promo_code') }}</button>
 	      </div>
 	    </div>
 	  </div>
