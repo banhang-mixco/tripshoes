@@ -186,8 +186,7 @@
 						<li>
 							<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
 						</li>
-
-						<li class="dropdown">
+						<li class="dropdown pull-right">
 							<a href class="dropdown-toggle" data-toggle="dropdown">
 								@if(Auth::user()->avatar)
 									<div class="ava-info" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
@@ -217,14 +216,17 @@
 				            </ul>
 							
 						</li>
+						
 					</ul>
+					
 				</div>
+
 				@endif
 			
 				</div>
 				<div class="text-center webname">
-					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
+					<a href="{{ url('/') }}" style="color:#fff;"><img src="{{ asset('frontend/images/Group3.png') }}">{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span></a>
+					
 				</div>
 				{!! $text_banner !!}
 	</div>

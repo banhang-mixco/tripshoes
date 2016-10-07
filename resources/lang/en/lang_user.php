@@ -34,6 +34,7 @@ return [
     ],
 'header' => [
         'trips' => 'Trips',
+        'trip'  => 'trips',
         'shoes' => 'shoes',
         'blog' => 'Blog',
         'sign_in' => 'Sign In',

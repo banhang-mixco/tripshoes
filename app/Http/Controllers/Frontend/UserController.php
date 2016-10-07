@@ -158,19 +158,20 @@ class UserController extends Controller
         $firstname = $request->get('firstname');
         $lastname = $request->get('lastname');
         $mobilephone = $request->get('mobilephone');
+        $phone = $request->get('phone');
         $address = $request->get('address');
         $confirmcurrentpassword = $request->get('confirmcurrentpassword');
         $confirmnewpassword = $request->get('confirmnewpassword');
         $newpassword = $request->get('newpassword');
 
         $user = Auth::user();
-        $user->firstname = $firstname;
-        $user->lastname = $lastname;
-        $user->mobilephone = $mobilephone;
-        $user->phone = $phone;
+        $user->first_name = $firstname;
+        $user->last_name = $lastname;
+        $user->mobile_phone = $mobilephone;
+        $user->workphone = $phone;
         $user->address = $address;
 
-        if($confirmcurrentpassword != '' && $confirmnewpassword && '' || $newpassword && ''){
+        if($confirmcurrentpassword != '' && $confirmnewpassword != ''  && $newpassword != ''){
             if(!Hash::check($confirmcurrentpassword, Auth::user()->password)){
                 return response()->json([
                     'errors' => 'Wrong password',

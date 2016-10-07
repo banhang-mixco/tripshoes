@@ -40,7 +40,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		Route::get('/trip/{id}',['uses' => 'TripController@show']);
 		Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 		/*Cart*/
-		Route::get('/trip1', 'BookingController@trip1');
+		Route::post('/trip1', 'BookingController@trip1');
 		Route::get('/trip2', 'BookingController@trip2');
 		Route::get('/trip3', 'BookingController@trip3');
 		/*Profile with ajax*/
