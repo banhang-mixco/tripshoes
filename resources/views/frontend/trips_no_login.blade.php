@@ -13,7 +13,7 @@
 				<div class="top">
 					<div class="pull-left">
 						<div class="link">
-							<a href="{{ asset('/trip') }}">{{ trans('lang_user.header.trips') }}</a>
+							<a href="{{ asset('/trip') }}">{{ trans('lang_user.header.trip') }}</a>
 							<a href="{{ asset('/blog') }}" class="padding_left_10">{{ trans('lang_user.header.blog') }}</a>	
 						</div>
 					</div>

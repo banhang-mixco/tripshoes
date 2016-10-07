@@ -225,8 +225,8 @@
 			
 				</div>
 				<div class="text-center webname">
-					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
+					<a href="{{ url('/') }}" style="color:#fff;"><img src="{{ asset('frontend/images/Group3.png') }}">{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span></a>
+					
 				</div>
 				{!! $text_banner !!}
 	</div>

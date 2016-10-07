@@ -89,4 +89,17 @@ class MyBookingController extends Controller
             return redirect()->route('booking.index');
         }
     }
+
+    public function comparepromo(Request $request){
+        $data = $request->all();
+        $promo = $this->promorepo->findByField('code',$request->promo)->first();
+        $promo['id']=$promo['id'];
+        if($promo!="") {
+            return response()->json($promo);
+        }
+        else{
+            return response()->json(['mes' => 'Promo code is not exit, please help me check it. Thanks you']);
+        }
+        
+    }
 }

@@ -19,6 +19,11 @@ class BookingController extends Controller
 	}
 
     public function trip1(Request $request){
+        $date_booking = $request->get('date_booking');
+        $time_booking = $request->get('time_booking');
+        $ticket_booking = $request->get('ticket_booking');
+        $number_ticket = $request->get('number_ticket');
+
     	Session::forget('booking');
     	$booking = new \stdClass();
     	$booking->{"date"} = $request->get('date');

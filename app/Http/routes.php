@@ -36,11 +36,12 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		/*My booking*/
 		Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);
 		Route::get('bookings/{id}', ['as' => 'booking.show', 'uses' => 'MyBookingController@show']);
+		Route::post('/promo','MyBookingController@comparepromo');
 		/*Trip with login*/
 		Route::get('/trip/{id}',['uses' => 'TripController@show']);
 		Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 		/*Cart*/
-		Route::get('/trip1', 'BookingController@trip1');
+		Route::post('/trip1', 'BookingController@trip1');
 		Route::get('/trip2', 'BookingController@trip2');
 		Route::get('/trip3', 'BookingController@trip3');
 		/*Profile with ajax*/

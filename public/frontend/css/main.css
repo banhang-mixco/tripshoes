@@ -543,7 +543,8 @@ form.form_access{
 	margin-left: 40px;
 	margin-bottom: 60px;
 }
-.button_end a{
+
+.button_end a, .button_end button{
 	margin-right: 18px;
 	width: 200px;
 	height: 60px;
