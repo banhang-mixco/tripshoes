@@ -108,6 +108,8 @@ function isJson(item) {
 		});
 	});
 
+//send code
+$('#sendcode').modal('show');
 
 
 //signin
@@ -224,6 +226,7 @@ $(document).ready(function(){
 	        success: function(data){
 	        	var showerror = $formsignup.find('span.errors');
 	        	showerror.addClass('hidden');
+	        	console.log(data);
 
 	        	$formsignup.find('.form-group').each(function(){
 	        		$(this).removeClass('has-error');
@@ -254,6 +257,7 @@ $(document).ready(function(){
 		        		}
 	        		
 	        		}else if(typeof errors === 'string' || errors instanceof String){
+	        			console.log('hello');
 	        			showerror.append(errors).removeClass('hidden');
 	        		}
 	        	}else if(data.code==1){
@@ -285,7 +289,6 @@ $(document).ready(function(){
 
 	        }
 		});
-		console.log('hello');
 	});
 	
 });

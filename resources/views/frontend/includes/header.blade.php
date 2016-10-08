@@ -1,3 +1,4 @@
+
 <div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25) ), url({{ asset($banner) }}) no-repeat; background-size: 140%;background-position: -30px -175px;">
 	<div class="container">
 		<div class="top">
@@ -108,15 +109,7 @@
 				      <div class="modal-body">
 				       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
 				       		{{ csrf_field() }}
-				       		@if (count($errors) > 0)
-			                    <div class="alert alert-danger">
-			                        <ul>
-			                            @foreach ($errors->all() as $error)
-			                                <li>{{ $error }}</li>
-			                            @endforeach
-			                        </ul>
-			                    </div>
-			                @endif
+				       		<span class="errors hidden"></span>
 				       		<div class="form-group">
 				        		<input type="text" class="form-control form_padding" placeholder="Name" name="name" id="name">
 				        	</div>
@@ -178,6 +171,21 @@
 				    </div>
 				  </div>
 				</div>
+				
+				@if(Session::has('sendSuccess'))
+					<div class="modal fade" id="sendcode" tabindex="-1" role="dialog" aria-labelledby="sendcode" aria-hidden="true">
+					  <div class="modal-dialog modal-md">
+					    <div class="modal-content">
+					      <div class="modal-body">
+								
+								<h1>{{ Session::get('sendSuccess') }}</h1>
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+				@endif
+
 
 				@else
 				<div class="link">

@@ -17,7 +17,7 @@ class CreditCard extends Model implements Transformable
      */
     protected $table= 'tbl_credit_card';
     protected $fillable = [
-        'user_id', 'number_card', 'account_name', 'paypal',
+        'user_id', 'number_card', 'account_name','expiration_date', 'country', 'type', 'paypal', 'address_id',
     ];
     /* Get all from User.
      *
@@ -34,5 +34,14 @@ class CreditCard extends Model implements Transformable
     public function invoices()
     {
         return $this->hasMany('App\Models\Invoice');
+    }
+
+     /* Get all from Address.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     */
+    public function addressid()
+    {
+        return $this->belongsTo('App\Models\Address','address_id');
     }
 }

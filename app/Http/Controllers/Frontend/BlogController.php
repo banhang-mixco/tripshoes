@@ -62,6 +62,7 @@ class BlogController extends Controller
             $image = $this->imagerepo->findByField('tour_information_id', $id)->first('url');
             $ticket = $this->ticketrepo->all();
             $blog =$this->blogdetailrepo->all();
+            // dd($blog);
             $banner = false;
 			$text_banner = "";
             return  view('frontend.article', compact('tour', 'ticket','images','blog','image','banner','text_banner'));

@@ -17,7 +17,7 @@ class Promo extends Model implements Transformable
      */
     protected $table= 'tbl_promo';
     protected $fillable = [
-        'code', 'description', 'discount',  
+        'code', 'description', 'discount','count',  
     ];
     /**
      * Get ticket from Booking.

@@ -15,14 +15,14 @@ class BlogDetail extends Model implements Transformable
      *
      * @var array
      */
-    protected $table= 'tb_blog_detail';
+    protected $table= 'tbl_blog_detail';
     protected $fillable = [
         'tour_information_id', 'content',
     ];
     /**
      * Get the phone record associated with the user.
      */
-    public function tour()
+    public function tours()
     {
         return $this->hasOne('App\Model\BlogDetail', 'tour_information_id');
     }
