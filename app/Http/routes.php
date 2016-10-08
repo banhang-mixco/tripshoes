@@ -49,7 +49,11 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		Route::get('/profile',['as' =>'profile', 'uses' => 'UserController@getprofile']);
 		Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
 		Route::post('/updateLeftProfile', 'UserController@updateLeftProfile');
-		Route::get('/transaction', 'PaypalController@createPaypal');
+		Route::post('/transaction', 'PaypalController@postPayment');
+		Route::get('payment/status', array(
+		    'as' => 'payment.status',
+		    'uses' => 'PaypalController@getPaymentStatus',
+		));
 	});
 });
 
