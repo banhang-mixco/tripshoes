@@ -17,7 +17,7 @@ class TourInformation extends Model implements Transformable
      */
     protected $table= 'tbl_tour_information';
     protected $fillable = [
-        'guide_id', 'place_id', 'price', 'time', 'transport', 'name', 'about', 'highlights', 'about_tour', 'reviews', 'about_guide', 'is_available', 'lat', 'lng'
+        'guide_id', 'place_id', 'price', 'time', 'time_period', 'transport', 'name', 'about', 'highlights', 'about_tour', 'reviews', 'about_guide', 'is_available', 'lat', 'lng',
     ];
 
     /**

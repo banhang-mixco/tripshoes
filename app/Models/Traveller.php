@@ -17,7 +17,7 @@ class Traveller extends Model implements Transformable
      */
     protected $table= 'tbl_traveller';
     protected $fillable = [
-        'user_id', 'booking_id', 
+        'user_id', 'booking_id', 'lat', 'lng',
     ];
 
     /* Get all from User.
