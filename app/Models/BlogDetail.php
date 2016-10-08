@@ -22,7 +22,7 @@ class BlogDetail extends Model implements Transformable
     /**
      * Get the phone record associated with the user.
      */
-    public function tour()
+    public function tours()
     {
         return $this->hasOne('App\Model\BlogDetail', 'tour_information_id');
     }

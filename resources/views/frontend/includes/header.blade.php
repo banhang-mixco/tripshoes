@@ -12,7 +12,7 @@
 				<div class="pull-right">
 					<div class="link">
 						<a href="#" data-toggle="modal" data-target="#signin1">{{ trans('lang_user.header.sign_in') }}</a>
-						<a href="{{ asset('/trip1') }}"><i class="fa fa-shopping-cart padding_left_10"></i>{{ trans('lang_user.header.cart') }}</a>
+						<a href="{!! asset('/') !!}"><i class="fa fa-shopping-cart padding_left_10"></i>{{ trans('lang_user.header.cart') }}</a>
 					</div>
 				</div>
 				<div class="modal fade" id="signin1" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
@@ -192,7 +192,7 @@
 					<ul class="nav-right pull-right list-inline">
 						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 						<li>
-							<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							<a href="{{ url('/trip') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
 						</li>
 						<li class="dropdown pull-right">
 							<a href class="dropdown-toggle" data-toggle="dropdown">
@@ -233,7 +233,7 @@
 			
 				</div>
 				<div class="text-center webname">
-					<a href="{{ url('/') }}" style="color:#fff;"><img src="{{ asset('frontend/images/Group3.png') }}">{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span></a>
+					<a href="{{ url('/') }}" style="color:#fff;"><img src="{{ asset('frontend/images/Group3.png') }}">&nbsp;{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span></a>
 					
 				</div>
 				{!! $text_banner !!}

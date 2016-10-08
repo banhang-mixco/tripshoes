@@ -34,7 +34,7 @@ return [
     ],
 'header' => [
         'trips' => 'Trips',
-        'trip'  => 'trips',
+        'trip'  => 'trip',
         'shoes' => 'shoes',
         'blog' => 'Blog',
         'sign_in' => 'Sign In',

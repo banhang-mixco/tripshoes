@@ -10,7 +10,6 @@ use App\Repositories\Eloquent\BookingRepositoryEloquent;
 use App\Repositories\Eloquent\TourInformationRepositoryEloquent;
 use App\Repositories\Eloquent\TicketRepositoryEloquent;
 use App\Repositories\Eloquent\PromoRepositoryEloquent;
-use App\Repositories\Eloquent\TourUserRepositoryEloquent;
 use App\Repositories\Eloquent\TravellerRepositoryEloquent;
 use App\Repositories\Eloquent\InvoiceRepositoryEloquent;
 use App\Repositories\Eloquent\ImageRepositoryEloquent;
@@ -22,7 +21,6 @@ class MyBookingController extends Controller
     protected $tourinforepo;
     protected $ticketrepo;
     protected $promorepo;
-    protected $touruserrepo;
     protected $travellerrepo;
     protected $invoicerepo;
     protected $imagerepo;
@@ -34,20 +32,18 @@ class MyBookingController extends Controller
      * @param TicketRepositoryEloquent       $ticket      the ticket repository
      * @param PromoRepositoryEloquent       $promo      the promo repository
      * @param ImageRepositoryEloquent       $image      the image repository
-     * @param TourUserRepositoryEloquent       $touruser      the touruser repository
      * @param TravellerRepositoryEloquent       $traveller      the traveller repository
      * @param InvoiceRepositoryEloquent       $invoice      the invoice repository
      *
      * @return void
      */
-    public function __construct(BookingRepositoryEloquent $booking,ImageRepositoryEloquent $image, TourInformationRepositoryEloquent $tourinfo, TicketRepositoryEloquent $ticket, PromoRepositoryEloquent $promo, TourUserRepositoryEloquent $touruser, TravellerRepositoryEloquent $traveller, InvoiceRepositoryEloquent $invoice)
+    public function __construct(BookingRepositoryEloquent $booking,ImageRepositoryEloquent $image, TourInformationRepositoryEloquent $tourinfo, TicketRepositoryEloquent $ticket, PromoRepositoryEloquent $promo, TravellerRepositoryEloquent $traveller, InvoiceRepositoryEloquent $invoice)
     {
         $this->tourinforepo = $tourinfo;
         $this->imagerepo = $image;
         $this->bookingrepo = $booking;
         $this->ticketrepo = $ticket;
         $this->promorepo = $promo;
-        $this->touruserrepo = $touruser;
         $this->travellerrepo = $traveller;
         $this->invoicerepo = $invoice;
     }
@@ -93,7 +89,9 @@ class MyBookingController extends Controller
     public function comparepromo(Request $request){
         $data = $request->all();
         $promo = $this->promorepo->findByField('code',$request->promo)->first();
-        $promo['id']=$promo['id'];
+        $result = $this->promorepo>update(['count' => $promo['count']-1]);
+        $result['id']=$promo['id'];
+        dd($result);
         if($promo!="") {
             return response()->json($promo);
         }
