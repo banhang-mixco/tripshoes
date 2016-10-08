@@ -41,14 +41,15 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		Route::get('/trip/{id}',['uses' => 'TripController@show']);
 		Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 		/*Cart*/
-		Route::post('/trip1', 'BookingController@trip1');
+		Route::post('/addtocart/{id}', 'BookingController@addtocart');
+		Route::get('/trip1', 'BookingController@trip1');
 		Route::post('/trip2', 'BookingController@trip2');
 		Route::get('/trip3', 'BookingController@trip3');
 		/*Profile with ajax*/
 		Route::get('/profile',['as' =>'profile', 'uses' => 'UserController@getprofile']);
 		Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
 		Route::post('/updateLeftProfile', 'UserController@updateLeftProfile');
-		Route::post('/transaction', 'PaypalController@transaction');
+		Route::get('/transaction', 'PaypalController@createPaypal');
 	});
 });
 

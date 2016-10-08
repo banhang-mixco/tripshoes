@@ -13,6 +13,15 @@ class PaypalController extends Controller
 	private $_apiContext;
 	public function __construct(){
 		 $this->_apiContext = Paypalpayment::apiContext(config('paypal_payment.Account.ClientId'), config('paypal_payment.Account.ClientSecret'));
+        $this->_apiContext->setConfig(array(
+            'mode' => 'sandbox',
+            'Http.ConnectionTimeOut' => 30,
+            'Http.Retry' => 1,
+            'Service.EndPoint' => 'https://api.sandbox.paypal.com',
+            'Log.LogEnabled' => true,
+            'Log.FileName' => __DIR__.'/../PayPal.log',
+            'Log.LogLevel' => 'FINE'
+        ));
 	}
     public function transaction(Request $request){
         $expire_month = $request->get('expire_month');

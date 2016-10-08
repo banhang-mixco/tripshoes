@@ -53,7 +53,7 @@
 				</div>
 			</div>
 		</div>
-		<form action="{{ url('/trip1') }}" method="POST">
+		<form action="{{ url('/addtocart/' . $id) }}" method="POST">
 			<div class="row select_content">
 				<div class="col-md-3">
 					<div class="input-append date" data-date="Select Date">
@@ -85,8 +85,7 @@
 		
 		<span>${{number_format((float)$tour->price, 2, '.', '')}}</span>
 		<input type="hidden" name="price" value="{{number_format((float)$tour->price, 2, '.', '')}}">
-		<input type="hidden" name="tour_id" value="{{ $id }}">	
-		<input type="hidden" name="promo_id">
+		<input type="hidden" name="promo_id" id="promo_id">
 		@if(Auth::check())
 		<div class="button_end">
 			<button type="submit" class="btn btn-lg btn-success">{{ trans('lang_user.booking.add_to_cart') }}</button>
@@ -131,7 +130,7 @@
 	<script type="text/javascript">
         $('#timepicker1').timepicker();
         $('#datepciker').datepicker({
-        	format: 'dd.mm.yy',
+        	format: 'dd.mm.yyyy',
         });
     </script>
 @endsection
