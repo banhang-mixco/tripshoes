@@ -54,24 +54,24 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label class="control-label">{{ trans('lang_user.booking.date_of_trip') }}</label>
-					<input type="text" class="form-control form_padding">
+					<input type="text" class="form-control form_padding" value="{{ $tour->time}}">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<label class="control-label">{{ trans('lang_user.booking.time') }}</label>
-					<input type="text" class="form-control form_padding">
+					<input type="text" class="form-control form_padding" value="">
 			</div>
 		</div>
 		<div class="row booking_content">
 			<div class="col-md-4">
 				<div class="form-group">
 					<label class="control-label">{{ trans('lang_user.booking.number_of_tickets') }}</label>
-					<input type="text" class="form-control form_padding">
+					<input type="text" class="form-control form_padding" value="">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<label class="control-label">{{ trans('lang_user.booking.trip_type') }}</label>
-				<input type="text" class="form-control form_padding">
+				<input type="text" class="form-control form_padding" value="">
 			</div>
 		</div>
 		<p class="book_end">{{ trans('lang_user.booking.note') }}</p>

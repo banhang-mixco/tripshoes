@@ -13,7 +13,7 @@
 				<div class="top">
 					<div class="pull-left">
 						<div class="link">
-							<a href="{{ asset('/trip') }}">{{ trans('lang_user.header.trip') }}</a>
+							<a href="{{ asset('/trip') }}">{{ trans('lang_user.header.trips') }}</a>
 							<a href="{{ asset('/blog') }}" class="padding_left_10">{{ trans('lang_user.header.blog') }}</a>	
 						</div>
 					</div>
@@ -196,7 +196,7 @@
 					<ul class="nav-right pull-right list-inline">
 						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 						<li>
-							<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							<a href="{{ url('/') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
 						</li>
 
 						<li class="dropdown">
@@ -236,7 +236,7 @@
 				</div>
 				<div class="text-center webname">
 					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
+					{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span>
 				</div>
 			</div>
 				<div class="border_header"></div>

@@ -129,10 +129,10 @@
 	<script type="text/javascript" src="{{ asset('frontend/js/bootstrap-datepicker.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('frontend/js/bootstrap-timepicker.min.js') }}"></script>
 	<script type="text/javascript">
-        $('#timepicker1').timepicker();
-        $('#datepciker').datepicker({
-        	format: 'dd.mm.yy',
-        });
-    </script>
+      $('#timepicker1').timepicker();
+      $('#datepciker').datepicker({
+      	format: 'dd.mm.yy',
+      });
+  </script>
 @endsection
 @endsection

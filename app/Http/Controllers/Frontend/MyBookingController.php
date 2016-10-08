@@ -93,7 +93,9 @@ class MyBookingController extends Controller
     public function comparepromo(Request $request){
         $data = $request->all();
         $promo = $this->promorepo->findByField('code',$request->promo)->first();
-        $promo['id']=$promo['id'];
+        $result = $this->promorepo>update(['count' => $promo['count']-1]);
+        $result['id']=$promo['id'];
+        dd($result);
         if($promo!="") {
             return response()->json($promo);
         }

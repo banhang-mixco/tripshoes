@@ -15,7 +15,7 @@ class BlogDetail extends Model implements Transformable
      *
      * @var array
      */
-    protected $table= 'tbl_blog_detail';
+    protected $table= 'tb_blog_detail';
     protected $fillable = [
         'tour_information_id', 'content',
     ];

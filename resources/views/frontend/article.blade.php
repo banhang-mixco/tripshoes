@@ -1,7 +1,11 @@
 @extends('frontend.layout.master')
 
 @section('content')
-
+	@if($tour->id == $blog->tour_information_id)
+	{{ $blog->content }}
+	@else
+		<div>Không có blog</div>
+	@endif
 	<!-- <div style="background: rgba(128, 128, 128, 0.16);">
 	<div class="head-banner text-center artical">
 		<h4>Food</h4>

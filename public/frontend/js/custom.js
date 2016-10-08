@@ -304,18 +304,23 @@ $('#send_promo').on("click",function(e){
     });
     $.ajax({
         method: "POST",
-        url: "http://tripshoes.web/promo",
+        url: pathpromo,
         data: {
            	promo:promo
         },
         dataType: 'json',
         success: function(data){
-        	$('#promo').attr('value',data.id);
-        	alert("With "+ data.code+ "You have discount "+ data.discount+".Thanks you!");            
+        	if(data!= null){
+        		$('#promo').attr('value',data.id);
+        		alert("With "+ data.code+ " you have discount "+ data.discount+"%. Thanks you!");
+        	}        	
+        	else{
+        		$('#promo').html("");
+            	alert(data.mes);
+        	}            
         },
         error: function(data){
-        	$('#promo').html("");
-            alert(data.mes);
+        	
         }
     });
 });

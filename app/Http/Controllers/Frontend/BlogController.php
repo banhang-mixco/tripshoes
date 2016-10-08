@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Eloquent\TourInformationRepositoryEloquent;
 use App\Repositories\Eloquent\ImageRepositoryEloquent;
 use App\Repositories\Eloquent\TicketRepositoryEloquent;
+use App\Repositories\Eloquent\BlogDetailRepositoryEloquent;
 use Exception;
 
 class BlogController extends Controller
@@ -16,6 +17,7 @@ class BlogController extends Controller
     protected $tourinforepo;
     protected $imagerepo;
     protected $ticketrepo;
+    protected $blogdetailrepo;
     /**
      * Create a new authentication controller instance.
      *
@@ -25,11 +27,12 @@ class BlogController extends Controller
      *
      * @return void
      */
-    public function __construct(TourInformationRepositoryEloquent $tourinfo, ImageRepositoryEloquent $image, TicketRepositoryEloquent $ticket)
+    public function __construct(TourInformationRepositoryEloquent $tourinfo, ImageRepositoryEloquent $image, TicketRepositoryEloquent $ticket, BlogDetailRepositoryEloquent $blogdetail)
     {
         $this->tourinforepo = $tourinfo;
         $this->imagerepo = $image;
         $this->ticketrepo = $ticket;
+        $this->blogdetailrepo =$blogdetail;
     }
     /**
      * Display a listing of the resource.
@@ -58,9 +61,10 @@ class BlogController extends Controller
             $images = $this->imagerepo->findByField('tour_information_id', $id);
             $image = $this->imagerepo->findByField('tour_information_id', $id)->first('url');
             $ticket = $this->ticketrepo->all();
+            $blog =$this->blogdetailrepo->all();
             $banner = false;
 			$text_banner = "";
-            return  view('frontend.article', compact('tour', 'ticket','images','image','banner','text_banner'));
+            return  view('frontend.article', compact('tour', 'ticket','images','blog','image','banner','text_banner'));
         } catch (Exception $ex) {
             return redirect()->route('trip');
         }
