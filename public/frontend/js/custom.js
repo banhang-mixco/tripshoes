@@ -336,29 +336,55 @@ $('#send_promo').on("click",function(e){
 $(document).ready(function(){
 	$('.number_ticket a.plus').click(function(e){
 		e.preventDefault();
+		var id = $(this).attr('data-id');
 		//console.log($(this).parent().find('.ticket').text());
 		var findticket = $(this).parent().find('.ticket');
+		var oneprice = parseInt($('.one_price_' + id).text());
+		var $price = $(this).parents('.cart_' + id).find('span.price');
+		var price = $price.text();
+		price = parseInt(price.replace('$', ''));
+		var $total = $('.total-payment');
+		var total = parseInt($total.text().replace('$', ''));
 		var number_ticket = parseInt(findticket.text());
 		if(number_ticket < 20){
 			number_ticket = number_ticket + 1;
+			var new_total = total + oneprice;
+			$total.text('$' + new_total);
 		}
 		findticket.text(number_ticket);
-
+		$('#number_ticket_' + id).val(id + ',' + number_ticket);
+		var new_price = oneprice * number_ticket;
+		$price.text('$'+new_price);
+		$('#price_' + id).val(new_price);
 	});
 
 	$('.number_ticket a.minus').click(function(e){
 		e.preventDefault();
+		var id = $(this).attr('data-id');
 		//console.log($(this).parent().find('.ticket').text());
 		var findticket = $(this).parent().find('.ticket');
+		var oneprice = parseInt($('.one_price_' + id).text());
+		var $price = $(this).parents('.cart_' + id).find('span.price');
+		var price = $price.text();
+		price = parseInt(price.replace('$', ''));
+		var $total = $('.total-payment');
+		var total = parseInt($total.text().replace('$', ''));
 		var number_ticket = parseInt(findticket.text());
+		
 		if(number_ticket > 1){
 			number_ticket = number_ticket - 1;
+			var new_total = total - oneprice;
+			$total.text('$' + new_total);
 		}
 		findticket.text(number_ticket);
-		$('#number_ticket').val(number_ticket);
-
+		$('#number_ticket_' + id).val(id + ',' + number_ticket);
+		var new_price = oneprice * number_ticket;
+		$price.text('$'+new_price);
+		$('#price_' + id).val(new_price);
 	});
 });
+
+
 
 //resetPassword
 $(document).ready(function(){
@@ -535,4 +561,3 @@ $(document).ready(function(){
 		});
 	});
 });
-
