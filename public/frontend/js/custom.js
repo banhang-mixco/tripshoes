@@ -313,12 +313,15 @@ $('#send_promo').on("click",function(e){
         },
         dataType: 'json',
         success: function(data){
-        	if(data!= null){
-        		$('#promo').attr('value',data.id);
-        		alert("With "+ data.code+ " you have discount "+ data.discount+"%. Thanks you!");
+        	console.log(data);
+        	if(data.code == 1){
+        		$('#promo_id').val(data.promo.id);
+
+        		alert("With this promo code you will be discounted "+ data.promo.discount+ "%. Thanks you!");
+        		$('#promo_code').modal('hide');
         	}        	
         	else{
-        		$('#promo').html("");
+        		
             	alert(data.mes);
         	}            
         },
