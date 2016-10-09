@@ -11,6 +11,7 @@
 				<div>
 					@if(count($bookings) > 0)
 						@foreach($bookings as $booking)
+						<div class="cart_{{ $booking->id }}">
 							<div class="row">
 								<div class="col-lg-1 text-center">
 									<div class="cancel"><a href="">&times;</a></div>
@@ -27,11 +28,12 @@
 								</div>
 								<div class="col-lg-3 text-center">
 									<p class="number_ticket">
-										<a href="#" class="plus">
+										<a href="#" class="plus" data-id="{{ $booking->id }}">
 											<span class="sign-cart">+</span>
 										</a>
 										<span class="ticket">{{ $booking->number_ticket }}</span> 
-										<a href="#" class="minus">
+										<input type="hidden" name="number_ticket_{{ $booking->id }}" id="number_ticket_{{ $booking->id }}">
+										<a href="#" class="minus" data-id="{{ $booking->id }}">
 											<span class="sign-cart">-</span>
 										</a>
 									</p>
@@ -39,9 +41,12 @@
 								<div class="col-lg-2">
 									<div class="price">
 										<span class="price">${{ $booking->cost }}</span>
+										<div class="hidden one_price_{{ $booking->id }}">{{ $booking->cost }}</div>
+										<input type="hidden" name="price_{{ $booking->id }}" id="price_{{ $booking->id }}">
 									</div>
 								</div>
 							</div>
+						</div>
 						@endforeach
 					@endif
 				</div>
@@ -54,8 +59,8 @@
 					<div class="col-lg-4"></div>
 					<div class="col-lg-3"></div>
 					<div class="col-lg-2">
-						<span>${{ $total }}</span>
-						
+						<span class="total-payment">${{ $total }}</span>
+						<input type="hidden" name="total">
 					</div>
 					
 				</div>

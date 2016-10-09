@@ -59,7 +59,7 @@ class BookingController extends Controller
 
         foreach($bookings as $booking){
             if($booking->status == 0){
-                $total += $booking->cost;
+                $total += $booking->cost * $booking->number_ticket;
             }
         }
 
