@@ -561,3 +561,17 @@ $(document).ready(function(){
 		});
 	});
 });
+
+$('a[name=deleteBooking]').click(function(e){
+	e.preventDefault();
+	var id = $(this).attr('delete-id');
+	var url = $(this).attr('href');
+	$.ajax({
+		url: url,
+		type: 'GET',
+		data: {id: id},
+		success:function(data){
+			$('.cart_' + id).remove();
+		}
+	});	
+});

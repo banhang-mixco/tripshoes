@@ -41,7 +41,7 @@ class BookingController extends Controller
         $booking->tour_information_id = $id;
         $booking->ticket_id = $ticket_booking;
         $booking->number_ticket = $number_ticket;
-        $booking->cost = $price;
+        $booking->cost = $price * $number_ticket;
         $booking->promo_id = $promo_id;
         $booking->status = 0;
         $booking->date_created = $created_at;
@@ -67,6 +67,11 @@ class BookingController extends Controller
             }
         }
         return redirect('/trip2');
+    }
+
+    public function deleteBooking(Request $request){
+        $id = $request->get('id');
+        Booking::find($id)->delete();
     }
 
     public function trip1(Request $request){

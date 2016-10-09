@@ -14,14 +14,16 @@
 						<div class="cart_{{ $booking->id }}">
 							<div class="row">
 								<div class="col-lg-1 text-center">
-									<div class="cancel"><a href="">&times;</a></div>
+									<div class="cancel"><a href="{{ url('/deleteBooking') }}" name="deleteBooking" delete-id="{{ $booking->id }}">&times;</a></div>
 								</div>
 								<div class="col-lg-2">
 									<div class="img-checkout"></div>
 								</div>
 								<div class="col-lg-4">
 									<div class="tour_name">
-										<p>Thao Nguyen's Countryside Bicycle</p>
+										@if($booking->tour_id == $booking->tourinformations->id)
+											<p>{{ $booking->tourinformations->name }}</p>
+										@endif
 										
 										<span>{{ date('d.m.yy', strtotime($booking->date_start)) }}|{{ date('h:i A', strtotime($booking->start_time)) }}</span>
 									</div>

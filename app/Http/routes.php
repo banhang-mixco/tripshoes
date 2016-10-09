@@ -43,8 +43,8 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		/*Cart*/
 		Route::post('/addtocart/{id}', 'BookingController@addtocart');
 		Route::get('/trip1', 'BookingController@trip1');
-
 		Route::post('/updateCart', 'BookingController@updateCart');
+		Route::get('/deleteBooking', 'BookingController@deleteBooking');
 		Route::get('/trip2', 'BookingController@trip2');
 		Route::post('/trip2', 'BookingController@posttrip2');
 
