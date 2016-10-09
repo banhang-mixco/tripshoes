@@ -13,6 +13,8 @@ use App\Models\Booking;
 use URL;
 use Session;
 use Redirect;
+use Stripe\Stripe;
+use Stripe\Charge;
 
 class PaypalController extends Controller
 {
@@ -31,14 +33,27 @@ class PaypalController extends Controller
         $this->bookinfo = $bookinfo;
 	}
     public function postPayment(Request $request){
-        $expire_month = $request->get('expire_month');
+        /*$expire_month = $request->get('expire_month');
         $expire_year = $request->get('expire_year');
         $code = $request->get('code');
         $name_card = $request->get('name_card');
-        $credit_card = $request->get('credit_card');
+        $credit_card = $request->get('credit_card');*/
+        
 
         $currency = 'USD';
-
+        $subtotal = 0;
+        $tax = 0;
+        $bookings = Booking::join('tbl_tour_information','tbl_tour_information.id', '=', 'tbl_booking.tour_information_id')
+                        ->join('tbl_ticket', 'tbl_ticket.id', '=', 'tbl_booking.ticket_id')
+                        ->where('tbl_booking.status', 0)
+                        ->where('tbl_booking.user_id', Auth::user()->id)
+                        ->select('tbl_tour_information.name', 'tbl_booking.number_ticket', 'tbl_ticket.surcharge', 'tbl_tour_information.price')
+                        ->get();
+        foreach($bookings as $book){
+            $subtotal += $book->price * $book->number_ticket;
+            $tax += $book->surcharge * $book->number_ticket;
+        }
+        $total = $subtotal + $tax;
         /*$card = Paypalpayment::creditCard();
         $card->setType("visa")
             ->setNumber($credit_card)
@@ -69,135 +84,141 @@ class PaypalController extends Controller
 
         /*$fi = Paypalpayment::fundingInstrument();
         $fi->setCreditCard($card);*/
+        if($request->get('radio') == 'paypal'){
+            $payer = Paypalpayment::payer();
+            $payer->setPaymentMethod("paypal");
 
-        $payer = Paypalpayment::payer();
-        $payer->setPaymentMethod("paypal");
+            $items = array();
+        
+            $key = 0;
+            foreach($bookings as $book){
+                $key = $key + 1;
+                $item = "item{$key}";
+                $$item = Paypalpayment::item();
+                $$item->setName('Ground Coffee 40 oz')
+                    ->setCurrency($currency)
+                    ->setQuantity($book->number_ticket)
+                    ->setTax($book->surcharge)
+                    ->setPrice($book->price);
+                array_push($items, $$item);
+                
+            }
+            
+
             //->setFundingInstruments(array($fi));
 
-       
+           /*for($i=1; $i<=2; $i++){
+                $item = "item{$i}";
+                $$item = Paypalpayment::item();
+                $$item->setName('Ground Coffee 40 oz')
+                    ->setCurrency($currency)
+                    ->setQuantity(3)
+                    ->setPrice(3);
+                array_push($items, $$item);
+                //$items[] = $$item;
+            }*/
+            
 
-        $items = array();
-        $subtotal = 0;
-        $tax = 0;
-        $bookings = Booking::join('tbl_tour_information','tbl_tour_information.id', '=', 'tbl_booking.tour_information_id')
-                        ->join('tbl_ticket', 'tbl_ticket.id', '=', 'tbl_booking.ticket_id')
-                        ->where('tbl_booking.status', 0)
-                        ->where('tbl_booking.user_id', Auth::user()->id)
-                        ->select('tbl_tour_information.name', 'tbl_booking.number_ticket', 'tbl_ticket.surcharge', 'tbl_tour_information.price')
-                        ->get();
-        $key = 0;
-        foreach($bookings as $book){
-            $key = $key + 1;
-            $item = "item{$key}";
-            $$item = Paypalpayment::item();
-            $$item->setName('Ground Coffee 40 oz')
-                ->setCurrency($currency)
-                ->setQuantity($book->number_ticket)
-                ->setTax($book->surcharge)
-                ->setPrice($book->price);
-            array_push($items, $$item);
-            $subtotal += $book->price * $book->number_ticket;
-            $tax += $book->surcharge * $book->number_ticket;
-        }
-        $total = $subtotal + $tax;
+            /*$item1 = Paypalpayment::item();
+            $item1->setName('Ground Coffee 40 oz')
+                    ->setCurrency($currency)
+                    ->setQuantity(1)
+                    ->setPrice(2);
 
-        /*for($i=1; $i<=2; $i++){
-            $item = "item{$i}";
-            $$item = Paypalpayment::item();
-            $$item->setName('Ground Coffee 40 oz')
-                ->setCurrency($currency)
-                ->setQuantity(3)
-                ->setPrice(3);
-            array_push($items, $$item);
-            //$items[] = $$item;
-        }*/
-        
+            $item2 = Paypalpayment::item();
+            $item2->setName('Ground Coffee 40 oz')
+                    ->setCurrency($currency)
+                    ->setQuantity(1)
+                    ->setPrice(2);*/
+            
 
-        /*$item1 = Paypalpayment::item();
-        $item1->setName('Ground Coffee 40 oz')
-                ->setCurrency($currency)
-                ->setQuantity(1)
-                ->setPrice(2);
+            $itemList = Paypalpayment::itemList();
+            $itemList->setItems($items);
+            //var_dump(array($item1, $item2));
 
-        $item2 = Paypalpayment::item();
-        $item2->setName('Ground Coffee 40 oz')
-                ->setCurrency($currency)
-                ->setQuantity(1)
-                ->setPrice(2);*/
-        
+            $details = Paypalpayment::details();
+            $details->setTax($tax)
+                    //total of items prices
+                    ->setSubtotal($subtotal);
 
-        $itemList = Paypalpayment::itemList();
-        $itemList->setItems($items);
-        //var_dump(array($item1, $item2));
+            //Payment Amount
+            $amount = Paypalpayment::amount();
+            $amount->setCurrency("USD")
+                    // the total is $17.8 = (16 + 0.6) * 1 ( of quantity) + 1.2 ( of Shipping).
+                    ->setTotal($total)
+                    ->setDetails($details);
 
-        $details = Paypalpayment::details();
-        $details->setTax($tax)
-                //total of items prices
-                ->setSubtotal($subtotal);
+            // ### Transaction
+            // A transaction defines the contract of a
+            // payment - what is the payment for and who
+            // is fulfilling it. Transaction is created with
+            // a `Payee` and `Amount` types
 
-        //Payment Amount
-        $amount = Paypalpayment::amount();
-        $amount->setCurrency("USD")
-                // the total is $17.8 = (16 + 0.6) * 1 ( of quantity) + 1.2 ( of Shipping).
-                ->setTotal($total)
-                ->setDetails($details);
+            $transaction = Paypalpayment::transaction();
+            $transaction->setAmount($amount)
+                ->setItemList($itemList)
+                ->setDescription("Payment description")
+                ->setInvoiceNumber(uniqid());
 
-        // ### Transaction
-        // A transaction defines the contract of a
-        // payment - what is the payment for and who
-        // is fulfilling it. Transaction is created with
-        // a `Payee` and `Amount` types
-
-        $transaction = Paypalpayment::transaction();
-        $transaction->setAmount($amount)
-            ->setItemList($itemList)
-            ->setDescription("Payment description")
-            ->setInvoiceNumber(uniqid());
-
-        // ### Payment
-        // A Payment Resource; create one using
-        // the above types and intent as 'sale'
+            // ### Payment
+            // A Payment Resource; create one using
+            // the above types and intent as 'sale'
 
 
-        $redirect_urls = Paypalpayment::redirectUrls();
-        $redirect_urls->setReturnUrl(URL::route('payment.status'))->setCancelurl(URL::route('payment.status'));
+            $redirect_urls = Paypalpayment::redirectUrls();
+            $redirect_urls->setReturnUrl(URL::route('payment.status'))->setCancelurl(URL::route('payment.status'));
 
-        $payment = Paypalpayment::payment();
+            $payment = Paypalpayment::payment();
 
-        $payment->setIntent("sale")
-            ->setPayer($payer)
-            ->setRedirectUrls($redirect_urls)
-            ->setTransactions(array($transaction));
-
-        try {
-            // ### Create Payment
-            // Create a payment by posting to the APIService
-            // using a valid ApiContext
-            // The return object contains the status;
-            $payment->create($this->_apiContext);
-        } catch (\PPConnectionException $ex) {
-            if (\Config::get('app.debug')) {
-                echo "Exception: " . $ex->getMessage() . PHP_EOL;
-                $err_data = json_decode($ex->getData(), true);
-                exit;
-            } else {
-                die('Some error occur, sorry for inconvenient');
+            $payment->setIntent("sale")
+                ->setPayer($payer)
+                ->setRedirectUrls($redirect_urls)
+                ->setTransactions(array($transaction));
+            try {
+                // ### Create Payment
+                // Create a payment by posting to the APIService
+                // using a valid ApiContext
+                // The return object contains the status;
+                $payment->create($this->_apiContext);
+            }catch(\PPConnectionException $ex){
+                if (\Config::get('app.debug')) {
+                    echo "Exception: " . $ex->getMessage() . PHP_EOL;
+                    $err_data = json_decode($ex->getData(), true);
+                    exit;
+                }else{
+                    die('Some error occur, sorry for inconvenient');
+                }
             }
-        }
 
-        foreach($payment->getLinks() as $link) {
-            if($link->getRel() == 'approval_url') {
-                $redirect_url = $link->getHref();
-                break;
+            foreach($payment->getLinks() as $link) {
+                if($link->getRel() == 'approval_url') {
+                    $redirect_url = $link->getHref();
+                    break;
+                }
             }
-        }
 
-        Session::put('paypal_payment_id', $payment->getId());
-        if(isset($redirect_url)) {
-            return Redirect::away($redirect_url);
+            Session::put('paypal_payment_id', $payment->getId());
+            if(isset($redirect_url)) {
+                return Redirect::away($redirect_url);
+            }
+            return redirect('/')
+                ->with('error', 'Unknown error occurred');
+        }else if($request->get('radio') == 'credit_card'){
+            //credit card
+            Stripe::setApiKey("sk_test_0nxBbDwrf0vOHUDK6R63AUWl");
+            try{
+                Charge::create(array(
+                      "amount" => $total,
+                      "currency" => "usd",
+                      "source" => $request->input('stripeToken'), // obtained with Stripe.js
+                      "description" => "Charge for tripshoes"
+                ));
+            }catch(\Exception $e){
+                return redirect('/trip3')->with(['error'=>$e->getMessage()]);
+            }
+            
+            return redirect('/')->with(['success', 'Successfully purchased']);
         }
-        return redirect('/')
-            ->with('error', 'Unknown error occurred');
         
         
     }
