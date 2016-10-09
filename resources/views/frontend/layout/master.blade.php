@@ -23,6 +23,8 @@
 		<script type="text/javascript">
 			var pathpromo = {!! json_encode(config('path.pathpromo')) !!};
 		</script>
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<script type="text/javascript" src="{{ asset('/frontend/js/checkout.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('/frontend/js/custom.js') }}"></script>
 		@yield('script')
 	</body>

@@ -22,7 +22,7 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">{{ trans('lang_user.profile.first_name') }}</label>
-												<input type="text" class="form-control form_padding" name="firstname" id="firstname" value="{{ $user->first_name }}" required>
+												<input type="text" class="form-control form_padding" name="firstname" id="firstname" value="{{ $user->first_name }}">
 											</div>
 										</div>
 										<div class="col-lg-6">
@@ -113,11 +113,11 @@
 							<form>
 								<div class="input-form">
 									<div class="form-group">
-										<input type="text" class="form-control form_padding" placeholder="Email" required><!--<i class="fa fa-envelope"></i>-->
+										<input type="text" class="form-control form_padding" placeholder="Email"><!--<i class="fa fa-envelope"></i>-->
 									</div>
 									<div class="form-group">
 										
-										<input type="text" class="form-control form_padding" placeholder="Password" required><!--<i class="fa fa-lock"></i>-->
+										<input type="text" class="form-control form_padding" placeholder="Password"><!--<i class="fa fa-lock"></i>-->
 									</div>
 								</div>
 								<div class="border-profile"></div>

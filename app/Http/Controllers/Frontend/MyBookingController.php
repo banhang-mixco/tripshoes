@@ -61,8 +61,7 @@ class MyBookingController extends Controller
                 $img=$value['images']->first();
                 $tourlist[$key]['image']=$img['url'];
             }
-        $bookings=$this->bookingrepo->findByField('user_id',Auth::id())->all();
-		return view('frontend.my_bookings', compact('banner', 'text_banner','bookings','tourlist','image'));
+		return view('frontend.my_bookings', compact('banner', 'text_banner','tourlist','image'));
     }
     /**
      * Display the specified resource.
@@ -89,14 +88,17 @@ class MyBookingController extends Controller
     public function comparepromo(Request $request){
         $data = $request->all();
         $promo = $this->promorepo->findByField('code',$request->promo)->first();
-        $result = $this->promorepo>update(['count' => $promo['count']-1]);
-        $result['id']=$promo['id'];
-        dd($result);
-        if($promo!="") {
-            return response()->json($promo);
+        if($promo) {
+            return response()->json([
+                'promo' => $promo,
+                'code' => 1
+            ]);
         }
         else{
-            return response()->json(['mes' => 'Promo code is not exit, please help me check it. Thanks you']);
+            return response()->json([
+                'mes' => 'Promo code is not exist, please help me check it. Thank you',
+                'code' => 0
+            ]);
         }
         
     }

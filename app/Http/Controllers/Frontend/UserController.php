@@ -145,6 +145,7 @@ class UserController extends Controller
     public function updateLeftProfile(Request $request){
 
         $validator = Validator::make($request->all(),[
+            'firstname'     => 'required',
             'mobilephone'   => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/'],
             'phone'         => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/']
         ]); 

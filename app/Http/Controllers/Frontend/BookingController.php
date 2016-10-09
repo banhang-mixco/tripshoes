@@ -106,13 +106,22 @@ class BookingController extends Controller
 
     public function posttrip2(Request $request)
     {
-        
+        $validator = Validator::make($request->all(), [
+            'email'     => 'required|unique:tbl_user,email',
+            'age'       => 'required',
+            'password'  => 'required',
+            'country'   => 'required',
+            'code'      => 'required'
+
+        ]);
+        $data=$request->all();
+        $result= $this->userinfo->update($data,Auth::id());
+        return redirect('/trip3');
     }
     public function trip3(Request $request){
     	$banner = false;
 			
 		$text_banner = '';
-
     	return view('frontend.trips_checkout_3', compact('banner', 'text_banner'));
     }
 }

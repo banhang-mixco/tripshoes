@@ -31,19 +31,20 @@
 					  </div>
 					  <div id="locations" class="tab-pane fade">
 					  	<p>
-					  		<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>
+					  		<iframe width="100%" height="250" src="http://maps.google.com/maps?q={{$tour->lat}},{{$tour->lng}}&amp;&output=embed"></iframe>
+					  		{{--<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>--}}
 					  	</p>
 					  </div>
 					</div>				
 				</div>
 				<div class="col-md-7">
 					<div class="col-md-8">	
-						<img src="{{ asset('frontend/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
+						<img src="{{ asset('upload/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
 					</div>
 					<div class="col-md-4 img_right">
 						@foreach($images as $item)
 						<div class="col-md-10">
-							<img src="{{ asset('frontend/images/'.$item->url.'') }}" class="img-round" width="90%" >
+							<img src="{{ asset('upload/images/'.$item->url.'') }}" class="img-round" width="90%" >
 						</div>
 						@endforeach
 					</div>
