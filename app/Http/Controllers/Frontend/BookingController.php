@@ -109,7 +109,6 @@ class BookingController extends Controller
         
     }
     public function trip3(Request $request){
-
     	$banner = false;
 			
 		$text_banner = '';

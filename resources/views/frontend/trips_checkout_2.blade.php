@@ -25,20 +25,20 @@
 			
 				<div class="form-group trip_content">
 					<label >E-mail</label>
-					<input type="emai" name="emai" class="form-control form_padding">
+					<input type="emai" name="emai" class="form-control form_padding" required>
 				</div>
 				<h3 id="detail">Detail</h3>
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label> First name</label>
-								<input type="text" name="first_name" class="form-control form_padding">
+								<input type="text" name="first_name" class="form-control form_padding" required>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label> Last name</label>
-								<input type="text" name="last_name" class="form-control form_padding">
+								<input type="text" name="last_name" class="form-control form_padding" required>
 							</div>
 						</div>
 					</div>
