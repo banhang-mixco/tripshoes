@@ -108,7 +108,18 @@ return [
         'support_4' => 'CAN I MAKE A BOOKING ON THE DAY OF TRAVEL?',
     ],
 'profile' => [
-
+        'header' => 'General Info',
+        'first_name' => 'First name',
+        'last_name' => 'Last name',
+        'mobile_phone' => 'Mobile Phone',
+        'work_phone' => 'Work Phone',
+        'address' => 'Address',
+        'change_password' => 'Change Password',
+        'current_password' => 'Confirm current password',
+        'confirm_new_password' => 'Confirm new password',
+        'new_password' => 'New password',
+        'cancel' => 'Cancel',
+        'save_changes' => 'Save Changes',
     ],
 'blog' => [
         'blog_header' => 'Welcome to the TripShoes Blog',

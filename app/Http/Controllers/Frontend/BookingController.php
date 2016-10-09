@@ -68,7 +68,7 @@ class BookingController extends Controller
 		return view('frontend.trips_checkout_1', compact('banner', 'text_banner', 'bookings', 'total'));
     }
 
-    public function trip2(Request $request){
+    public function posttrip1(Request $request){
     	$date_booking = $request->get('date_booking');
         $date_booking = str_replace('.', '-', $date_booking);
         $date_booking = date('Y-m-d', strtotime($date_booking));
@@ -95,19 +95,24 @@ class BookingController extends Controller
         $booking->promo_id = $promo_id;
         $booking->date_created = $created_at;
         $booking->save();
-
-    	$banner = false;
-		$text_banner = '';
-		return view('frontend.trips_checkout_2', compact('banner', 'text_banner'));
+    	return redirect('/trip2');
     }
 
+    public function trip2(){
+        $banner = false;
+        $text_banner = '';
+        return view('frontend.trips_checkout_2', compact('banner', 'text_banner'));
+    }
+
+    public function posttrip2(Request $request)
+    {
+        
+    }
     public function trip3(Request $request){
 
     	$banner = false;
 			
 		$text_banner = '';
-
-    	$findUser->save();
 
     	return view('frontend.trips_checkout_3', compact('banner', 'text_banner'));
     }

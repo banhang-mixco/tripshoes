@@ -13,7 +13,12 @@
 			</div>
 			<div class="col-lg-6">
 				<div class="pull-right">
-					<img src="{{ asset('frontend/images/Image20.png') }}" class="showPlay img-rounded"><br>	
+					<img src="{{ asset('frontend/images/Image20.png') }}" class="showPlay img-rounded"><br>
+					<!-- @if(Auth::user()->avatar)
+						<div class="showPlay" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
+					@else
+						<div class="showPlay" style="background: url({{ asset(config('path.profile_default').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
+					@endif	 -->
 				</div>
 			</div>
 		</div>

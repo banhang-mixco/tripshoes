@@ -26,7 +26,7 @@
 			<div class="row">
 				@foreach($tourlist as $item)
 				@foreach($bookings as $itembook)
-				@if($item->guide_id == $itembook->user_id && date('Y-m-d',strtotime($itembook->finish_time)) <= date('y-m-d'))
+				@if($item->guide_id == $itembook->user_id && date('Y-m-d',strtotime($itembook->start_time)) <= date('y-m-d'))
 				<div class="col-lg-6 my_booking">
 					<a href="{{ route('booking.show',$item->id) }}">
 					<div style="background: url(upload/images/{{$item->image}}) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
