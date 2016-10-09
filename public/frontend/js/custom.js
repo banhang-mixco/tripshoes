@@ -352,7 +352,7 @@ $(document).ready(function(){
 			$total.text('$' + new_total);
 		}
 		findticket.text(number_ticket);
-		$('#number_ticket_' + id).val(id + ',' + number_ticket);
+		$('#number_ticket_' + id).val(number_ticket);
 		var new_price = oneprice * number_ticket;
 		$price.text('$'+new_price);
 		$('#price_' + id).val(new_price);
@@ -377,7 +377,7 @@ $(document).ready(function(){
 			$total.text('$' + new_total);
 		}
 		findticket.text(number_ticket);
-		$('#number_ticket_' + id).val(id + ',' + number_ticket);
+		$('#number_ticket_' + id).val(number_ticket);
 		var new_price = oneprice * number_ticket;
 		$price.text('$'+new_price);
 		$('#price_' + id).val(new_price);

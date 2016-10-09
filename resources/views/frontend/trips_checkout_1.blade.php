@@ -6,7 +6,7 @@
 		<div class="cart-title">
 			<h3 class="text-left">Cart</h3>						
 		</div>
-		<form action="{{ asset('/trip2') }}" method="POST">
+		<form action="{{ url('/updateCart') }}" method="POST">
 			<div class="info-cart">
 				<div>
 					@if(count($bookings) > 0)
@@ -32,7 +32,7 @@
 											<span class="sign-cart">+</span>
 										</a>
 										<span class="ticket">{{ $booking->number_ticket }}</span> 
-										<input type="hidden" name="number_ticket_{{ $booking->id }}" id="number_ticket_{{ $booking->id }}">
+										<input type="hidden" name="number_ticket_{{ $booking->id }}" id="number_ticket_{{ $booking->id }}" value="{{ $booking->number_ticket }}">
 										<a href="#" class="minus" data-id="{{ $booking->id }}">
 											<span class="sign-cart">-</span>
 										</a>
@@ -42,7 +42,7 @@
 									<div class="price">
 										<span class="price">${{ $booking->cost }}</span>
 										<div class="hidden one_price_{{ $booking->id }}">{{ $booking->cost }}</div>
-										<input type="hidden" name="price_{{ $booking->id }}" id="price_{{ $booking->id }}">
+										<input type="hidden" name="price_{{ $booking->id }}" id="price_{{ $booking->id }}" value="{{ $booking->cost }}">
 									</div>
 								</div>
 							</div>

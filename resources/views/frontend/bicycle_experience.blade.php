@@ -77,7 +77,7 @@
 				</div>
 				<div class="col-md-3">
 					<select class="form-control form_padding" name="number_ticket">
-						@for($i=0;$i<=20;$i++)
+						@for($i=1;$i<=20;$i++)
 						<option value="{{ $i }}">{{$i}}</option>
 						@endfor
 					</select>
