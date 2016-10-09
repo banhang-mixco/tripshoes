@@ -107,7 +107,7 @@ class BookingController extends Controller
 			
 		$text_banner = '';
 
-    	$findUser->save();
+    	
 
     	return view('frontend.trips_checkout_3', compact('banner', 'text_banner'));
     }

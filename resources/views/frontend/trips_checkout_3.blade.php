@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6 payment">
-				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
+				<form action="{{ url('/transaction') }}" method="POST">
 					<div class="row">
 					<div class="form-group">
 						<h3 class="text-left">Choose your payment method</h3>						
