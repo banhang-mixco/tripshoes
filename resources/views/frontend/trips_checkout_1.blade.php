@@ -6,7 +6,7 @@
 		<div class="cart-title">
 			<h3 class="text-left">Cart</h3>						
 		</div>
-		<form action="{{ asset('/trip2') }}" method="POST">
+		<form action="{{ asset('/trip1') }}" method="POST">
 			<div class="info-cart">
 				<div>
 					@if(count($bookings) > 0)

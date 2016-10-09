@@ -42,12 +42,12 @@
 				</div>
 				<div class="col-md-7">
 					<div class="col-md-8">	
-						<img src="{{ asset('frontend/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
+						<img src="{{ asset('upload/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
 					</div>
 					<div class="col-md-4 img_right">
 						@foreach($images as $item)
 						<div class="col-md-10">
-							<img src="{{ asset('frontend/images/'.$item->url.'') }}" class="img-round" width="90%" >
+							<img src="{{ asset('upload/images/'.$item->url.'') }}" class="img-round" width="90%" >
 						</div>
 						@endforeach
 					</div>

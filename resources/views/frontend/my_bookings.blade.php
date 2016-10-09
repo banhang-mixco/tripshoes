@@ -7,8 +7,7 @@
 			<div class="col-lg-12 text-center "><h1>{{ trans('lang_user.header.my_booking') }}</h1></div>
 			<div class="row">
 				@foreach($tourlist as $item)
-				@foreach($bookings as $itembook)
-				@if($item->guide_id == $itembook->user_id)
+				@if($item->guide_id == Auth::id())
 				<div class="col-lg-6 my_booking">
 					<a href="{{ route('booking.show',$item->id) }}">
 					<div style="background: url(upload/images/{{$item->image}}) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
@@ -19,14 +18,12 @@
 					<p class="text-center">${{number_format((float)$item->price, 2, '.', '')}} | {{$item->time_period}}mins | {{ $item->transport }}</p>
 				</div>
 				@endif
-				@endforeach
 				@endforeach
 			</div>
 			<div class="col-lg-12 text-center "><h1>{{ trans('lang_user.booking.past_booking') }}</h1></div>
 			<div class="row">
 				@foreach($tourlist as $item)
-				@foreach($bookings as $itembook)
-				@if($item->guide_id == $itembook->user_id && date('Y-m-d',strtotime($itembook->finish_time)) <= date('y-m-d'))
+				@if($item->guide_id == Auth::id() && date('Y-m-d',strtotime($item->time)) <= date('y-m-d'))
 				<div class="col-lg-6 my_booking">
 					<a href="{{ route('booking.show',$item->id) }}">
 					<div style="background: url(upload/images/{{$item->image}}) no-repeat; background-size:cover;background-position: -140px;" class="tripclass img-rounded">
@@ -37,7 +34,6 @@
 					<p class="text-center">${{number_format((float)$item->price, 2, '.', '')}} | {{$item->time_period}}mins | {{ $item->transport }}</p>
 				</div>
 				@endif
-				@endforeach
 				@endforeach
 			</div>
 		</div>			

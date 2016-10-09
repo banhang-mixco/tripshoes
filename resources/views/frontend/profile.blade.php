@@ -3,8 +3,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/intlTelInput.css') }}">
 	<style type="text/css">
 		.iti-flag {background-image: url("frontend/images/flags.png");}
-
-
 	</style>
 @endsection
 @section('content')
@@ -17,36 +15,37 @@
 							<span class="errors hidden"></span>
 							<div class="head-profile"></div>
 							<div class="content-profile">
-								<div class="avatar"></div>
-								<h4>General Info</h4>
+								<div class="avatar">
+								</div>
+								<h4>{{ trans('lang_user.profile.header') }}</h4>
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">First name</label>
+												<label class="control-label">{{ trans('lang_user.profile.first_name') }}</label>
 												<input type="text" class="form-control form_padding" name="firstname" id="firstname" value="{{ $user->first_name }}">
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">Last name</label>
-												<input type="text" class="form-control form_padding" name="lastname" id="lastname" value="{{ $user->last_name }}">
+												<label class="control-label">{{ trans('lang_user.profile.last_name') }}</label>
+												<input type="text" class="form-control form_padding" name="lastname" id="lastname" value="{{ $user->last_name }}" required>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">Mobile Phone</label>
-												<input type="text" class="form-control form_padding" name="mobilephone" id="mobilephone" value="{{ $user->mobile_phone }}">
-												<a href="#" class="add">
+												<label class="control-label">{{ trans('lang_user.profile.mobile_phone') }}e</label>
+												<input type="text" class="form-control form_padding" name="mobilephone" id="mobilephone" value="{{ $user->mobile_phone }}" required>
+												<!-- <a href="#" class="add">
 													<i class="fa fa-plus"></i>
 													Add mobile number (if different)
-												</a>
+												</a> -->
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">Work Phone</label>
+												<label class="control-label">{{ trans('lang_user.profile.work_phone') }}</label>
 												<div class="row">
 													<div class="col-md-12">
 														<input type="tel" id="phone" class="form-control form-padding" name="phone" value="{{ $user->workphone }}">
@@ -60,23 +59,23 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="form-group">
-												<label class="control-label">Address</label>
+												<label class="control-label">{{ trans('lang_user.profile.address') }}</label>
 												<input type="text" class="form-control form_padding" name="address" id="address" value="{{ $user->address }}">
 											</div>
 										</div>
 										
 									</div>
-									<span class="changePassword">Change Password</span>
+									<span class="changePassword">{{ trans('lang_user.profile.change_password') }}</span>
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">Confirm current password</label>
+												<label class="control-label">{{ trans('lang_user.profile.current_password') }}</label>
 												<input type="password" class="form-control form_padding" name="confirmcurrentpassword" id="confirmcurrentpassword">
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">Confirm new password</label>
+												<label class="control-label">{{ trans('lang_user.profile.confirm_new_password') }}</label>
 												<input type="text" class="form-control form_padding" name="confirmnewpassword" id="confirmnewpassword">
 											</div>
 										</div>
@@ -84,7 +83,7 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">New password</label>
+												<label class="control-label">{{ trans('lang_user.profile.new_password') }}</label>
 												<input type="text" class="form-control form_padding" name="newpassword" id="newpassword">
 											</div>
 										</div>
@@ -92,8 +91,8 @@
 									</div>
 							</div>
 							<div>
-								<button type="reset" class="cancel">Cancel</button>
-								<button type="submit" class="submit">Save Changes<i class="fa fa-check"></i></button>
+								<button type="reset" class="cancel">{{ trans('lang_user.profile.cancel') }}</button>
+								<button type="submit" class="submit">{{ trans('lang_user.profile.save_changes') }}<i class="fa fa-check"></i></button>
 							</div>
 						</form>
 					</div>
@@ -127,14 +126,14 @@
 										<select class="form-control pull-left">
 											<option value=""><i class="fa fa-facebook"></i></option>
 										</select>
-										<input type="text" class="form-control form_padding" placeholder="Username"><!--<i class="fa fa-envelope"></i>-->
+										<!-- <input type="text" class="form-control form_padding" placeholder="Username"><i class="fa fa-envelope"></i>
 										<a href="#" class="add">
 											<i class="fa fa-plus"></i>Add another link
-										</a>
+										</a> -->
 									</div>
 								</div>--}}
 								
-								<button type="submit" class="btn btn-success btn-lg">Save Changes</button>
+								<button type="submit" class="btn btn-success btn-lg btn_login">{{ trans('lang_user.profile.save_changes') }}</button>
 							</form>
 						</div>
 					</div>
