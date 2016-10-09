@@ -76,12 +76,12 @@
 						<label> Name on Card</label>
 						<input type="text" name="name_card" class="form-control form_payment" id="card-name">
 					</div>
-					<div class="row">
-					<div class="col-lg-12 btn-group patment_btn">
-					  	<a href="{{ asset('/trip2') }}" class="btn btn-lg-6 btn-default">Return to Detail</a>
-						<button class="btn btn-lg-6 btn-default complete">Complete Order <i class="fa fa-arrow-right"></i></button>
+					
+					<div class="btn-group patment_btn">
+						<a href="{{ asset('/trip2') }}" class="btn btn-default" style="width:50%;">Return to Detail</a>
+						<button class="btn btn-default complete" style="width:50%;height:60px;font-size:26px;">Complete Order <i class="fa fa-arrow-right"></i></button>
 					</div>
-					</div>
+					
 					</div>
 				</form>
 			</div>

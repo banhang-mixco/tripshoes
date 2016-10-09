@@ -307,7 +307,7 @@ $('#send_promo').on("click",function(e){
     });
     $.ajax({
         method: "POST",
-        url: pathpromo,
+        url: '/promo',
         data: {
            	promo:promo
         },

@@ -34,7 +34,8 @@
 					  </div>
 					  <div id="locations" class="tab-pane fade">
 					  	<p>
-					  		<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>
+							<iframe width="100%" height="250" src="http://maps.google.com/maps?q={{$tour->lat}},{{$tour->lng}}&amp;&output=embed"></iframe>
+					  		{{--<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>--}}
 					  	</p>
 					  </div>
 					</div>				
