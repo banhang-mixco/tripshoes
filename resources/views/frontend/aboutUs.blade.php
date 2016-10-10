@@ -8,7 +8,7 @@
 			<h5 class="text-center">{{ trans('lang_user.about.a_few_words') }}</h5>
 			<h1 class="text-center">{{ trans('lang_user.about.about_us') }}</h1>
 			<p class="text-center"> {{ trans('lang_user.about.about_header') }}</p>
-			<div class="text-center"><button class="btn btn-lg btn-default ">{{ trans('lang_user.about.contact_us') }}</button></div>
+			<div class="text-center"><button class="btn btn-lg btn-default contact_link">{{ trans('lang_user.about.contact_us') }}</button></div>
 		</div>
 	</div>
 	</div>

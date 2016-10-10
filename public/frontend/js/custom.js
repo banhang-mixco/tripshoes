@@ -575,3 +575,14 @@ $('a[name=deleteBooking]').click(function(e){
 		}
 	});	
 });
+
+$("a.page-scroll").click(function(e) {
+	e.preventDefault();
+    $('html,body').animate({
+        scrollTop: $("#form_send").offset().top},
+        'slow');
+});
+
+$('button.contact_link').click(function(){
+	window.location.href = '/trip';
+});
