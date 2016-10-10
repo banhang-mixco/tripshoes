@@ -18,7 +18,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	Route::get('/sendusemail', 'HomeController@contact');
 	Route::post('/postSendCode', 'HomeController@postSendCode');
 	Route::get('/signup', 'HomeController@signup');
-	Route::get('/', 'HomeController@index');//21,22,1,11,5
+	Route::get('/',['as' => 'home','uses' => 'HomeController@index']);//21,22,1,11,5
 	Route::post('/sendEmailChangePassword','PasswordController@sendEmailChangePassword');
 	Route::get('/resetPassword', 'PasswordController@resetPassword');
 	Route::post('/postResetPassword', 'PasswordController@postResetPassword');
