@@ -146,6 +146,7 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(),[
             'firstname'     => 'required',
+            'lastname'      => 'required',
             'mobilephone'   => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/'],
             'phone'         => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/']
         ]); 
@@ -174,12 +175,23 @@ class UserController extends Controller
         $user->address = $address;
 
         if($confirmcurrentpassword != '' && $confirmnewpassword != ''  && $newpassword != ''){
+             $validator = Validator($request->all(), [
+                'newpassword' => 'min:6',
+                'confirmnewpassword' => 'same:newpassword',
+            ]);
+            if($validator->fails()){
+                return response()->json([
+                    'errors' => $validator->messages(),
+                    'code' => 0
+                ]);
+            }
             if(!Hash::check($confirmcurrentpassword, Auth::user()->password)){
                 return response()->json([
                     'errors' => 'Wrong password',
                     'code' => 0
                 ]);
-                $user->password = Hash::make($confirmnewpassword);
+                $user->password = Hash::make($newpassword);
+                $user->password_hash = Hash::make($newpassword);
             }
         }
         $user->save();

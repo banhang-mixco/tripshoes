@@ -12,12 +12,13 @@
 				<div class="col-lg-8">
 					<div class="left-profile">
 						<form action="{{ url('/updateLeftProfile') }}" method="POST" id="formleftprofile">
-							<span class="errors hidden"></span>
+							
 							<div class="head-profile"></div>
 							<div class="content-profile">
 								<div class="avatar">
 								</div>
 								<h4>{{ trans('lang_user.profile.header') }}</h4>
+									<span class="errors hidden"></span>
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
@@ -28,15 +29,15 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">{{ trans('lang_user.profile.last_name') }}</label>
-												<input type="text" class="form-control form_padding" name="lastname" id="lastname" value="{{ $user->last_name }}" required>
+												<input type="text" class="form-control form_padding" name="lastname" id="lastname" value="{{ $user->last_name }}">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<label class="control-label">{{ trans('lang_user.profile.mobile_phone') }}e</label>
-												<input type="text" class="form-control form_padding" name="mobilephone" id="mobilephone" value="{{ $user->mobile_phone }}" required>
+												<label class="control-label">{{ trans('lang_user.profile.mobile_phone') }}</label>
+												<input type="text" class="form-control form_padding" name="mobilephone" id="mobilephone" value="{{ $user->mobile_phone }}">
 												<!-- <a href="#" class="add">
 													<i class="fa fa-plus"></i>
 													Add mobile number (if different)
@@ -76,7 +77,7 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">{{ trans('lang_user.profile.confirm_new_password') }}</label>
-												<input type="text" class="form-control form_padding" name="confirmnewpassword" id="confirmnewpassword">
+												<input type="password" class="form-control form_padding" name="confirmnewpassword" id="confirmnewpassword">
 											</div>
 										</div>
 									</div>
@@ -84,7 +85,7 @@
 										<div class="col-lg-6">
 											<div class="form-group">
 												<label class="control-label">{{ trans('lang_user.profile.new_password') }}</label>
-												<input type="text" class="form-control form_padding" name="newpassword" id="newpassword">
+												<input type="password" class="form-control form_padding" name="newpassword" id="newpassword">
 											</div>
 										</div>
 										

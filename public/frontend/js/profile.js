@@ -5,6 +5,7 @@ function addNewLogo(input){
         var size = 2000000;
         if(file.size >= size){
             alert('File upload size must be smaller 2MB');
+            return;
         }
         var reader = new FileReader();
         reader.onload = function (e) {
