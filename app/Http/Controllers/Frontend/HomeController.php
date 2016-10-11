@@ -23,6 +23,7 @@ class HomeController extends Controller
 
             $m->to('luongviet82@gmail.com', 'Luong Viet')->subject('Your Reminder!');
         });*/
+        
 	    return view('frontend.index', compact('banner', 'text_banner'));
     }
 
