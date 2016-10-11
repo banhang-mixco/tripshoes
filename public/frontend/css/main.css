@@ -61,6 +61,12 @@ ul,li{
 .link a{
 	color:#ffffff;
 }
+.link span.badge{
+	background: rgba(111, 189, 111, 0.95);
+	position: absolute;
+	font-weight: normal;
+	top: 30px;
+}
 .webname{
 	color: #ffffff;
 	font-size: 30px;
@@ -1409,4 +1415,5 @@ ul.country-list li{
 	width: 25px;
 	height: 25px;
 	border-radius: 50%;
+	margin-left: 20px;
 }

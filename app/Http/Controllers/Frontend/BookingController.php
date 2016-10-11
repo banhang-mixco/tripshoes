@@ -11,6 +11,7 @@ use App\Repositories\Eloquent\UserRepositoryEloquent;
 use App\Repositories\Eloquent\BookingRepositoryEloquent;
 use Auth;
 use App\Models\Booking;
+use Validator;
 
 class BookingController extends Controller
 {

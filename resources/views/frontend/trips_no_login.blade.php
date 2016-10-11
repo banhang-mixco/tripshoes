@@ -196,7 +196,7 @@
 					<ul class="nav-right pull-right list-inline">
 						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 						<li>
-							<a href="{{ url('/trip') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							<a href="{{ url('/trip') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}<span class="badge">{{ countBooking() }}</span></a>
 						</li>
 
 						<li class="dropdown pull-right">
