@@ -108,6 +108,8 @@ function isJson(item) {
 		});
 	});
 
+//send code
+$('#sendcode').modal('show');
 
 
 //signin
@@ -224,6 +226,7 @@ $(document).ready(function(){
 	        success: function(data){
 	        	var showerror = $formsignup.find('span.errors');
 	        	showerror.addClass('hidden');
+	        	console.log(data);
 
 	        	$formsignup.find('.form-group').each(function(){
 	        		$(this).removeClass('has-error');
@@ -254,6 +257,7 @@ $(document).ready(function(){
 		        		}
 	        		
 	        		}else if(typeof errors === 'string' || errors instanceof String){
+	        			console.log('hello');
 	        			showerror.append(errors).removeClass('hidden');
 	        		}
 	        	}else if(data.code==1){
@@ -285,40 +289,102 @@ $(document).ready(function(){
 
 	        }
 		});
-		console.log('hello');
 	});
 	
 });
 
+/*Promo code*/
+$('#send_promo').on("click",function(e){
+	var promo = $('#promo').val();
+    var token = $("[name='_token']").val();
 
+    e.preventDefault(e);
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: '/promo',
+        data: {
+           	promo:promo
+        },
+        dataType: 'json',
+        success: function(data){
+        	console.log(data);
+        	if(data.code == 1){
+        		$('#promo_id').val(data.promo.id);
+
+        		alert("With this promo code you will be discounted "+ data.promo.discount+ "%. Thanks you!");
+        		$('#promo_code').modal('hide');
+        	}        	
+        	else{
+        		
+            	alert(data.mes);
+        	}            
+        },
+        error: function(data){
+        	
+        }
+    });
+});
+/*End promo code*/
 
 //tick button to add or minus ticket
 $(document).ready(function(){
 	$('.number_ticket a.plus').click(function(e){
 		e.preventDefault();
+		var id = $(this).attr('data-id');
 		//console.log($(this).parent().find('.ticket').text());
 		var findticket = $(this).parent().find('.ticket');
+		var oneprice = parseInt($('.one_price_' + id).text());
+		var $price = $(this).parents('.cart_' + id).find('span.price');
+		var price = $price.text();
+		price = parseInt(price.replace('$', ''));
+		var $total = $('.total-payment');
+		var total = parseInt($total.text().replace('$', ''));
 		var number_ticket = parseInt(findticket.text());
 		if(number_ticket < 20){
 			number_ticket = number_ticket + 1;
+			var new_total = total + oneprice;
+			$total.text('$' + new_total);
 		}
 		findticket.text(number_ticket);
-
+		$('#number_ticket_' + id).val(number_ticket);
+		var new_price = oneprice * number_ticket;
+		$price.text('$'+new_price);
+		$('#price_' + id).val(new_price);
 	});
 
 	$('.number_ticket a.minus').click(function(e){
 		e.preventDefault();
+		var id = $(this).attr('data-id');
 		//console.log($(this).parent().find('.ticket').text());
 		var findticket = $(this).parent().find('.ticket');
+		var oneprice = parseInt($('.one_price_' + id).text());
+		var $price = $(this).parents('.cart_' + id).find('span.price');
+		var price = $price.text();
+		price = parseInt(price.replace('$', ''));
+		var $total = $('.total-payment');
+		var total = parseInt($total.text().replace('$', ''));
 		var number_ticket = parseInt(findticket.text());
+		
 		if(number_ticket > 1){
 			number_ticket = number_ticket - 1;
+			var new_total = total - oneprice;
+			$total.text('$' + new_total);
 		}
 		findticket.text(number_ticket);
-		$('#number_ticket').val(number_ticket);
-
+		$('#number_ticket_' + id).val(number_ticket);
+		var new_price = oneprice * number_ticket;
+		$price.text('$'+new_price);
+		$('#price_' + id).val(new_price);
 	});
 });
+
+
 
 //resetPassword
 $(document).ready(function(){
@@ -496,3 +562,27 @@ $(document).ready(function(){
 	});
 });
 
+$('a[name=deleteBooking]').click(function(e){
+	e.preventDefault();
+	var id = $(this).attr('delete-id');
+	var url = $(this).attr('href');
+	$.ajax({
+		url: url,
+		type: 'GET',
+		data: {id: id},
+		success:function(data){
+			$('.cart_' + id).remove();
+		}
+	});	
+});
+
+$("a.page-scroll").click(function(e) {
+	e.preventDefault();
+    $('html,body').animate({
+        scrollTop: $("#form_send").offset().top},
+        'slow');
+});
+
+$('button.contact_link').click(function(){
+	window.location.href = '/trip';
+});

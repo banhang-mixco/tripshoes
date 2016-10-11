@@ -1,8 +1,12 @@
 @extends('frontend.layout.master')
 
 @section('content')
-
-	<div style="background: rgba(128, 128, 128, 0.16);">
+	@foreach($blog as $item)
+	@if($tour->id == $item->tour_information_id)
+	{!! $item->content !!}
+	@endif
+	@endforeach
+	<!-- <div style="background: rgba(128, 128, 128, 0.16);">
 	<div class="head-banner text-center artical">
 		<h4>Food</h4>
 		<h1>Is it "fur" or "pho"?</h1>
@@ -176,5 +180,5 @@
 		</div>		
 	</div>
 </div>
-</div>
+</div> -->
 @endsection

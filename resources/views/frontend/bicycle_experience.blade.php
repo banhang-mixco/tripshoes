@@ -34,26 +34,27 @@
 					  </div>
 					  <div id="locations" class="tab-pane fade">
 					  	<p>
-					  		<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>
+							<iframe width="100%" height="250" src="http://maps.google.com/maps?q={{$tour->lat}},{{$tour->lng}}&amp;&output=embed"></iframe>
+					  		{{--<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>--}}
 					  	</p>
 					  </div>
 					</div>				
 				</div>
 				<div class="col-md-7">
 					<div class="col-md-8">	
-						<img src="{{ asset('frontend/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
+						<img src="{{ asset('upload/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
 					</div>
 					<div class="col-md-4 img_right">
 						@foreach($images as $item)
 						<div class="col-md-10">
-							<img src="{{ asset('frontend/images/'.$item->url.'') }}" class="img-round" width="90%" >
+							<img src="{{ asset('upload/images/'.$item->url.'') }}" class="img-round" width="90%" >
 						</div>
 						@endforeach
 					</div>
 				</div>
 			</div>
 		</div>
-		<form action="{{ url('/trip1') }}" method="POST">
+		<form action="{{ url('/addtocart/' . $id) }}" method="POST">
 			<div class="row select_content">
 				<div class="col-md-3">
 					<div class="input-append date" data-date="Select Date">
@@ -76,7 +77,7 @@
 				</div>
 				<div class="col-md-3">
 					<select class="form-control form_padding" name="number_ticket">
-						@for($i=0;$i<=20;$i++)
+						@for($i=1;$i<=20;$i++)
 						<option value="{{ $i }}">{{$i}}</option>
 						@endfor
 					</select>
@@ -85,8 +86,7 @@
 		
 		<span>${{number_format((float)$tour->price, 2, '.', '')}}</span>
 		<input type="hidden" name="price" value="{{number_format((float)$tour->price, 2, '.', '')}}">
-		<input type="hidden" name="tour_id" value="{{ $id }}">	
-		<input type="hidden" name="promo_id">
+		<input type="hidden" name="promo_id" id="promo_id">
 		@if(Auth::check())
 		<div class="button_end">
 			<button type="submit" class="btn btn-lg btn-success">{{ trans('lang_user.booking.add_to_cart') }}</button>
@@ -110,14 +110,17 @@
 	        <h4 class="modal-title" id="myModalLabel">{{ trans('lang_user.booking.add_promo_code') }}</h4>
 	      </div>
 	      <div class="modal-body">
-	      	<div class="form-group">
-	        	<label class="label-control">{{ trans('lang_user.booking.promo_code') }}</label>
-	        	<input type="text" name="promo" class="form-control">
-	        </div>
+	      	<form action="" method="POST">
+		      	<div class="form-group">
+		      		<input type="hidden" name="_token" value="{{ Session::token() }}" />
+		        	<label class="label-control" >{{ trans('lang_user.booking.promo_code') }}</label>
+		        	<input type="text" id="promo" name="promo_id" class="form-control">
+		        </div>
+		    	</form>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-danger" data-dismiss="modal">{{ trans('lang_user.booking.close') }}</button>
-	        <button type="button" class="btn btn-success">{{ trans('lang_user.booking.send_promo_code') }}</button>
+	        <button type="button" class="btn btn-success" id="send_promo">{{ trans('lang_user.booking.send_promo_code') }}</button>
 	      </div>
 	    </div>
 	  </div>
@@ -128,7 +131,7 @@
 	<script type="text/javascript">
         $('#timepicker1').timepicker();
         $('#datepciker').datepicker({
-        	format: 'dd.mm.yy',
+        	format: 'dd.mm.yyyy',
         });
     </script>
 @endsection

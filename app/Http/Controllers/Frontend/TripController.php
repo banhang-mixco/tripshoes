@@ -73,4 +73,5 @@ class TripController extends Controller
         $text_banner = '';
         return view('frontend.trips_with_login', compact('banner', 'text_banner', 'tickets'));
     }
+
 }

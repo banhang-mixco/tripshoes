@@ -18,7 +18,7 @@ class Booking extends Model implements Transformable
     protected $table= 'tbl_booking';
     public $timestamps = false;
     protected $fillable = [
-        'user_id', 'date_start', 'start_time','finish_time','travellers','tour_information_id', 'ticket_id', 'number_ticket', 'cost', 'promo_id', 'date_created', 'date_modiffied',
+        'user_id', 'date_start', 'start_time','finish_time','travellers','tour_information_id', 'ticket_id', 'number_ticket', 'cost', 'promo_id', 'date_created', 'date_modiffied','status',
     ];
 
      /**

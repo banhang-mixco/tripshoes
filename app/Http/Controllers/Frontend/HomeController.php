@@ -17,7 +17,7 @@ class HomeController extends Controller
 		'<div class="banner-header">
 			<h4>Daily Guided Trips in Hoi An</h4>
 			<h1>Take a trip in <br> someone else\'s shoes</h1>
-			<a href="#form_send" class="btn btn-lg btn-success" role="button" data-toggle="toggle" data-target="#form_send">Get early access</a>
+			<a href="#form_send" class="btn btn-lg btn-success page-scroll">Get early access</a>
 		</div>';
 		/*Mail::send('frontend.sendemail', ['user' => 'hello'], function ($m) {
 

@@ -18,7 +18,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	Route::get('/sendusemail', 'HomeController@contact');
 	Route::post('/postSendCode', 'HomeController@postSendCode');
 	Route::get('/signup', 'HomeController@signup');
-	Route::get('/', 'HomeController@index');//21,22,1,11,5
+	Route::get('/',['as' => 'home','uses' => 'HomeController@index']);//21,22,1,11,5
 	Route::post('/sendEmailChangePassword','PasswordController@sendEmailChangePassword');
 	Route::get('/resetPassword', 'PasswordController@resetPassword');
 	Route::post('/postResetPassword', 'PasswordController@postResetPassword');
@@ -36,18 +36,28 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		/*My booking*/
 		Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);
 		Route::get('bookings/{id}', ['as' => 'booking.show', 'uses' => 'MyBookingController@show']);
+		Route::post('/promo','MyBookingController@comparepromo');
 		/*Trip with login*/
 		Route::get('/trip/{id}',['uses' => 'TripController@show']);
 		Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 		/*Cart*/
-		Route::post('/trip1', 'BookingController@trip1');
-		Route::post('/trip2', 'BookingController@trip2');
+		Route::post('/addtocart/{id}', 'BookingController@addtocart');
+		Route::get('/trip1', 'BookingController@trip1');
+		Route::post('/updateCart', 'BookingController@updateCart');
+		Route::get('/deleteBooking', 'BookingController@deleteBooking');
+		Route::get('/trip2', 'BookingController@trip2');
+		Route::post('/trip2', 'BookingController@posttrip2');
+
 		Route::get('/trip3', 'BookingController@trip3');
 		/*Profile with ajax*/
 		Route::get('/profile',['as' =>'profile', 'uses' => 'UserController@getprofile']);
 		Route::post('profile/avatar/', ['as' => 'profile.upload', 'uses' => 'UserController@upload']);
 		Route::post('/updateLeftProfile', 'UserController@updateLeftProfile');
-		Route::post('/transaction', 'PaypalController@transaction');
+		Route::post('/transaction', 'PaypalController@postPayment');
+		Route::get('payment/status', array(
+		    'as' => 'payment.status',
+		    'uses' => 'PaypalController@getPaymentStatus',
+		));
 	});
 });
 

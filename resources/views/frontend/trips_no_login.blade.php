@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title> {{trans('lang_user.souryz')}} @yield('title')</title>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/main.css') }}">
@@ -12,7 +13,7 @@
 				<div class="top">
 					<div class="pull-left">
 						<div class="link">
-							<a href="{{ asset('/trip') }}">{{ trans('lang_user.header.trip') }}</a>
+							<a href="{{ asset('/trip') }}">{{ trans('lang_user.header.trips') }}</a>
 							<a href="{{ asset('/blog') }}" class="padding_left_10">{{ trans('lang_user.header.blog') }}</a>	
 						</div>
 					</div>
@@ -195,10 +196,10 @@
 					<ul class="nav-right pull-right list-inline">
 						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 						<li>
-							<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							<a href="{{ url('/trip') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
 						</li>
 
-						<li class="dropdown">
+						<li class="dropdown pull-right">
 							<a href class="dropdown-toggle" data-toggle="dropdown">
 								@if(Auth::user()->avatar)
 									<div class="ava-info" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
@@ -235,7 +236,7 @@
 				</div>
 				<div class="text-center webname">
 					<a href="{{ url('/') }}"><img src="{{ asset('frontend/images/Group3.png') }}"></a>
-					{{ trans('lang_user.header.trips') }}<span>{{ trans('lang_user.header.shoes') }}</span>
+					{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span>
 				</div>
 			</div>
 				<div class="border_header"></div>

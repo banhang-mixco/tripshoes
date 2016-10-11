@@ -6,26 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class Promo extends Model implements Transformable
+class BlogDetail extends Model implements Transformable
 {
     use TransformableTrait;
 
-    /**
+     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $table= 'tbl_promo';
+    protected $table= 'tbl_blog_detail';
     protected $fillable = [
-        'code', 'description', 'discount','count',  
+        'tour_information_id', 'content',
     ];
     /**
-     * Get ticket from Booking.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     * Get the phone record associated with the user.
      */
-    public function bookings()
+    public function tours()
     {
-        return $this->hasMany('App\Models\Booking');
+        return $this->hasOne('App\Model\BlogDetail', 'tour_information_id');
     }
 }

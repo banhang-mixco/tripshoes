@@ -79,6 +79,12 @@ class UserController extends Controller
                 'code' => 0
             ]);
         }
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $password = Hash::make($request->get('password'));
+        $age = $request->get('age');
+        $country = $request->get('country');
+        $code = $request->get('code');
         if(Session::has($email)){
             if(Session::get($email)[0] != $code){
                 return response()->json([
@@ -94,12 +100,7 @@ class UserController extends Controller
                 'code' => 0
             ]);
         }
-    	$name = $request->get('name');
-    	$email = $request->get('email');
-    	$password = $request->get('password');
-        $age = $request->get('age');
-        $country = $request->get('country');
-    	$code = $request->get('code');
+    	
 
     	
 
@@ -107,14 +108,14 @@ class UserController extends Controller
         $user->username = $name;
     	$user->email = $email;
         $user->age = $age;
-    	$user->password_hash = Hash::make($password);
-        $user->password = Hash::make($password);
+    	$user->password_hash = $password;
+        $user->password = $password;
     	$user->country = $country;
         $user->save();
 
         return response()->json([
             'message' => 'Register Sucess...',
-            'code' => 0
+            'code' => 1
         ]);
     }
      /**
@@ -144,6 +145,7 @@ class UserController extends Controller
     public function updateLeftProfile(Request $request){
 
         $validator = Validator::make($request->all(),[
+            'firstname'     => 'required',
             'mobilephone'   => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/'],
             'phone'         => ['regex:/(0|(\+))([0-9]){1,4}(\s)*(\.)*([0-9](\.)*(-)*){6,15}/']
         ]); 

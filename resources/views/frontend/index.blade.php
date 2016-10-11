@@ -117,12 +117,12 @@
 		<div class="col-lg-offset-1 col-lg-10 launch_content">
 			<h3 class="text-center"> {{ trans('lang_user.index.content_25')}}</h3>
 			<h1 class="text-center"> {{ trans('lang_user.index.content_26')}}</h1>
-			<p class="text-center">{{ trans('lang_user.index.content_26')}}</p>
+			<p class="text-center">{{ trans('lang_user.index.content_27')}}</p>
 		</div>
 	</div>
 	<div class="container">
 		<!-- form -->
-		<div class="col-lg-12 text-center form_send">
+		<div class="col-lg-12 text-center form_send" id="form_send">
 	       	<h1 class="text-center">{{ trans('lang_user.index.content_28')}}</h1>
 	        <div class="col-lg-offset-2 col-lg-8 text-center">
 	            <form class="form_access">

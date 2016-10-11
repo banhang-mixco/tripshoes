@@ -984,10 +984,11 @@ form.form_access{
 	margin-top: 20px;
 }
 .patment_btn {
+	width: 100%;
 	margin-top: 30px;	
 }
-.patment_btn a{
-	width: 292px;
+.patment_btn a, .patment_btn button{
+	width: 50%;
 	height: 60px;
 	font-size: 26px;
 	border: 1px solid #ecf0f1;

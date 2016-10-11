@@ -4,15 +4,15 @@ namespace App\Repositories\Eloquent;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Contracts\Repositories\TourUserRepository;
-use App\Models\TourUser;
-use App\Validators\TourUserValidator;
+use App\Contracts\Repositories\AddressRepository;
+use App\Models\Address;
+use App\Validators\AddressValidator;
 
 /**
- * Class TourUserRepositoryEloquent
+ * Class AddressRepositoryEloquent
  * @package namespace App\Repositories\Eloquent;
  */
-class TourUserRepositoryEloquent extends BaseRepository implements TourUserRepository
+class AddressRepositoryEloquent extends BaseRepository implements AddressRepository
 {
     /**
      * Specify Model class name
@@ -21,7 +21,7 @@ class TourUserRepositoryEloquent extends BaseRepository implements TourUserRepos
      */
     public function model()
     {
-        return TourUser::class;
+        return Address::class;
     }
 
     

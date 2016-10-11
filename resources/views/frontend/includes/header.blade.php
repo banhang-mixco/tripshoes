@@ -1,3 +1,4 @@
+
 <div id="header" class="{!! $banner ? 'has-banner' : 'no-banner' !!}" style="background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.25) ), url({{ asset($banner) }}) no-repeat; background-size: 140%;background-position: -30px -175px;">
 	<div class="container">
 		<div class="top">
@@ -11,7 +12,7 @@
 				<div class="pull-right">
 					<div class="link">
 						<a href="#" data-toggle="modal" data-target="#signin1">{{ trans('lang_user.header.sign_in') }}</a>
-						<a href="{{ asset('/trip1') }}"><i class="fa fa-shopping-cart padding_left_10"></i>{{ trans('lang_user.header.cart') }}</a>
+						<a href="{!! asset('/') !!}"><i class="fa fa-shopping-cart padding_left_10"></i>{{ trans('lang_user.header.cart') }}</a>
 					</div>
 				</div>
 				<div class="modal fade" id="signin1" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
@@ -108,15 +109,7 @@
 				      <div class="modal-body">
 				       	<form method="POST" action="{{ url('/postRegister') }}" id="signupform">
 				       		{{ csrf_field() }}
-				       		@if (count($errors) > 0)
-			                    <div class="alert alert-danger">
-			                        <ul>
-			                            @foreach ($errors->all() as $error)
-			                                <li>{{ $error }}</li>
-			                            @endforeach
-			                        </ul>
-			                    </div>
-			                @endif
+				       		<span class="errors hidden"></span>
 				       		<div class="form-group">
 				        		<input type="text" class="form-control form_padding" placeholder="Name" name="name" id="name">
 				        	</div>
@@ -178,13 +171,28 @@
 				    </div>
 				  </div>
 				</div>
+				
+				@if(Session::has('sendSuccess'))
+					<div class="modal fade" id="sendcode" tabindex="-1" role="dialog" aria-labelledby="sendcode" aria-hidden="true">
+					  <div class="modal-dialog modal-md">
+					    <div class="modal-content">
+					      <div class="modal-body">
+								
+								<h1>{{ Session::get('sendSuccess') }}</h1>
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+				@endif
+
 
 				@else
 				<div class="link">
 					<ul class="nav-right pull-right list-inline">
 						<li><a href="{{ route('booking.index') }}">{{ trans('lang_user.header.my_booking') }}</a></li>
 						<li>
-							<a href="{{ url('/trip1') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
+							<a href="{{ url('/trip') }}"><i class="fa fa-shopping-cart"></i>{{ trans('lang_user.header.cart') }}</a>
 						</li>
 						<li class="dropdown pull-right">
 							<a href class="dropdown-toggle" data-toggle="dropdown">
@@ -225,7 +233,7 @@
 			
 				</div>
 				<div class="text-center webname">
-					<a href="{{ url('/') }}" style="color:#fff;"><img src="{{ asset('frontend/images/Group3.png') }}">{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span></a>
+					<a href="{{ url('/') }}" style="color:#fff;"><img src="{{ asset('frontend/images/Group3.png') }}">&nbsp;{{ trans('lang_user.header.trip') }}<span>{{ trans('lang_user.header.shoes') }}</span></a>
 					
 				</div>
 				{!! $text_banner !!}
