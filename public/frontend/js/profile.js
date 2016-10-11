@@ -1,5 +1,11 @@
 function addNewLogo(input){
+    
     if (input.files && input.files[0]) {
+        var file = input.files[0];
+        var size = 2000000;
+        if(file.size >= size){
+            alert('File upload size must be smaller 2MB');
+        }
         var reader = new FileReader();
         reader.onload = function (e) {
             //Hiển thị ảnh vừa mới upload lên
@@ -12,6 +18,7 @@ function addNewLogo(input){
 }
 
 var submitImageForm = function(form){
+    console.log(pathprofile);
     $.ajax({
         url: pathprofile, //api upload phía server
         type: "POST",
