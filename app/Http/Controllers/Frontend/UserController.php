@@ -190,9 +190,10 @@ class UserController extends Controller
                     'errors' => 'Wrong password',
                     'code' => 0
                 ]);
-                $user->password = Hash::make($newpassword);
-                $user->password_hash = Hash::make($newpassword);
+
             }
+            $user->password = Hash::make($newpassword);
+            $user->password_hash = Hash::make($newpassword);
         }
         $user->save();
         return response()->json([
