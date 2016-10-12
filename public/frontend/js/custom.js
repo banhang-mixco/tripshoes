@@ -76,7 +76,7 @@ function isJson(item) {
 		        		}
 	        		
 	        		}else if(typeof errors === 'string' || errors instanceof String){
-	        			showerror.append(errors).removeClass('hidden');
+	        			showerror.html(errors).removeClass('hidden');
 	        		}
 	        	}else if(data.code==1){
 	        		html = '';
@@ -159,7 +159,7 @@ $formsignin = $('form#formsignin');
 		        		}
 	        		
 	        		}else if(typeof errors === 'string' || errors instanceof String){
-	        			showerror.append(errors).removeClass('hidden');
+	        			showerror.html(errors).removeClass('hidden');
 	        		}
 	        	}else if(data.code==1){
 	        		html = '';
@@ -257,8 +257,7 @@ $(document).ready(function(){
 		        		}
 	        		
 	        		}else if(typeof errors === 'string' || errors instanceof String){
-	        			console.log('hello');
-	        			showerror.append(errors).removeClass('hidden');
+	        			showerror.html(errors).removeClass('hidden');
 	        		}
 	        	}else if(data.code==1){
 	        		html = '';
@@ -445,7 +444,7 @@ $(document).ready(function(){
 		        		}
 	        		
 	        		}else if(typeof errors === 'string' || errors instanceof String){
-	        			showerror.append(errors).removeClass('hidden');
+	        			showerror.html(errors).removeClass('hidden');
 	        		}
 	        	}else if(data.code==1){
 	        		html = '';
@@ -527,7 +526,7 @@ $(document).ready(function(){
 		        		}
 	        		
 	        		}else if(typeof errors === 'string' || errors instanceof String){
-	        			showerror.append(errors).removeClass('hidden');
+	        			showerror.html(errors).removeClass('hidden');
 	        		}
 	        	}else if(data.code==1){
 	        		html = '';

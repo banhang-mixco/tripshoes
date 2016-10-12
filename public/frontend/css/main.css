@@ -1420,3 +1420,9 @@ ul.country-list li{
 	border-radius: 50%;
 	margin-left: 20px;
 }
+select.form-control , input.form-control{
+	color: rgba(128, 128, 128, 0.6) !important;
+}
+.btn_login{
+	color: #ffffff;
+}

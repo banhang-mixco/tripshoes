@@ -118,6 +118,9 @@
 			<h3 class="text-center"> {{ trans('lang_user.index.content_25')}}</h3>
 			<h1 class="text-center"> {{ trans('lang_user.index.content_26')}}</h1>
 			<p class="text-center">{{ trans('lang_user.index.content_27')}}</p>
+			<div style="width:20%; margin:0 auto;">
+				<button class="btn btn-lg btn-success btn_login" style="width: 200px;">Register</button>
+			</div>
 		</div>
 	</div>
 	<div class="container">
@@ -129,7 +132,7 @@
                  <div class="row">
                   <div class="col-lg-6">
                    <div class="form-group">
-                        <input type="text" name="youname" class="form-control form_padding input-lg" placeholder="Yourname" width="100%">
+                        <input type="text" name="youname" class="form-control form_padding input-lg" placeholder="Your name" width="100%">
                     </div>
                    </div>
                    <div class="col-lg-6">
