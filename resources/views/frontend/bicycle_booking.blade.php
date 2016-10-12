@@ -9,9 +9,9 @@
 		<div class="row">
 			<div class="col-md-12 walking">
 				<div class="col-md-5">
-				 	<h4>{{ strtoupper($tour->transport) }}</h4>
-				 	<h2>{{ $tour->userid->first_name }} {{ $tour->userid->last_name }}'s {{ $tour->transport}}</h2>
-				 	<p>{{ $tour->about }}</p>
+				 	<h4>{{ strtoupper($bookings->tourinformations->transport) }}</h4>
+				 	<h2>{{ $bookings->users->first_name }} {{ $bookings->users->last_name }}'s {{ $bookings->tourinformations->transport}}</h2>
+				 	<p>{{ $bookings->about }}</p>
 				 	<ul class="nav nav-tabs">
 					  	<li class="active"><a data-toggle="tab" href="#about">{{ trans('lang_user.booking.about') }}</a></li>
 					  	<li><a data-toggle="tab" href="#host">{{ trans('lang_user.booking.your_host') }}</a></li>
@@ -21,18 +21,18 @@
 
 					<div class="tab-content">
 					  <div id="about" class="tab-pane fade in active">
-					    <p>{{ $tour->about_tour }}</p>
+					    <p>{{ $bookings->tourinformations->about_tour }}</p>
 					  </div>
 					  <div id="host" class="tab-pane fade">
-					    <p>{{ $tour->about_guide }}</p>
+					    <p>{{ $bookings->tourinformations->about_guide }}</p>
 					  </div>
 					  <div id="reviews" class="tab-pane fade">
-					  	<p>{{ $tour->reviews }}</p>
+					  	<p>{{ $bookings->tourinformations->reviews }}</p>
 					  </div>
 					  <div id="locations" class="tab-pane fade">
 					  	<p>
-					  		<iframe width="100%" height="250" src="http://maps.google.com/maps?q={{$tour->lat}},{{$tour->lng}}&amp;&output=embed"></iframe>
-					  		{{--<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$tour->lat}},{{$tour->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>--}}
+					  		<iframe width="100%" height="250" src="http://maps.google.com/maps?q={{$bookings->tourinformations->lat}},{{$bookings->tourinformations->lng}}&amp;&output=embed"></iframe>
+					  		{{--<iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{$bookings->tourinformations->lat}},{{$bookings->tourinformations->lng}}&amp;key=AIzaSyDPMvvFFuqTMQHcqtSbSyTVuwBE7c52GB0"></iframe>--}}
 					  	</p>
 					  </div>
 					</div>				
@@ -55,24 +55,24 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label class="control-label">{{ trans('lang_user.booking.date_of_trip') }}</label>
-					<input type="text" class="form-control form_padding" value="{{ $tour->time}}">
+					<input type="text" class="form-control form_padding" value="{{ $bookings->date_start}}">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<label class="control-label">{{ trans('lang_user.booking.time') }}</label>
-					<input type="text" class="form-control form_padding" value="">
+					<input type="text" class="form-control form_padding" value="{{ $bookings->start_time }}">
 			</div>
 		</div>
 		<div class="row booking_content">
 			<div class="col-md-4">
 				<div class="form-group">
 					<label class="control-label">{{ trans('lang_user.booking.number_of_tickets') }}</label>
-					<input type="text" class="form-control form_padding" value="">
+					<input type="text" class="form-control form_padding" value="{{ $bookings->number_ticket }}">
 				</div>
 			</div>
 			<div class="col-md-4">
 				<label class="control-label">{{ trans('lang_user.booking.trip_type') }}</label>
-				<input type="text" class="form-control form_padding" value="">
+				<input type="text" class="form-control form_padding" value="{{ $bookings->tickets->name }}">
 			</div>
 		</div>
 		<p class="book_end">{{ trans('lang_user.booking.note') }}</p>

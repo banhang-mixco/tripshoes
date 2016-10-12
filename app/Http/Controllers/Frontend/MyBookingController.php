@@ -55,13 +55,12 @@ class MyBookingController extends Controller
     public function index(){
     	$banner = false;
 		$text_banner = '';
-		$tourinfos = $this->tourinforepo->with('images')->simplePaginate(2);
-        foreach ($tourinfos as $key => $value) {
-                $tourlist[]=$value;
-                $img=$value['images']->first();
-                $tourlist[$key]['image']=$img['url'];
-            }
-		return view('frontend.my_bookings', compact('banner', 'text_banner','tourlist','image'));
+        $bookings =$this->bookingrepo->findByField('user_id',Auth::id());
+        foreach ($bookings as $key => $value) {
+            $image = $this->imagerepo->findByField('tour_information_id', $value->tour_information_id)->first();
+            $bookings[$key]['image']=$image['url'];
+        }
+		return view('frontend.my_bookings', compact('banner', 'text_banner','bookings'));
     }
     /**
      * Display the specified resource.
@@ -73,13 +72,12 @@ class MyBookingController extends Controller
     public function show($id)
     {
         try {
-            $tour = $this->tourinforepo->find($id);
-            $images = $this->imagerepo->findByField('tour_information_id', $id);
-            $image = $this->imagerepo->findByField('tour_information_id', $id)->first('url');
-            $ticket = $this->ticketrepo->all();
+            $bookings = $this->bookingrepo->find($id);
+            $images = $this->imagerepo->findByField('tour_information_id', $bookings->tour_information_id);
+            $image = $this->imagerepo->findByField('tour_information_id', $bookings->tour_information_id)->first();
             $banner = false;
             $text_banner = "";
-            return  view('frontend.bicycle_booking', compact('tour', 'ticket','images','image','banner','text_banner'));
+            return  view('frontend.bicycle_booking', compact('bookings','images','image','banner','text_banner'));
         } catch (Exception $ex) {
             return redirect()->route('booking.index');
         }

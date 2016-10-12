@@ -129,7 +129,7 @@
                  <div class="row">
                   <div class="col-lg-6">
                    <div class="form-group">
-                        <input type="text" name="youname" class="form-control form_padding input-lg" placeholder="Youname" width="100%">
+                        <input type="text" name="youname" class="form-control form_padding input-lg" placeholder="Yourname" width="100%">
                     </div>
                    </div>
                    <div class="col-lg-6">
