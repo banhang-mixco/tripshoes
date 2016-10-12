@@ -1103,10 +1103,9 @@ label{
 	border-bottom: 1px solid #333;
 }
 .profile .avatar{
-	background: url(../images/Depositphotos_4815623_original.jpg);
+	
 	width: 120px;
 	height: 120px;
-	background-size: 400%;
 	background-position: -55px 0px;
 	border-radius: 5px;
 	margin-top: -60px;

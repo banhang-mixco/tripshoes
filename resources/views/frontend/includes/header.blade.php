@@ -197,9 +197,9 @@
 						<li class="dropdown pull-right">
 							<a href class="dropdown-toggle" data-toggle="dropdown">
 								@if(Auth::user()->avatar)
-									<div class="ava-info" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
+									<div class="ava-info" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }});background-size: cover;" class="img-circle img-responsive"></div>
 								@else
-									<div class="ava-info" style="background: url({{ asset(config('path.profile_default').Auth::user()->avatar) }})" class="img-circle img-responsive"></div>
+									<div class="ava-info" style="background: url({{ asset(config('path.profile_default')) }});background-size: cover;" class="img-circle img-responsive"></div>
 								@endif
 							</a>
 							

@@ -15,8 +15,13 @@
 							
 							<div class="head-profile"></div>
 							<div class="content-profile">
-								<div class="avatar">
-								</div>
+								@if(Auth::user()->avatar)
+									<div class="avatar" style="background: url({{ asset(config('path.avatar_view').Auth::user()->avatar) }});background-size: cover;">
+									</div>
+								@else 
+									<div class="avatar" style="background: url(frontend/images/profile_default.jpg}});background-size: cover;">
+									</div>
+								@endif
 								<h4>{{ trans('lang_user.profile.header') }}</h4>
 									<span class="errors hidden"></span>
 									<div class="row">
