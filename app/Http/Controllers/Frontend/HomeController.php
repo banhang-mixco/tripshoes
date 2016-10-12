@@ -64,8 +64,9 @@ class HomeController extends Controller
 
             $m->to($email, $yourname)->subject('Confirm Access Code');
         });
+
         return redirect('/')
-        		->with(['sendSucess' => 'We sent you one email. Please check your email'])
+        		->with(array('sendSuccess' => 'We sent you one email. Please check your email!'))
         		->withInput();
     }
 

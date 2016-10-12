@@ -9,6 +9,20 @@
 				</div>
 			</div>
 			@if(!Auth::check())
+				@if(Session::has('sendSuccess'))
+					<div class="modal fade" id="sendcode" tabindex="-1" role="dialog" aria-labelledby="sendcode" aria-hidden="true">
+					  <div class="modal-dialog modal-lg">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size:16px;">&times;</button>
+					      </div>
+					      <div class="modal-body">
+					        <h3>{{ Session::get('sendSuccess') }}</h3>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				@endif
 				<div class="pull-right">
 					<div class="link">
 						<a href="#" data-toggle="modal" data-target="#signin1">{{ trans('lang_user.header.sign_in') }}</a>
@@ -172,19 +186,6 @@
 				  </div>
 				</div>
 				
-				@if(Session::has('sendSuccess'))
-					<div class="modal fade" id="sendcode" tabindex="-1" role="dialog" aria-labelledby="sendcode" aria-hidden="true">
-					  <div class="modal-dialog modal-md">
-					    <div class="modal-content">
-					      <div class="modal-body">
-								
-								<h1>{{ Session::get('sendSuccess') }}</h1>
-					      </div>
-					      
-					    </div>
-					  </div>
-					</div>
-				@endif
 
 
 				@else
