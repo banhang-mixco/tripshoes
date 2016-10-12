@@ -13,18 +13,26 @@
 						<h3 class="text-left">{{ trans('lang_user.trip.trip3_header')}}</h3>						
 					</div>
 					<div class="form-group radio-toolbar">
-						<div class="radio_paypal">						
-							<label class="control control--radio ">
-								<span>{{ trans('lang_user.trip.payPal')}}</span>
-								<input type="radio" name="radio" class="radio_btn" value="paypal" />
-								<div class="control__indicator"></div><br>
-								<div class="row">
-									<div class="col-lg-10">
-										<p>{{ trans('lang_user.trip.text_paypal')}}</p>
-									</div>
-									<div class="col-lg-2"></div>
-								</div>								
-							</label>
+						<div class="radio_paypal">		
+							<div class="row">			
+								<div class="col-md-10">	
+									<label class="control control--radio ">
+										<span>{{ trans('lang_user.trip.payPal')}}</span>
+										<input type="radio" name="radio" class="radio_btn" value="paypal" />
+										<div class="control__indicator"></div><br>
+										<div class="row">
+											<div class="col-lg-10">
+												<p>{{ trans('lang_user.trip.text_paypal')}}</p>
+											</div>
+											<div class="col-lg-2"></div>
+										</div>								
+									</label>
+								</div>
+								<div class="col-md-2">
+									<div class="pull-right" style="margin-right: 30px;background:url(frontend/images/icon-paypal.png)"></div>
+								</div>
+							</div>
+
 						</div>
 						<div class="radio_credit">
 							<label class="control control--radio">{{ trans('lang_user.trip.credit_card')}}

@@ -8,24 +8,24 @@
 				<div class="col-lg-12 info" style="padding:0px;"><p>{{ trans('lang_user.index.content_1')}}</p></div>
 			</div>
 			<div class="col-lg-12 img-round bagia"></div>
-			<div class="row">
+			<div class="row" style="color: rgba(149, 165, 166,0.8);">
 				<div class="col-lg-4">
-					<div class="col-lg-2"><img src="{{ asset('frontend/images/Icon3.png')}}"></div>
-					<div class="col-lg-10 align_left">
+					<div class="col-lg-3"><img src="{{ asset('frontend/images/Icon3.png')}}"></div>
+					<div class="col-lg-9 align_left">
 						
 						<p><strong> {{ trans('lang_user.index.content_2')}}</strong><br>{{ trans('lang_user.index.content_3')}}</p>
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="col-lg-2"><img src="{{ asset('frontend/images/Icon4.png')}}"></div>
-					<div class="col-lg-10 align_left">
+					<div class="col-lg-3"><img src="{{ asset('frontend/images/Icon4.png')}}"></div>
+					<div class="col-lg-9 align_left">
 						
 						<p><strong> {{ trans('lang_user.index.content_4')}}</strong><br>{{ trans('lang_user.index.content_5')}}</p>
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="col-lg-2"><img src="{{ asset('frontend/images/Icon5.png')}}"></div>
-					<div class="col-lg-10 align_left">
+					<div class="col-lg-3"><img src="{{ asset('frontend/images/Icon5.png')}}"></div>
+					<div class="col-lg-9 align_left">
 						
 						<p><strong> {{ trans('lang_user.index.content_6')}}</strong><br>{{ trans('lang_user.index.content_7')}}</p>
 					</div>
@@ -35,7 +35,7 @@
 	</div>
 	<div class="col-lg-12">
 		<div class="row">
-		<div class="gotchan text-center">
+		<div class="gotchan text-center" style="color: #444444;">
 			<img src="{{ asset('frontend/images/noun_145969.png') }}">
 				<p>{{ trans('lang_user.index.content_8')}}</p>
 			</div>
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			<h1 class="text-center">{{ trans('lang_user.index.content_13')}}</h1>
-			<p id="app_end">{{ trans('lang_user.index.content_14')}}</p>
+			<p id="app_end" style="margin-top: 30px;">{{ trans('lang_user.index.content_14')}}</p>
 			<div class="photobook"></div>	
 		</div>
 	</div>	
@@ -80,10 +80,10 @@
 		<!-- How to book -->
 	<div class="book text-center">
 		<h4>{{ trans('lang_user.index.content_17')}}</h4>
-		<h1> {{ trans('lang_user.index.content_18')}}</h1>
+		<h1 style="color:#444444 !important;"> {{ trans('lang_user.index.content_18')}}</h1>
 		<div class="container">
 			<div class="row">
-				<div class="book_content">
+				<div class="book_content" style="color: rgba(149, 165, 166,0.8);">
 					<div class="col-lg-4">
 						<img src="{{ asset('frontend/images/noun_464.png') }}">
 						<h4> {{ trans('lang_user.index.content_19')}}</h4>
@@ -113,7 +113,7 @@
 	
 	<div class="photolauch"></div>	
 	<!-- Begin Launch -->
-	<div class="col-lg-12 launch">
+	<div class="col-lg-12 launch" style="color: #444444 !important;">
 		<div class="col-lg-offset-1 col-lg-10 launch_content">
 			<h3 class="text-center"> {{ trans('lang_user.index.content_25')}}</h3>
 			<h1 class="text-center"> {{ trans('lang_user.index.content_26')}}</h1>
