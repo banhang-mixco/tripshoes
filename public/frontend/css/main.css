@@ -39,7 +39,10 @@ i{
 ul,li{
 	list-style-type: none
 }
-
+a:hover, a:active, a:focus{
+	text-decoration: none;
+	color: rgb(142, 142, 226) !important;
+}
 
 /* HEADER */
 #header.has-banner{
