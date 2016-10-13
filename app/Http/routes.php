@@ -26,6 +26,8 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	Route::get('/logout', 'UserController@logout');
 	/*Trip no login*/
 	Route::get('/trip',['as' => 'trip','uses' => 'TripController@index']);
+	Route::get('/trip/{id}',['uses' => 'TripController@show']);
+	Route::get('/tripswithlogin', 'TripController@tripwithlogin');
 	/*Information website*/
 	Route::get('about',['as' => 'about', 'uses' => 'InfoController@about']);
 	Route::get('support',['as' => 'support', 'uses' => 'InfoController@support']);
@@ -37,9 +39,7 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 		Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);
 		Route::get('bookings/{id}', ['as' => 'booking.show', 'uses' => 'MyBookingController@show']);
 		Route::post('/promo','MyBookingController@comparepromo');
-		/*Trip with login*/
-		Route::get('/trip/{id}',['uses' => 'TripController@show']);
-		Route::get('/tripswithlogin', 'TripController@tripwithlogin');
+		
 		/*Cart*/
 		Route::post('/addtocart/{id}', 'BookingController@addtocart');
 		Route::get('/trip1', 'BookingController@trip1');

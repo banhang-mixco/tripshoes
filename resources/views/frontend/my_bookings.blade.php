@@ -4,9 +4,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 my_booking">
-			@foreach($bookings as $item)
-			@if(strtotime(date('Y-m-d',strtotime($item->finish_time))) <= strtotime(date('Y-m-d')))
 			<div class="col-lg-12 text-center "><h1>{{ trans('lang_user.header.my_booking') }}</h1></div>
+			@foreach($bookings as $item)
+			@if(strtotime(date('Y-m-d',strtotime($item->finish_time))) > strtotime(date('Y-m-d')))
 			<div class="row">
 
 				<div class="col-lg-6 my_booking">
@@ -20,8 +20,11 @@
 				</div>
 				
 			</div>
-			@else
+			@endif
+			@endforeach
 			<div class="col-lg-12 text-center "><h1>{{ trans('lang_user.booking.past_booking') }}</h1></div>
+			@foreach($bookings as $item)
+			@if(strtotime(date('Y-m-d',strtotime($item->finish_time))) <= strtotime(date('Y-m-d')))
 			<div class="row">
 				<div class="col-lg-6 my_booking">
 					<a href="{{ route('booking.show',$item->id) }}">
