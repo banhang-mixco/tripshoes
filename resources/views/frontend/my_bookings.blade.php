@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-lg-12 my_booking">
 			@foreach($bookings as $item)
-			@if(date('Y-m-d',strtotime($item->finish_time)) <= date('y-m-d'))
+			@if(strtotime(date('Y-m-d',strtotime($item->finish_time))) <= strtotime(date('Y-m-d')))
 			<div class="col-lg-12 text-center "><h1>{{ trans('lang_user.header.my_booking') }}</h1></div>
 			<div class="row">
 
