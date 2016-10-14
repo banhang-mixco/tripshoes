@@ -7,12 +7,12 @@
 				<form action="{{ url('/transaction') }}" method="POST" id="checkout-form">
 					
 					<div class="row">
-					<div class="form-group">
-						<h3 class="text-left">{{ trans('lang_user.trip.trip3_header')}}</h3>						
-					</div>
-					<div id="charge-error" class="red {!! !Session::has('error') ? 'hidden' : '' !!}">
-						{{ Session::get('error') }}
-					</div>
+						<div class="form-group">
+							<h3 class="text-left">{{ trans('lang_user.trip.trip3_header')}}</h3>						
+						</div>
+						<div id="charge-error" class="red {!! !Session::has('error') ? 'hidden' : '' !!}">
+							{{ Session::get('error') }}
+						</div>
 					<div class="form-group radio-toolbar">
 						<div class="radio_paypal">		
 							<div class="row">			
@@ -47,6 +47,7 @@
 									<div class="pull-right" style="background:url(frontend/images/MasterCardLogo.png) no-repeat;width: 50%;height: 40px;margin-top:24px;"></div>
 								</div>
 							
+							</div>
 						</div>
 					</div>
 					<div class="form-group credit_card">
