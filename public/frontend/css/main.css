@@ -907,10 +907,10 @@ form.form_access{
 	display: block;
 }
 .control--radio .control__indicator:after {
-	top: 7px;
-	left: 7px;
-	width: 6px;
-	height: 6px;
+	top: 5px;
+	left: 5px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
 	background: #fff;
 }
@@ -980,6 +980,14 @@ form.form_access{
     border-radius: 4px;
     background-color: #ecf0f1;
 }
+.payment_form{
+	width: 90%;
+	margin: 0 auto;
+}
+select.form_payment{
+	width: 45%;
+}
+
 .payment_end .form_payment{
 	background-color: white;
 	padding-right: 20px;

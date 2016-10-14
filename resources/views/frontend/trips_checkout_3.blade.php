@@ -18,35 +18,35 @@
 							<div class="row">			
 								<div class="col-md-10">	
 									<label class="control control--radio ">
-										<span>{{ trans('lang_user.trip.payPal')}}</span>
+										<span style="font-family: Roboto-Medium;">{{ trans('lang_user.trip.payPal')}}</span>
 										<input type="radio" name="radio" class="radio_btn" value="paypal" />
 										<div class="control__indicator"></div><br>
-										<div class="row">
-											<div class="col-lg-10">
-												<p>{{ trans('lang_user.trip.text_paypal')}}</p>
-											</div>
-											<div class="col-lg-2"></div>
-										</div>								
+											<p>{{ trans('lang_user.trip.text_paypal')}}</p>
+																	
 									</label>
+								
 								</div>
 								<div class="col-md-2">
-									<div class="pull-right" style="margin-right: 30px;background:url(frontend/images/icon-paypal.png)"></div>
+									<div class="pull-right" style="margin-right: 30px;margin-top:30px;background:url(frontend/images/PalPalLogo.png) no-repeat;width: 100%;height: 40px"></div>
 								</div>
 							</div>
 
 						</div>
 						<div class="radio_credit">
-							<label class="control control--radio">{{ trans('lang_user.trip.credit_card')}}
-								<input type="radio" name="radio" checked="checked" value="credit_card"/>
-								<div class="control__indicator"></div>
-								<div class="row">
-									<div class="col-lg-10">
+							<div class="row">
+								<div class="col-md-9">
+									<label class="control control--radio">
+										<span style="font-family: Roboto-Medium;">{{ trans('lang_user.trip.credit_card')}}</span>
+										<input type="radio" name="radio" checked="checked" value="credit_card"/>
+										<div class="control__indicator"></div>
 										<p>{{ trans('lang_user.trip.text_credit')}}</p>
-									</div>
-									<div class="col-lg-2"></div>
+									</label>
 								</div>
-								
-							</label>
+								<div class="col-md-3">
+									<div class="pull-left" style="margin-left:-30px;margin-top:30px;background:url(frontend/images/VisaLogo.png) no-repeat;width: 50%;height: 40px"></div>
+									<div class="pull-right" style="background:url(frontend/images/MasterCardLogo.png) no-repeat;width: 50%;height: 40px;margin-top:24px;"></div>
+								</div>
+							
 						</div>
 					</div>
 					<div class="form-group credit_card">
@@ -62,33 +62,33 @@
 							<p>{{ trans('lang_user.trip.cVV_code')}}</p>
 						</div>
 					</div>
-					<div class="row">
-					<div class="col-lg-12">
-						<div class="col-lg-6">
+					<div class="payment_form">
+						<div class="row">
 							<div class="col-lg-6">
-							<select class="form_payment" name="expire_month" id="card-expiry-month">
-								@for($i=1;$i<=12;$i++)
-								<option value="{{$i}}">{{$i}}</option>
-								@endfor
-							</select>
+								
+								<select class="form_payment" name="expire_month" id="card-expiry-month">
+									@for($i=1;$i<=12;$i++)
+									<option value="{{$i}}">{{$i}}</option>
+									@endfor
+								</select>
+								
+								<select class="form_payment" name="expire_year" id="card-expiry-year">
+									@for($i=16;$i<=99;$i++)
+									<option value="{{$i}}">{{$i}}</option>
+									@endfor
+								</select>
+								
 							</div>
-							<div class="col-lg-6">
-							<select class="form_payment" name="expire_year" id="card-expiry-year">
-								@for($i=16;$i<=99;$i++)
-								<option value="{{$i}}">{{$i}}</option>
-								@endfor
-							</select>
+							<div class="col-lg-6 payment_end">
+								<input type="text" name="code" class="form-control form_payment" id="card-cvc">
 							</div>
 						</div>
-						<div class="col-lg-6 payment_end">
-							<input type="text" name="code" class="form-control form_payment" id="card-cvc">
-						</div>
-					</div>
 					</div>
 					<div class="form-group payment_end payment_card">
 						<label> {{ trans('lang_user.trip.name_on_card')}}</label>
 						<input type="text" name="name_card" class="form-control form_payment" id="card-name">
 					</div>
+
 					
 					<div class="btn-group patment_btn">
 						<a href="{{ asset('/trip2') }}" class="btn btn-default" style="width:50%;">{{ trans('lang_user.trip.return_to_detail')}}</a>

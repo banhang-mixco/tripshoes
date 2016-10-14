@@ -66,7 +66,7 @@ class HomeController extends Controller
         });
 
         return redirect('/')
-        		->with(array('sendSuccess' => 'We sent you one email. Please check your email!'))
+        		->with(array('sendSuccess' => 'We sent you one email. Please check your email!' . Session::get($email)[0]))
         		->withInput();
     }
 
