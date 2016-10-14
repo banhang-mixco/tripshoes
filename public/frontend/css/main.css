@@ -1426,3 +1426,6 @@ select.form-control , input.form-control{
 .btn_login{
 	color: #ffffff;
 }
+.red{
+	color: red !important;
+}

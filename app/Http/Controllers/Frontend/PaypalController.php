@@ -10,6 +10,7 @@ use Paypalpayment;
 use App\Repositories\Eloquent\BookingRepositoryEloquent;
 use Auth;
 use App\Models\Booking;
+use App\Models\Promo;
 use URL;
 use Session;
 use Redirect;
@@ -47,10 +48,16 @@ class PaypalController extends Controller
                         ->join('tbl_ticket', 'tbl_ticket.id', '=', 'tbl_booking.ticket_id')
                         ->where('tbl_booking.status', 0)
                         ->where('tbl_booking.user_id', Auth::user()->id)
-                        ->select('tbl_tour_information.name', 'tbl_booking.number_ticket', 'tbl_ticket.surcharge', 'tbl_tour_information.price')
+                        ->select('tbl_tour_information.name', 'tbl_booking.number_ticket', 'tbl_ticket.surcharge', 'tbl_tour_information.price', 'tbl_booking.promo_id')
                         ->get();
         foreach($bookings as $book){
             $subtotal += $book->price * $book->number_ticket;
+            if($book->promo_id){
+                $promo = Promo::find($book->promo_id);
+                if($promo){
+                    $subtotal -= $book->price * $promo->discount/100;
+                }
+            }
             $tax += $book->surcharge * $book->number_ticket;
         }
         $total = $subtotal + $tax;
@@ -100,7 +107,22 @@ class PaypalController extends Controller
                     ->setQuantity($book->number_ticket)
                     ->setTax($book->surcharge)
                     ->setPrice($book->price);
-                array_push($items, $$item);
+                if($book->promo_id){
+                    //nếu có promo thì trừ bỏ 
+                    $promo = Promo::find($book->promo_id);
+                    if($promo){
+                        $itemtemp = "itemtemp{$key}";
+                        $$itemtemp = Paypalpayment::item();
+                        $$itemtemp->setName('Ground Coffee 40 oz')
+                            ->setCurrency($currency)
+                            ->setQuantity(1)
+                            ->setPrice(-$book->price*$promo->discount/100);
+                        array_push($items, $$item, $$itemtemp);
+                    }
+                }else{
+                    array_push($items, $$item);
+                }
+                
                 
             }
             
@@ -123,14 +145,20 @@ class PaypalController extends Controller
             $item1->setName('Ground Coffee 40 oz')
                     ->setCurrency($currency)
                     ->setQuantity(1)
+                    ->setTax(1)
                     ->setPrice(2);
 
             $item2 = Paypalpayment::item();
             $item2->setName('Ground Coffee 40 oz')
                     ->setCurrency($currency)
                     ->setQuantity(1)
-                    ->setPrice(2);*/
+                    ->setPrice(2);
             
+            $item3 = Paypalpayment::item();
+            $item3->setName('Ground Coffee 40 oz')
+                    ->setCurrency($currency)
+                    ->setQuantity(1)
+                    ->setPrice(-0.25);*/
 
             $itemList = Paypalpayment::itemList();
             $itemList->setItems($items);
