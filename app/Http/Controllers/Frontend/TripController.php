@@ -56,7 +56,7 @@ class TripController extends Controller
     {
         try {
             $tour = $this->tourinforepo->find($id);
-            $images = $this->imagerepo->findByField('tour_information_id', $id);
+            $images = $this->imagerepo->findByField('tour_information_id', $id)->take(4);
             $image = $this->imagerepo->findByField('tour_information_id', $id)->first('url');
             $ticket = $this->ticketrepo->all();
             $banner = false;

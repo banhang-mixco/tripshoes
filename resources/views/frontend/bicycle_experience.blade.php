@@ -9,8 +9,9 @@
 			<p><a href="{{ asset('/trip') }}"><i class="fa fa-chevron-left"></a></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ trans('lang_user.booking.back_to_trips') }}</p>
 		</div>
 
-		<div class="row">
-			<div class="col-md-12 walking">
+		
+			<div class="walking">
+				<div class="row">
 				<div class="col-md-5">
 				 	<h4>{{ strtoupper($tour->transport) }}</h4>
 				 	<h2>{{ $tour->userid->first_name }} {{ $tour->userid->last_name }}'s {{ $tour->transport}}</h2>
@@ -40,21 +41,20 @@
 					  </div>
 					</div>				
 				</div>
-				<div class="col-md-7">
-					<div class="col-md-8">	
-						<img src="{{ asset('upload/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
-					</div>
-					<div class="col-md-4 img_right">
-						@foreach($images as $item)
-						<div class="col-md-10">
-							<img src="{{ asset('upload/images/'.$item->url.'') }}" class="img-round" width="90%" >
+				<div class="col-md-7" style="height:420px;">
+						<div class="col-md-8">	
+							<img src="{{ asset('upload/images/'.$image['url'].'') }}" class="img-round" width="100%" height="420px;">
 						</div>
-						@endforeach
-					</div>
+						<div class="col-md-3" style="height:420px;margin-left:50px;">
+							@foreach($images as $item)
+								<img src="{{ asset('upload/images/'.$item->url.'') }}" class="img-round" width="75%" height="23%" style="margin-bottom: 10px;">
+							@endforeach
+						</div>
+					
 				</div>
 			</div>
 		</div>
-		<form action="{{ url('/addtocart/' . $id) }}" method="POST">
+		<form action="{{ url('/addtocart/' . $id) }}" method="POST" style="margin-top: 60px;">
 			<div class="row select_content">
 				<div class="col-md-3">
 					<div class="input-append date" data-date="Select Date">
