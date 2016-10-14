@@ -128,7 +128,7 @@
 		<div class="col-lg-12 text-center form_send" id="form_send">
 	       	<h1 class="text-center">{{ trans('lang_user.index.content_28')}}</h1>
 	        <div class="col-lg-offset-2 col-lg-8 text-center">
-	            <form class="form_access">
+	            <form class="form_access" method="POST" action="{{ url('/getEarlyAccess') }}">
                  <div class="row">
                   <div class="col-lg-6">
                    <div class="form-group">

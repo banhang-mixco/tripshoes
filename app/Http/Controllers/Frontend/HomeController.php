@@ -66,7 +66,7 @@ class HomeController extends Controller
         });
 
         return redirect('/')
-        		->with(array('sendSuccess' => 'We sent you one email. Please check your email!' . Session::get($email)[0]))
+        		->with(array('sendSuccess' => 'We sent you one email. Please check your email!'))
         		->withInput();
     }
 
@@ -83,6 +83,17 @@ class HomeController extends Controller
             $m->to('luongviet82@gmail.com', 'Luong Viet')->subject('Your Reminder!');
         });*/
 	    return view('frontend.signup', compact('banner', 'text_banner'));
+    }
+
+    public function getEarlyAccess(Request $request){
+        $youname = $request->get('youname');
+        $email = $request->get('email');
+
+        Mail::send('frontend.getEarlyAccess', ['youname' => $youname, 'email' => $email], function ($m) use ($email, $youname){
+
+            $m->to('vietphuoc0000@gmail.com', 'Viet Phuoc')->subject('Your Reminder!');
+        });
+        return redirect('/');
     }
 
     private function generateRandomString($length = 12){

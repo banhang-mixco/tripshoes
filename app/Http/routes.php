@@ -34,6 +34,8 @@ Route::group([ 'namespace' => 'Frontend' ], function () {
 	/*Blog*/
 	Route::get('/blog',['as' => 'blog.index', 'uses' => 'BlogController@index']);
 	Route::get('/blog/{id}', ['as' => 'blog.article', 'uses' => 'BlogController@article']);
+
+	Route::post('/getEarlyAccess', 'HomeController@getEarlyAccess');
 	Route::group(['middleware' => 'auth'], function(){
 		/*My booking*/
 		Route::get('bookings', ['as' => 'booking.index', 'uses' => 'MyBookingController@index']);

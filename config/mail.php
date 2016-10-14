@@ -57,7 +57,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'vietlq_57@vnu.edu.vn', 'name' => 'sourysweb'],
+    'from' => ['address' => 'vietphuoc0000@gmail.com', 'name' => 'sourysweb'],
 
     /*
     |--------------------------------------------------------------------------
