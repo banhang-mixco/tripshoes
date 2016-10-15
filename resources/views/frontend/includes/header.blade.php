@@ -77,6 +77,12 @@
 					       	<form method="POST" action="{{ url('/postResetPassword') }}" id="formResetPassword">
 					       		{{ csrf_field() }}
 					       		<div class="form-group"> 
+					        		<input type="text" class="form-control form_padding" placeholder="Email" name="email" id="email">
+					        	</div>
+					        	<div class="form-group"> 
+					        		<input type="text" class="form-control form_padding" placeholder="Access Code" name="access_code" id="access_code">
+					        	</div>
+					       		<div class="form-group"> 
 					        		<input type="password" class="form-control form_padding" placeholder="Password" name="password" id="password">
 					        	</div>
 					        	<div class="form-group">

@@ -458,7 +458,7 @@ $(document).ready(function(){
         			html += '</div>';
         			html += '</div>';
         			$('body').append(html);
-        			$('body #signin1').modal('hide');
+        			$('body #resetpassword').modal('hide');
         			$('body #successnotify').modal('show');
 
 	        		setTimeout(function(){
@@ -540,7 +540,7 @@ $(document).ready(function(){
         			html += '</div>';
         			html += '</div>';
         			$('body').append(html);
-        			$('body #signin1').modal('hide');
+        			$('body #resetPassword').modal('hide');
         			$('body #successnotify').modal('show');
 
 	        		setTimeout(function(){

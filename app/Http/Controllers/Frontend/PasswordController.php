@@ -34,16 +34,28 @@ class PasswordController extends Controller
             ]);
         }
     	$email = $request->get('email');
-    	Session::forget('email');
-    	Session::push('email', $email);
-    	Mail::send('frontend.sendEmailChangePassword', array(), function ($m) use ($email){
+        $findUser = $this->user->findByField('email', $email)->first();
+        if($findUser){
+            Session::forget('email');
+            Session::push('email', $email);
+            $access_code = $this->generateRandomString();
+            Session::forget($email);
+            Session::push($email, $access_code);
+            Mail::send('frontend.sendEmailChangePassword', ['access_code' => $access_code], function ($m) use ($email){
 
-            $m->to($email, 'abc')->subject('Reset Password');
-        });
-        return response()->json([
-            'message' => 'An confirmation was sent to your. Be check it',
-            'code' => 1     
-        ]);
+                $m->to($email, 'abc')->subject('Reset Password');
+            });
+            return response()->json([
+                'message' => 'An confirmation was sent to your. Be check it',
+                'code' => 1     
+            ]);
+        }else{
+            return response()->json([
+                'errors' => 'Email have not been registered',
+                'code' => 0
+            ]);
+        }
+    	
     }
 
     public function resetPassword(){
@@ -64,7 +76,9 @@ class PasswordController extends Controller
     public function postResetPassword(Request $request){
         $validator = Validator::make($request->all(), [
             'password' => 'required',
-            'confirm_password' => 'required|same:password'
+            'confirm_password' => 'required|same:password',
+            'email' => 'required|email',
+            'access_code' => 'required'
         ]);
         if($validator->fails()){
             return response()->json([
@@ -73,16 +87,41 @@ class PasswordController extends Controller
             ]);
         }
 
-    	$password = $request->get('password');
+        $email = $request->get('email');
+        $access_code = $request->get('access_code');
+    	$password = Hash::make($request->get('password'));
     	$confirm = $request->get('confirm_password');
 
-    	$findUser = $this->user->findByField('email', Session::get('email')[0]);
-    	$findUser->password = Hash::make($password);
-    	$findUser->save();
+        $findUser = $this->user->findByField('email', Session::get('email')[0])->first();
+        if($findUser){
+            if(Session::get($email)[0] !== $access_code){
+                return response()->json([
+                    'errors' => 'Access code is not suitable',
+                    'code' => 0
+                ]);
+            }
+            $findUser->password = $password;
+            $findUser->password_hash = $password;
+            $findUser->save();
+            return response()->json([
+                'message' => 'New Password is saved',
+                'code' => 1
+            ]);
+        }else{
+            return response()->json([
+                'errors' => 'Email have not been registered',
+                'code' => 0
+            ]);
+        }
+    }
 
-        return response()->json([
-            'message' => 'New Password is saved',
-            'code' => 1
-        ]);
+    private function generateRandomString($length = 12){
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }
