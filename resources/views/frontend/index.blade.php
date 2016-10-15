@@ -70,7 +70,7 @@
 			<div class="col-lg-5 giving_content img-round">
 				<div class="giving-info text-center">
 					<h1> {{ trans('lang_user.index.content_15')}}</h1>
-					<p> {{ trans('lang_user.index.content_16')}}</p>
+					<p style="width:95%;"> {{ trans('lang_user.index.content_16')}}</p>
 				</div>
 			</div>
 		</div>
