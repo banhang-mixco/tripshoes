@@ -11,6 +11,7 @@ use Hash;
 use Mail;
 use Session;
 use Validator;
+use App\Models\EmailTemp;
 
 class PasswordController extends Controller
 {
@@ -35,12 +36,28 @@ class PasswordController extends Controller
         }
     	$email = $request->get('email');
         $findUser = $this->user->findByField('email', $email)->first();
-        if($findUser){
-            Session::forget('email');
-            Session::push('email', $email);
+        $allEmailTemp = EmailTemp::all();
+        $arrAccessCode = array();
+        foreach($allEmailTemp as $emailtemp){
+            array_push($arrAccessCode, $emailtemp->access_code);
+        }
+        $access_code = $this->generateRandomString();
+        while(in_array($access_code, $arrAccessCode)){
             $access_code = $this->generateRandomString();
-            Session::forget($email);
-            Session::push($email, $access_code);
+        }
+        if($findUser){
+            $findEmail = EmailTemp::where('email', $email)->first();
+            if(!$findEmail){
+                $emailtemp = new EmailTemp();
+                $emailtemp->email = $email;
+                $emailtemp->access_code = $access_code;
+                $emailtemp->save();
+            }else{
+                $findEmail->access_code = $access_code;
+                $findEmail->save();
+            }
+
+            
             Mail::send('frontend.sendEmailChangePassword', ['access_code' => $access_code], function ($m) use ($email){
 
                 $m->to($email, 'abc')->subject('Reset Password');
@@ -92,9 +109,17 @@ class PasswordController extends Controller
     	$password = Hash::make($request->get('password'));
     	$confirm = $request->get('confirm_password');
 
-        $findUser = $this->user->findByField('email', Session::get('email')[0])->first();
-        if($findUser){
-            if(Session::get($email)[0] !== $access_code){
+        $allEmailTemp = EmailTemp::all();
+        $arrEmailTemp = array();
+        foreach($allEmailTemp as $emailTemp){
+            array_push($arrEmailTemp, $emailTemp);
+        }   
+
+        
+        if(in_array($email, $arrEmailTemp)){
+            $findUser = $this->user->findByField('email', $email)->first();
+            $findEmailTemp = EmailTemp::where('email', $email)->first();
+            if($findEmailTemp->access_code !== $access_code){
                 return response()->json([
                     'errors' => 'Access code is not suitable',
                     'code' => 0
@@ -109,7 +134,7 @@ class PasswordController extends Controller
             ]);
         }else{
             return response()->json([
-                'errors' => 'Email have not been registered',
+                'errors' => 'Email have not been sent access code or registered',
                 'code' => 0
             ]);
         }

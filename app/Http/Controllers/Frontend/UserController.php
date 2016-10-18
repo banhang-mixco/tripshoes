@@ -12,6 +12,7 @@ use Session;
 use App\Models\User;
 use Auth;
 use App\Repositories\Eloquent\UserRepositoryEloquent;
+use App\Models\EmailTemp;
 class UserController extends Controller
 {
     protected $userrepo;
@@ -85,8 +86,10 @@ class UserController extends Controller
         $age = $request->get('age');
         $country = $request->get('country');
         $code = $request->get('code');
-        if(Session::has($email)){
-            if(Session::get($email)[0] != $code){
+
+        $findEmail = EmailTemp::where('email', $email)->first();
+        if($findEmail){
+            if($findEmail->access_code !== $code){
                 return response()->json([
                     'errors' => 'Wrong access code',
                     'code' => 0

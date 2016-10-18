@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Mail;
 use Session;
+use App\Models\EmailTemp;
 
 class HomeController extends Controller
 {
@@ -55,10 +56,29 @@ class HomeController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        $access_code = $this->generateRandomString();
 
-        Session::forget($email);
-        Session::push($email, $access_code);
+        $allEmailTemp = EmailTemp::all();
+        $arrAccessCode = array();
+        foreach($allEmailTemp as $emailtemp){
+            array_push($arrAccessCode, $emailtemp->access_code);
+        }
+        $access_code = $this->generateRandomString();
+        while(in_array($access_code, $arrAccessCode)){
+            $access_code = $this->generateRandomString();
+        }
+
+
+        $findEmail = EmailTemp::where('email', $email)->first();
+        if(!$findEmail){
+            $emailtemp = new EmailTemp();
+            $emailtemp->email = $email;
+            $emailtemp->access_code = $access_code;
+            $emailtemp->save();
+        }else{
+            $findEmail->access_code = $access_code;
+            $findEmail->save();
+        }
+        
 
         Mail::send('frontend.sendemail', ['access_code' => $access_code, 'message' => $message], function ($m) use ($email, $yourname){
 
